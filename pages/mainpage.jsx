@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Box, Button, Container, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import { Box, Button, Container, Typography} from '@mui/material';
+import {NavLink} from "react-router-dom";
+
 
 const theme = {
     primary: '#000000',
@@ -33,6 +35,8 @@ function HeroSection() {
                 </Typography>
                 <Box sx={{ mt: 4 }}>
                     <Button
+                        component={NavLink}
+                        to='/learn-more'
                         variant="contained"
                         size="large"
                         sx={{
@@ -47,6 +51,8 @@ function HeroSection() {
                         Почати
                     </Button>
                     <Button
+                        component={NavLink}
+                        to='/about'
                         variant="outlined"
                         size="large"
                         sx={{
@@ -65,67 +71,10 @@ function HeroSection() {
     );
 }
 
-function FeatureCards() {
-    const cards = [
-        {
-            title: 'Корисні статті',
-            description: 'Читайте статті, які допоможуть вам покращити свої знання.',
-            image: 'https://source.unsplash.com/random?articles',
-        },
-        {
-            title: 'Поради експертів',
-            description: 'Отримуйте поради від професіоналів у різних галузях.',
-            image: 'https://source.unsplash.com/random?advice',
-        },
-        {
-            title: 'Інтерактивні матеріали',
-            description: 'Вивчайте нове через інтерактивні уроки та тести.',
-            image: 'https://source.unsplash.com/random?interactive',
-        },
-    ];
-
-    return (
-        <Container maxWidth="md" sx={{ py: 8, bgcolor: theme.primary }}>
-            <Grid container spacing={4}>
-                {cards.map((card, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={4}>
-                        <Card
-                            sx={{
-                                height: '100%',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                bgcolor: theme.primary,
-                                color: theme.text,
-                                border: `1px solid ${theme.secondary}`,
-                            }}
-                        >
-                            <CardMedia
-                                component="img"
-                                sx={{ pt: '56.25%' }}
-                                image={card.image}
-                                alt={card.title}
-                            />
-                            <CardContent sx={{ flexGrow: 1 }}>
-                                <Typography gutterBottom variant="h5" component="h2" color={theme.text}>
-                                    {card.title}
-                                </Typography>
-                                <Typography color={theme.text}>
-                                    {card.description}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
-    );
-}
-
 export default function MainPage() {
     return (
         <Box sx={{ bgcolor: theme.primary, minHeight: '100vh' }}>
             <HeroSection />
-            <FeatureCards />
         </Box>
     );
 }

@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { IoLogoOctocat } from "react-icons/io5";
+import {NavLink} from "react-router-dom";
 
 function Footer() {
     return (
@@ -26,7 +27,9 @@ function Footer() {
                         gap: 2,
                     }}
                 >
-                    <IoLogoOctocat style={{ color: '#A2D9CE', fontSize: '2rem' }} />
+                    <Box component = {NavLink} to='/'>
+                        <IoLogoOctocat style={{ color: '#A2D9CE', fontSize: '2rem' }} />
+                    </Box>
                     <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 700 }}>
                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya
                     </Typography>
@@ -66,12 +69,6 @@ function Footer() {
                             gap: 2,
                         }}
                     >
-                        <Link href="#" color="inherit" underline="hover">
-                            Privacy Policy
-                        </Link>
-                        <Link href="#" color="inherit" underline="hover">
-                            Terms of Service
-                        </Link>
                     </Box>
                 </Box>
             </Container>

@@ -14,9 +14,8 @@ import { NavLink } from "react-router-dom"; // Импортируем NavLink
 
 const pages = [
     { name: 'Learn more', path: '/learn-more' },
-    { name: 'JavaScript', path: '/javascript' },
     { name: 'About us', path: '/about' },
-    {name: 'Contact', path: '/contact' },
+    { name: 'Contact', path: '/contact' },
 ];
 
 function ResponsiveAppBar() {
