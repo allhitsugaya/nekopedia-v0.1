@@ -26,8 +26,8 @@ const ContactsPage = () => {
                         </li>
                         <li>
                             <strong>LinkedIn:</strong>{' '}
-                            <a href="https://www.linkedin.com/in/author1" target="_blank" rel="noopener noreferrer">
-                                linkedin.com/in/author1
+                            <a href="https://www.linkedin.com/in/serhii-zhytnyk-4a3a73334/" target="_blank" rel="noopener noreferrer">
+                                https://www.linkedin.com/in/serhii-zhytnyk-4a3a73334/
                             </a>
                         </li>
                     </ul>
@@ -56,16 +56,16 @@ const ContactsPage = () => {
                 </div>
 
                 <div className="contact-item">
-                    <h2>Ім'я автора 3</h2>
+                    <h2>Roman Eremeev</h2>
                     <ul>
                         <li>
                             <strong>Email:</strong>{' '}
-                            <a href="mailto:author3@example.com">author3@example.com</a>
+                            <a href="mailto:eremeevroma3@gmail.com">eremeevroma3@gmail.com</a>
                         </li>
                         <li>
                             <strong>GitHub:</strong>{' '}
-                            <a href="https://github.com/author3" target="_blank" rel="noopener noreferrer">
-                                github.com/author3
+                            <a href="https://github.com/SurovGnom" target="_blank" rel="noopener noreferrer">
+                                https://github.com/SurovGnom
                             </a>
                         </li>
                         <li>
