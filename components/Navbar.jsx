@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { IoLogoOctocat } from "react-icons/io5";
-import { NavLink } from "react-router-dom"; // Импортируем NavLink
+import { NavLink } from "react-router-dom";
 
 const pages = [
     { name: 'Learn more', path: '/learn-more' },
