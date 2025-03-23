@@ -8,14 +8,19 @@ import NestedInfiniteLoopsPage from "./Pages/NestedInfiniteLoopsPage.jsx";
 
 const ThirdTheme = () => {
     return (
-        <>
-            <LoopsIntroductionPage/>
-            <LoopsPage/>
-            <WhileDoWhilePage/>
-            <ForLoopsPage/>
-            <BreakContinuePage/>
-            <NestedInfiniteLoopsPage/>
-        </>
+        <div className='theme'>
+            <LoopsIntroductionPage className='theme-section'/>
+            <hr/>
+            <LoopsPage className='theme-section'/>
+            <hr/>
+            <WhileDoWhilePage className='theme-section'/>
+            <hr/>
+            <ForLoopsPage className='theme-section'/>
+            <hr/>
+            <BreakContinuePage className='theme-section'/>
+            <hr/>
+            <NestedInfiniteLoopsPage className='theme-section'/>
+        </div>
     )
 }
 

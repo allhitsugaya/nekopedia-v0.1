@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import { Typography} from "@mui/material";
+import './Content.css'
 
 const TopicsListPage = () => {
     const topics = [
@@ -26,9 +26,7 @@ const TopicsListPage = () => {
     ];
 
     return (
-        <Typography>
         <div className="page-container">
-
             <h1>Перелік тем</h1>
 
             <p>
@@ -43,7 +41,6 @@ const TopicsListPage = () => {
                 ))}
             </ol>
         </div>
-        </Typography>
     );
 };
 

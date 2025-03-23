@@ -17,15 +17,22 @@ const JQueryUsagePage = () => {
                 <strong>Приклад:</strong>
             </p>
             <pre>
-        <code>
-          {`
+                <code>
+                    {`
 // Замість jQuery для вибору елементів можна використовувати
-document.querySelector або document.querySelectorAll.
+const elements = document.querySelectorAll('.myClass');
 
-// Замість $.ajax можна використовувати fetch для роботи з асинхронними запитами.
-          `}
-        </code>
-      </pre>
+// Замість $.ajax можна використовувати fetch для роботи з асинхронними запитами
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+                    `}
+                </code>
+            </pre>
+            <p>
+                <strong>Коментар:</strong> У цьому прикладі показано, як можна замінити jQuery на сучасні методи JavaScript для вибору елементів та роботи з асинхронними запитами.
+            </p>
 
             <h2>2. Сучасні стандарти та API</h2>
             <p>
@@ -35,42 +42,51 @@ document.querySelector або document.querySelectorAll.
                 <strong>Вибір елементів:</strong>
             </p>
             <pre>
-        <code>
-          {`
+                <code>
+                    {`
 // Замість $('.myClass') можна використовувати
-document.querySelectorAll('.myClass');
-          `}
-        </code>
-      </pre>
+const elements = document.querySelectorAll('.myClass');
+                    `}
+                </code>
+            </pre>
+            <p>
+                <strong>Коментар:</strong> Цей приклад демонструє, як можна використовувати сучасні методи JavaScript для вибору елементів.
+            </p>
+
             <p>
                 <strong>Обробка подій:</strong>
             </p>
             <pre>
-        <code>
-          {`
+                <code>
+                    {`
 // Замість $('#myButton').click(...) можна використовувати
-document.getElementById('myButton').addEventListener('click', ...);
-          `}
-        </code>
-      </pre>
+document.getElementById('myButton').addEventListener('click', () => {
+    console.log('Button clicked!');
+});
+                    `}
+                </code>
+            </pre>
+            <p>
+                <strong>Коментар:</strong> Цей приклад показує, як можна обробляти події за допомогою сучасних методів JavaScript.
+            </p>
+
             <p>
                 <strong>AJAX-запити:</strong>
             </p>
             <pre>
-        <code>
-          {`
-// Замість $.ajax можна використовувати fetch або axios.
-          `}
-        </code>
-      </pre>
+                <code>
+                    {`
+// Замість $.ajax можна використовувати fetch
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+                    `}
+                </code>
+            </pre>
             <p>
-                <strong>Переваги сучасних API:</strong>
+                <strong>Коментар:</strong> Цей приклад демонструє, як можна робити асинхронні запити за допомогою `fetch`.
             </p>
-            <ul>
-                <li>Менший розмір коду.</li>
-                <li>Краща швидкодія.</li>
-                <li>Підтримка сучасних стандартів.</li>
-            </ul>
 
             <h2>3. Швидкодія</h2>
             <p>
@@ -80,13 +96,30 @@ document.getElementById('myButton').addEventListener('click', ...);
                 <strong>Приклад:</strong>
             </p>
             <pre>
-        <code>
-          {`
+                <code>
+                    {`
 // Анімації через requestAnimationFrame у чистому JavaScript працюють швидше,
 // ніж анімації через $.animate.
-          `}
-        </code>
-      </pre>
+function animateElement(element) {
+    let start = null;
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        element.style.transform = \`translateX(\${Math.min(progress / 10, 200)}px)\`;
+        if (progress < 2000) {
+            window.requestAnimationFrame(step);
+        }
+    }
+    window.requestAnimationFrame(step);
+}
+
+animateElement(document.getElementById('myElement'));
+                    `}
+                </code>
+            </pre>
+            <p>
+                <strong>Коментар:</strong> Цей приклад показує, як можна використовувати `requestAnimationFrame` для анімацій.
+            </p>
 
             <h2>4. Навчання та досвід команди</h2>
             <p>
@@ -101,13 +134,20 @@ document.getElementById('myButton').addEventListener('click', ...);
                 <strong>Приклад:</strong>
             </p>
             <pre>
-        <code>
-          {`
+                <code>
+                    {`
 // Якщо ви підключаєте старий плагін, який залежить від jQuery,
 // її використання буде необхідним.
-          `}
-        </code>
-      </pre>
+import $ from 'jquery';
+import 'old-plugin';
+
+$('#myElement').oldPluginMethod();
+                    `}
+                </code>
+            </pre>
+            <p>
+                <strong>Коментар:</strong> Цей приклад показує, як можна інтегрувати старий плагін, який залежить від jQuery.
+            </p>
 
             <h2>6. Альтернативи jQuery</h2>
             <p>
@@ -130,10 +170,15 @@ document.getElementById('myButton').addEventListener('click', ...);
                 <li><strong>Легкість використання:</strong> Для розробників, які не хочуть вивчати складні фреймворки.</li>
             </ul>
 
-            <h2>Висновок</h2>
-            <p>
-                Використання jQuery у нових проектах залежить від конкретних вимог та обставин. Якщо проект невеликий, не потребує підтримки старих браузерів і може бути реалізований за допомогою сучасних стандартів JavaScript, краще обійтися без jQuery. Однак для швидкого прототипування, підтримки старих систем або інтеграції зі старим кодом jQuery може бути корисним інструментом.
-            </p>
+            <div className='conclusion'>
+                <h2>Висновок</h2>
+                <p>
+                    Використання jQuery у нових проектах залежить від конкретних вимог та обставин. Якщо проект
+                    невеликий, не потребує підтримки старих браузерів і може бути реалізований за допомогою сучасних
+                    стандартів JavaScript, краще обійтися без jQuery. Однак для швидкого прототипування, підтримки
+                    старих систем або інтеграції зі старим кодом jQuery може бути корисним інструментом.
+                </p>
+            </div>
         </div>
     );
 };
