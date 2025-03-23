@@ -4,7 +4,7 @@ import TimersPage from "./Pages/TimersPage.jsx";
 import EventLoopPage from "./Pages/EventLoopPage.jsx";
 import CallbackHellPage from "./Pages/CallbackHellPage.jsx";
 import PromisePage from "./Pages/PromisePage.jsx";
-import './SixteenthTheme.css'
+
 
 const SixteenthTheme = () => {
     return (

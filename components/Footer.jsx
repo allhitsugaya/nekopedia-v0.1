@@ -11,8 +11,6 @@ function Footer() {
         <Box
             component="footer"
             sx={{
-                backgroundColor: '#000000',
-                color: '#A2D9CE',
                 py: 3,
                 mt: 'auto',
             }}
@@ -30,7 +28,7 @@ function Footer() {
                     <Box component = {NavLink} to='/'>
                         <IoLogoOctocat style={{ color: '#A2D9CE', fontSize: '2rem' }} />
                     </Box>
-                    <Typography variant="body1" sx={{ fontFamily: 'monospace', fontWeight: 700 }}>
+                    <Typography variant="body1" sx={{ fontWeight: 700 }}>
                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya
                     </Typography>
 
@@ -65,6 +63,7 @@ function Footer() {
                     </Box>
                     <Box
                         sx={{
+
                             display: 'flex',
                             gap: 2,
                         }}

@@ -10,7 +10,7 @@ import AjaxUsage from "./Pages/FormWork/AjaxUsage.jsx";
 import RegularExpressions from "./Pages/regylar/RegularExpressions.jsx";
 import StringMethodsWithRegex from "./Pages/regylar/StringMethodsWithRegex.jsx";
 import RegexOptionsAndExamples from "./Pages/regylar/RegexOptionsAndExamples.jsx";
-import './EleventhTheme.css'
+
 
 const EleventhTheme = () => {
     return (

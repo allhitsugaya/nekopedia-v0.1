@@ -7,7 +7,7 @@ import ArrayMethodsPage from "./Pages/Arrey/ArrayMethodsPage.jsx";
 import ArrayCopyAndSavePage from "./Pages/Arrey/ArrayCopyAndSavePage.jsx";
 import ArrayOfObjectsPage from "./Pages/Arrey/ArrayOfObjectsPage.jsx";
 import ArraysVsObjectsPage from "./Pages/ArraysVsObjectsPage.jsx";
-import './EightTheme.css'
+
 
 
 const EightTheme = () => {

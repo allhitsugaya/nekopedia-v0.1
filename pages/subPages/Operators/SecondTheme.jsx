@@ -7,7 +7,7 @@ import OperatorPrecedencePage from "./Pages/OperatorPrecedencePage.jsx";
 import BinaryLogicalOperatorsPage from "./Pages/BinaryLogicalOperatorsPage.jsx";
 import ConditionalOperatorsPage from "./Pages/ConditionalOperatorsPage.jsx";
 import SwitchCasePage from "./Pages/SwitchCasePage.jsx";
-import './SecondTheme.css'
+
 
 
 const SecondTheme = () => {

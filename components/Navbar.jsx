@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
+        <AppBar position="static" >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -60,7 +60,7 @@ function ResponsiveAppBar() {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon sx={{ color: '#A2D9CE' }} />
+                            <MenuIcon color="primary" />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -80,7 +80,7 @@ function ResponsiveAppBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page.name} onClick={handleCloseNavMenu} component={NavLink} to={page.path}>
-                                    <Typography sx={{ textAlign: 'center', color: '#000000' }}>{page.name}</Typography>
+                                    <Typography sx={{ textAlign: 'center' }} color="dark">{page.name}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

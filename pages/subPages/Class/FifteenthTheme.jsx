@@ -4,7 +4,7 @@ import ClassCreationPage from "./Pages/ClassCreationPage.jsx";
 import InheritancePage from "./Pages/InheritancePage.jsx";
 import PropertyProtectionPage from "./Pages/PropertyProtectionPage.jsx";
 import StaticMethodsPropertiesPage from "./Pages/StaticMethodsPropertiesPage.jsx";
-import './FifteenthTheme.css'
+
 
 const FifteenthTheme = () => {
     return (

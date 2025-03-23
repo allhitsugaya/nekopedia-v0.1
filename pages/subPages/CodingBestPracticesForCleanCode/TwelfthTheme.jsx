@@ -4,7 +4,7 @@ import NamingConventions from "./Pages/Practise/NamingConventions.jsx";
 import CommentingPage from "./Pages/Practise/CommentingPage.jsx";
 import CodeFormattingPage from "./Pages/Practise/CodeFormattingPage.jsx";
 import EfficiencyAndOptimizationPage from "./Pages/Practise/EfficiencyAndOptimizationPage.jsx";
-import './TwelfthTheme.css'
+
 
 const TwelfthTheme = () => {
     return (

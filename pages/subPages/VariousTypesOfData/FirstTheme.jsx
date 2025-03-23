@@ -6,7 +6,7 @@ import UnaryOperatorsPage from "./Pages/UnaryOperatorsPage.jsx";
 import TypeConversionPage from "./Pages/TypeConversionPage.jsx";
 import ComparisonOperatorsPage from "./Pages/ComparisonOperatorsPage.jsx";
 import TemplateStringsPage from "./Pages/TemplateStringsPage.jsx";
-import './FirstTheme.css'
+
 
 const FirstTheme = () => {
     return (

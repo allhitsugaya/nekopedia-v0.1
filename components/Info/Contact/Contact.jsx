@@ -1,8 +1,10 @@
 import React from 'react';
-import './Contact.css'
+import {Typography} from "@mui/material";
+
 
 const ContactsPage = () => {
     return (
+        <Typography>
         <div className="page-container">
             <h1>Контакти авторів проекту</h1>
 
@@ -78,6 +80,7 @@ const ContactsPage = () => {
                 </div>
             </div>
         </div>
+        </Typography>
     );
 };
 

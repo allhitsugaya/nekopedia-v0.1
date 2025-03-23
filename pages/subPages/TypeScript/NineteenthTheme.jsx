@@ -3,7 +3,7 @@ import TypeScriptBasicsPage from "./Pages/TypeScriptBasicsPage.jsx";
 import AnyTypePage from "./Pages/AnyTypePage.jsx";
 import FunctionsInTypeScriptPage from "./Pages/FunctionsInTypeScriptPage.jsx";
 import OOPPage from "./Pages/OOPPage.jsx";
-import './NineteenthTheme.css'
+
 
 const NineteenthTheme = () => {
     return (

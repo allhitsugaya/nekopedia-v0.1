@@ -1,8 +1,10 @@
 import React from 'react';
-import './AboutUs.css'
+import {Typography} from "@mui/material";
+
 
 const AboutUsPage = () => {
     return (
+        <Typography >
         <div className="page-container">
             <h1>Про нас</h1>
 
@@ -44,6 +46,7 @@ const AboutUsPage = () => {
                 Якщо ви хочете долучитися до нашого проекту, маєте ідеї для покращення або просто хочете поділитися своїм досвідом, будь ласка, зв'яжіться з нами через наші контакти. Разом ми можемо зробити вивчення JavaScript ще кращим!
             </p>
         </div>
+        </Typography>
     );
 };
 

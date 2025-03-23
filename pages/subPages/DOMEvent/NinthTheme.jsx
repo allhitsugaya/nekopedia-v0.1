@@ -9,7 +9,7 @@ import SecondEventHandlingPage from "./Pages/Event/SecondEventHandlingPage.jsx";
 import CommonEventErrorsPage from "./Pages/Event/CommonEventErrorsPage.jsx";
 import DomContentLoadedAndWindowOnloadPage from "./Pages/DOMWindow/DomContentLoadedAndWindowOnloadPage.jsx";
 import UsingDomContentLoadedAndWindowOnloadPage from "./Pages/DOMWindow/UsingDomContentLoadedAndWindowOnloadPage.jsx";
-import './NinthTheme.css'
+
 
 const NinthTheme = () => {
     return (

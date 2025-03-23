@@ -9,7 +9,7 @@ import URLAndLocationPage from "./Pages/BOM/URLAndLocationPage.jsx";
 import NavigatorObjectPage from "./Pages/BOM/NavigatorObjectPage.jsx";
 import HistoryObjectPage from "./Pages/BOM/HistoryObjectPage.jsx";
 import ScreenObjectPage from "./Pages/BOM/ScreenObjectPage.jsx";
-import './TenthTheme.css'
+
 
 const TenthTheme = () => {
     return (
