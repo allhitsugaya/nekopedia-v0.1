@@ -1,12 +1,22 @@
-# React + Vite
+# Nekopedia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Nekopedia** — це освітній веб-сайт, створений трьома учнями для навчання нового покоління основам **JavaScript, TypeScript і jQuery**, а також іншим важливим аспектам веб-розробки.
 
-Currently, two official plugins are available:
+## 📌 Про проєкт
+Nekopedia призначена для новачків, які хочуть глибше зрозуміти JavaScript та його екосистему. Ми фокусуємося на простому поясненні складних концепцій, використовуючи інтерактивні приклади та практичні завдання.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔥 Основні можливості
+- 📖 **Навчальні статті** — покрокові гіди з JavaScript, TypeScript і jQuery.
+- 🎮 **Інтерактивні вправи** — завдання для кодування з миттєвою перевіркою.
+- 🎓 **Курси і тести** — структуровані модулі для поступового вивчення.
+- 📂 **База знань** — збірка корисних матеріалів і прикладів коду.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📜 Ліцензія
+Цей проєкт поширюється під ліцензією **MIT**. Ви можете вільно використовувати, модифікувати і поширювати його з зазначенням авторства.
+
+## 🤝 Автори
+Проєкт створений трьома учнями, захопленими веб-розробкою. Якщо у вас є пропозиції або питання, відкривайте **Issues** або створюйте **Pull Requests**.
+
+---
+🚀 **Nekopedia — навчаємо коду легко і цікаво!**
