@@ -1,21 +1,46 @@
-import React from 'react';
+import { Typography, useTheme } from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const CustomMethodsPage = () => {
-    return (
-        <div className="page-container">
-            <h1>Кастомні методи об'єкта</h1>
-            <p>
-                Методи об'єкта - це функції, які відомі об'єкту та можуть викликатися для виконання певних операцій над об'єктом. Вони дозволяють нам організовувати та виконувати дії, пов'язані з об'єктом, та надають об'єкту його функціональність.
-            </p>
+    const theme = useTheme();
 
-            <h2>Використання Методів Об'єкта</h2>
-            <p>
+    return (
+        <>
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                }}
+            >
+                Кастомні методи об'єкта
+            </Typography>
+
+            <Paragraph>
+                Методи об'єкта - це функції, які відомі об'єкту та можуть викликатися для виконання певних операцій над об'єктом. Вони дозволяють нам організовувати та виконувати дії, пов'язані з об'єктом, та надають об'єкту його функціональність.
+            </Paragraph>
+
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Використання Методів Об'єкта
+            </Typography>
+
+            <Paragraph>
                 Об'єкти в JavaScript можуть містити не лише дані, але й функції, які називаються методами. Методи - це функції, які виконують дії над даними об'єкта. Давайте розглянемо приклад об'єкта "Автомобіль" з методами:
-            </p>
-            <pre>
-        <code>
-          {`
-const car = {
+            </Paragraph>
+
+            <CodeBlock>
+                {`const car = {
   brand: "Toyota",
   model: "Camry",
   year: 2022,
@@ -28,22 +53,31 @@ const car = {
 };
 
 car.start(); // Виведе "Двигун запущено."
-car.stop();  // Виведе "Двигун зупинено."
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі <code>start</code> та <code>stop</code> - це методи об'єкта <code>car</code>, які виконують відповідні дії.
-            </p>
+car.stop();  // Виведе "Двигун зупинено."`}
+            </CodeBlock>
 
-            <h2>Відмінність Методів Об'єкта від Звичайних Функцій</h2>
-            <p>
-                Важливою різницею між методами об'єкта та звичайними функціями є те, що методи об'єкта завжди пов'язані з об'єктом, на якому вони були визвані. Це означає, що метод може отримувати доступ до властивостей об'єкта через ключове слово <code>this</code>.
-            </p>
-            <pre>
-        <code>
-          {`
-const person = {
+            <Paragraph>
+                У цьому прикладі <Code>start</Code> та <Code>stop</Code> - це методи об'єкта <Code>car</Code>, які виконують відповідні дії.
+            </Paragraph>
+
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Відмінність Методів Об'єкта від Звичайних Функцій
+            </Typography>
+
+            <Paragraph>
+                Важливою різницею між методами об'єкта та звичайними функціями є те, що методи об'єкта завжди пов'язані з об'єктом, на якому вони були визвані. Це означає, що метод може отримувати доступ до властивостей об'єкта через ключове слово <Code>this</Code>.
+            </Paragraph>
+
+            <CodeBlock>
+                {`const person = {
   firstName: "Василь",
   lastName: "Петров",
   fullName: function() {
@@ -51,14 +85,13 @@ const person = {
   },
 };
 
-console.log(person.fullName()); // Виведе "Василь Петров"
-          `}
-        </code>
-      </pre>
-            <p>
-                У методі <code>fullName</code>, <code>this</code> посилається на об'єкт <code>person</code>, що дозволяє нам отримати доступ до його властивостей.
-            </p>
-        </div>
+console.log(person.fullName()); // Виведе "Василь Петров"`}
+            </CodeBlock>
+
+            <Paragraph>
+                У методі <Code>fullName</Code>, <Code>this</Code> посилається на об'єкт <Code>person</Code>, що дозволяє нам отримати доступ до його властивостей.
+            </Paragraph>
+        </>
     );
 };
 

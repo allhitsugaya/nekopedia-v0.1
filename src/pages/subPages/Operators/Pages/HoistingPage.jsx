@@ -1,104 +1,147 @@
-import React from 'react';
+import {Box, Typography} from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const HoistingPage = () => {
     return (
-        <div className="page-container">
-            <h1>Сплив змінних (Hoisting)</h1>
-            <p>
-                Сплив змінних, або "hoisting", є однією з особливостей, яку варто розуміти при роботі з JavaScript. Ця концепція впливає на те, як змінні та функції обробляються в контексті коду.
-            </p>
-            <p>
-                Справа ви бачите цикл роботи JavaScript, що показує послідовність, в якій відбувається оголошення та ініціалізація змінних.
-            </p>
-            <p>
-                Однак не забуватимемо, що у JavaScript ми можемо оголошувати та ініціалізувати наші змінні одночасно, як у цьому ну просто найпоширенішому прикладі:
-            </p>
-            <pre>
-        <code>
-          {`
-var a = 100;
-          `}
-        </code>
-      </pre>
+        <Box style={{
+            maxWidth: '100%',
+            padding: 2,
+            textAlign: 'left'
+        }}>
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                    color: 'text.primary'
+                }}
+            >
+                Сплив змінних (Hoisting)
+            </Typography>
 
-            <h2>Що таке "Сплив змінних"?</h2>
-            <p>
+            <Paragraph>
+                Сплив змінних, або "hoisting", є однією з особливостей, яку варто розуміти при роботі з JavaScript. Ця концепція впливає на те, як змінні та функції обробляються в контексті коду.
+            </Paragraph>
+
+            <Paragraph>
+                Справа ви бачите цикл роботи JavaScript, що показує послідовність, в якій відбувається оголошення та ініціалізація змінних.
+            </Paragraph>
+
+            <Paragraph>
+                Однак не забуватимемо, що у JavaScript ми можемо оголошувати та ініціалізувати наші змінні одночасно, як у цьому ну просто найпоширенішому прикладі:
+            </Paragraph>
+
+            <CodeBlock>
+                {`var a = 100;`}
+            </CodeBlock>
+
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                    color: 'text.primary'
+                }}
+            >
+                Що таке "Сплив змінних"?
+            </Typography>
+
+            <Paragraph>
                 Сплив змінних - це механізм, властивий JavaScript, коли декларації змінних та функцій піднімаються (спливають) вгору в своєму лексичному контексті перед тим, як код буде виконаний. Це означає, що ви можете використовувати змінні та функції до їх декларації в коді.
-            </p>
-            <p>
+            </Paragraph>
+
+            <Paragraph>
                 Давайте подивимося на приклад спливу змінних:
-            </p>
-            <pre>
-        <code>
-          {`
-console.log(x); // undefined
-var x = 5;
-          `}
-        </code>
-      </pre>
-            <p>
-                Хоча змінна <code>x</code> виводиться перед її декларацією, код все одно працює. Однак значення <code>undefined</code> показує, що змінна була піднята вгору перед виконанням коду. Тобто фактично код виглядає так:
-            </p>
-            <pre>
-        <code>
-          {`
-var x; // Змінну підняли (спливли) вгору
+            </Paragraph>
+
+            <CodeBlock>
+                {`console.log(x); // undefined
+var x = 5;`}
+            </CodeBlock>
+
+            <Paragraph>
+                Хоча змінна <Code>x</Code> виводиться перед її декларацією, код все одно працює. Однак значення <Code>undefined</Code> показує, що змінна була піднята вгору перед виконанням коду. Тобто фактично код виглядає так:
+            </Paragraph>
+
+            <CodeBlock>
+                {`var x; // Змінну підняли (спливли) вгору
 console.log(x); // undefined
 x = 5; // Присвоєння значення
-console.log(x); // 5
-          `}
-        </code>
-      </pre>
-            <p>
-                Це дозволяє нам використовувати змінну <code>x</code> навіть до її фактичної декларації.
-            </p>
+console.log(x); // 5`}
+            </CodeBlock>
 
-            <h2>Сплив змінних (Hoisting) функцій</h2>
-            <p>
+            <Paragraph>
+                Це дозволяє нам використовувати змінну <Code>x</Code> навіть до її фактичної декларації.
+            </Paragraph>
+
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                    color: 'text.primary'
+                }}
+            >
+                Сплив змінних (Hoisting) функцій
+            </Typography>
+
+            <Paragraph>
                 Та ж сама концепція застосовується до функцій. Функції також піднімаються вгору перед виконанням коду. Давайте розглянемо приклад:
-            </p>
-            <pre>
-        <code>
-          {`
-sayHello(); // Виклик функції перед декларацією
+            </Paragraph>
+
+            <CodeBlock>
+                {`sayHello(); // Виклик функції перед декларацією
 
 function sayHello() {
   console.log("Привіт!");
-}
-          `}
-        </code>
-      </pre>
-            <p>
-                Функцію <code>sayHello</code> можна викликати навіть до того, як вона була оголошена, завдяки спливу функцій. Фактично для рушія код виглядає так:
-            </p>
-            <pre>
-        <code>
-          {`
-function sayHello() {
+}`}
+            </CodeBlock>
+
+            <Paragraph>
+                Функцію <Code>sayHello</Code> можна викликати навіть до того, як вона була оголошена, завдяки спливу функцій. Фактично для рушія код виглядає так:
+            </Paragraph>
+
+            <CodeBlock>
+                {`function sayHello() {
   console.log("Привіт!");
 }
 
-sayHello(); // Виклик функції після декларації
-          `}
-        </code>
-      </pre>
+sayHello(); // Виклик функції після декларації`}
+            </CodeBlock>
 
-            <h2>Пастка: Ініціалізація та "let"/"const"</h2>
-            <p>
-                Хоча сплив змінних застосовується до <code>var</code>, варто бути обережними при використанні <code>let</code> і <code>const</code>. Давайте розглянемо приклад:
-            </p>
-            <pre>
-        <code>
-          {`
-console.log(x); // ReferenceError: x is not defined
-let x = 5;
-          `}
-        </code>
-      </pre>
-            <p>
-                Змінна <code>x</code> не піднімається (спливає) вгору, якщо вона оголошена за допомогою <code>let</code> чи <code>const</code>. Тому ви отримаєте <code>ReferenceError</code>, якщо намагаєтеся використовувати її перед декларацією.
-            </p>
-        </div>
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                    color: 'text.primary'
+                }}
+            >
+                Пастка: Ініціалізація та "let"/"const"
+            </Typography>
+
+            <Paragraph>
+                Хоча сплив змінних застосовується до <Code>var</Code>, варто бути обережними при використанні <Code>let</Code> і <Code>const</Code>. Давайте розглянемо приклад:
+            </Paragraph>
+
+            <CodeBlock>
+                {`console.log(x); // ReferenceError: x is not defined
+let x = 5;`}
+            </CodeBlock>
+
+            <Paragraph>
+                Змінна <Code>x</Code> не піднімається (спливає) вгору, якщо вона оголошена за допомогою <Code>let</Code> чи <Code>const</Code>. Тому ви отримаєте <Code>ReferenceError</Code>, якщо намагаєтеся використовувати її перед декларацією.
+            </Paragraph>
+        </Box>
     );
 };
 

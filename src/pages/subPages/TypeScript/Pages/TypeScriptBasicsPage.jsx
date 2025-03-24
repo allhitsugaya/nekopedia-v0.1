@@ -1,35 +1,70 @@
-import React from 'react';
+import { Typography, useTheme } from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const TypeScriptBasicsPage = () => {
+    const theme = useTheme();
+
     return (
-        <div className="page-container">
-            <h1>Основні поняття</h1>
+        <>
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                }}
+            >
+                Основні поняття
+            </Typography>
 
-            <p>
-                <strong>TypeScript</strong> - це мова програмування, яка є надмножиною (супермножиною) JavaScript. Вона додає до JavaScript статичну типізацію, що дозволяє визначати типи змінних, параметрів та повертаємих значень функцій. TypeScript компілюється в JavaScript, тому код, написаний на TypeScript, може бути використаний в будь-якому проекті, який використовує JavaScript.
-            </p>
+            <Paragraph>
+                <Typography component="span" sx={{ fontWeight: 600 }}>TypeScript</Typography> - це мова програмування, яка є надмножиною (супермножиною) JavaScript. Вона додає до JavaScript статичну типізацію, що дозволяє визначати типи змінних, параметрів та повертаємих значень функцій. TypeScript компілюється в JavaScript, тому код, написаний на TypeScript, може бути використаний в будь-якому проекті, який використовує JavaScript.
+            </Paragraph>
 
-            <p>
+            <Paragraph>
                 TypeScript був представлений Microsoft як відкрите джерело в 2012 році. З того часу він став дуже популярним у розробці великих проектів, оскільки він допомагає уникнути багатьох типових помилок та полегшує рефакторинг коду.
-            </p>
+            </Paragraph>
 
-            <h2>Основні Типи Даних</h2>
-            <p>
-                Перечислення базових типів: <code>number</code>, <code>string</code>, <code>boolean</code>, <code>object</code>.
-            </p>
-            <pre>
-                <code>
-{`let age: number = 25;
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                    color: theme.palette.text.primary
+                }}
+            >
+                Основні Типи Даних
+            </Typography>
+
+            <Paragraph>
+                Перечислення базових типів: <Code>number</Code>, <Code>string</Code>, <Code>boolean</Code>, <Code>object</Code>.
+            </Paragraph>
+
+            <CodeBlock>
+                {`let age: number = 25;
 let name: string = 'John';
 let isStudent: boolean = true;
 let person: object = { name: 'John', age: 25 };`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Визначення типів для змінних та параметрів функцій</h2>
-            <pre>
-                <code>
-{`// Визначення типу для змінної
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Визначення типів для змінних та параметрів функцій
+            </Typography>
+
+            <CodeBlock>
+                {`// Визначення типу для змінної
 let count: number;
 count = 10;
 
@@ -37,13 +72,22 @@ count = 10;
 function multiply(x: number, y: number): number {
   return x * y;
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Введення в інтерфейси та типи для створення власних структур даних</h2>
-            <pre>
-                <code>
-{`// Визначення інтерфейсу
+            <Typography
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Введення в інтерфейси та типи для створення власних структур даних
+            </Typography>
+
+            <CodeBlock>
+                {`// Визначення інтерфейсу
 interface Person {
   name: string;
   age: number;
@@ -57,13 +101,12 @@ type Point = { x: number; y: number };
 
 // Використання типу
 let coordinates: Point = { x: 10, y: 20 };`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <p>
+            <Paragraph sx={{ mt: 4 }}>
                 Цей конспект покриває основні поняття TypeScript, включаючи введення в мову, базові типи даних та використання інтерфейсів та типів для визначення структур даних.
-            </p>
-        </div>
+            </Paragraph>
+        </>
     );
 };
 

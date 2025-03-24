@@ -97,6 +97,10 @@ const routes = [
                 element: <EightTheme/>
             },
             {
+                path:'recursion',
+                element: <SeventhTheme/>
+            },
+            {
                 path:'arrow-fn',
                 element: <SixthTheme/>
             },

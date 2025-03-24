@@ -1,20 +1,23 @@
 import React from 'react';
+import { Typography, List, ListItem, ListItemText } from '@mui/material';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const SwitchCasePage = () => {
     return (
-        <div className="page-container">
-            <h1>Умовна конструкція switch/case</h1>
-            <p>
-                Така конструкція дає можливість перевіряти значення змінної на рівність з різними варіантами і виконувати код, пов'язаний із відповідним варіантом. Давайте розглянемо синтаксис <code>switch/case</code>, його використання та наведемо практичні приклади.
-            </p>
+        <>
+            <Typography variant="h2" component="h2">Умовна конструкція switch/case</Typography>
+            <Paragraph>
+                Така конструкція дає можливість перевіряти значення змінної на рівність з різними варіантами і виконувати код, пов'язаний із відповідним варіантом. Давайте розглянемо синтаксис <Code>switch/case</Code>, його використання та наведемо практичні приклади.
+            </Paragraph>
 
-            <h2>Синтаксис switch/case</h2>
-            <p>
-                Основна структура <code>switch/case</code> виглядає наступним чином:
-            </p>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h2" component="h2">Синтаксис switch/case</Typography>
+            <Paragraph>
+                Основна структура <Code>switch/case</Code> виглядає наступним чином:
+            </Paragraph>
+            <CodeBlock>
+                {`
 switch (вираз) {
     case значення1:
         // Код, що виконується, якщо вираз рівний значенню1
@@ -29,35 +32,50 @@ switch (вираз) {
     default:
         // Код, що виконується, якщо жоден варіант не підходить
 }
-          `}
-        </code>
-      </pre>
-            <ul>
-                <li><code>вираз</code> - вираз або значення, яке перевіряється на рівність зі значеннями в <code>case</code>.</li>
-                <li><code>case значення1</code> - визначає варіант, який буде виконаний, якщо вираз дорівнює <code>значенню1</code>.</li>
-                <li><code>break</code> - ключове слово, яке припиняє виконання <code>switch</code> після виконання коду в потрібному <code>case</code>.</li>
-                <li><code>default</code> - варіант, що виконується, якщо жоден із <code>case</code> не підходить.</li>
-            </ul>
+                `}
+            </CodeBlock>
+            <List dense>
+                <ListItem>
+                    <ListItemText primary={<><Code>вираз</Code> - вираз або значення, яке перевіряється на рівність зі значеннями в <Code>case</Code>.</>} />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary={<><Code>case значення1</Code> - визначає варіант, який буде виконаний, якщо вираз дорівнює <Code>значенню1</Code>.</>} />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary={<><Code>break</Code> - ключове слово, яке припиняє виконання <Code>switch</Code> після виконання коду в потрібному <Code>case</Code>.</>} />
+                </ListItem>
+                <ListItem>
+                    <ListItemText primary={<><Code>default</Code> - варіант, що виконується, якщо жоден із <Code>case</Code> не підходить.</>} />
+                </ListItem>
+            </List>
 
-            <h2>Важливі аспекти switch/case</h2>
-            <ul>
-                <li>
-                    <strong><code>break</code></strong>: Ключове слово <code>break</code> є важливим, оскільки воно припиняє виконання <code>switch</code>, якщо виконується певний варіант. Якщо ви його не використовуєте, виконання продовжиться і для наступних <code>case</code>.
-                </li>
-                <li>
-                    <strong><code>default</code></strong>: Оператор <code>default</code> використовується, якщо жоден варіант не підходить. Він є необов'язковим, але рекомендується використовувати його, щоб мати обробку непередбачуваних значень.
-                </li>
-                <li>
-                    <strong>Типи даних</strong>: <code>switch/case</code> порівнює значення на рівність без перевірки типів даних. Це може призвести до непередбачуваної поведінки, якщо типи відрізняються.
-                </li>
-            </ul>
+            <Typography variant="h2" component="h2">Важливі аспекти switch/case</Typography>
+            <List dense>
+                <ListItem>
+                    <ListItemText
+                        primary={<strong><Code>break</Code></strong>}
+                        secondary="Ключове слово break є важливим, оскільки воно припиняє виконання switch, якщо виконується певний варіант. Якщо ви його не використовуєте, виконання продовжиться і для наступних case."
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText
+                        primary={<strong><Code>default</Code></strong>}
+                        secondary="Оператор default використовується, якщо жоден варіант не підходить. Він є необов'язковим, але рекомендується використовувати його, щоб мати обробку непередбачуваних значень."
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText
+                        primary={<strong>Типи даних</strong>}
+                        secondary="switch/case порівнює значення на рівність без перевірки типів даних. Це може призвести до непередбачуваної поведінки, якщо типи відрізняються."
+                    />
+                </ListItem>
+            </List>
 
-            <h2>Приклади використання</h2>
+            <Typography variant="h2" component="h2">Приклади використання</Typography>
 
-            <h3>День тижня</h3>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h3" component="h3">День тижня</Typography>
+            <CodeBlock>
+                {`
 let day = "п'ятниця";
 let message;
 
@@ -78,17 +96,15 @@ switch (day) {
 }
 
 console.log(message);
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі ми використовуємо <code>switch/case</code>, щоб визначити, чи є заданий день робочим або вихідним. При цьому використовується <code>break</code>, щоб зупинити виконання <code>switch</code> після відповідного варіанта.
-            </p>
+                `}
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми використовуємо <Code>switch/case</Code>, щоб визначити, чи є заданий день робочим або вихідним. При цьому використовується <Code>break</Code>, щоб зупинити виконання <Code>switch</Code> після відповідного варіанта.
+            </Paragraph>
 
-            <h3>Вибір операції</h3>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h3" component="h3">Вибір операції</Typography>
+            <CodeBlock>
+                {`
 let operation = "помножити";
 let result;
 
@@ -110,28 +126,27 @@ switch (operation) {
 }
 
 console.log(\`Результат: \${result}\`);
-          `}
-        </code>
-      </pre>
-            <p>
-                Тут ми використовуємо <code>switch/case</code>, щоб обрати математичну операцію на основі значення <code>operation</code>.
-            </p>
+                `}
+            </CodeBlock>
+            <Paragraph>
+                Тут ми використовуємо <Code>switch/case</Code>, щоб обрати математичну операцію на основі значення <Code>operation</Code>.
+            </Paragraph>
 
-            <div className='conclusion'>
-                <h2>Заключні слова</h2>
-                <p>
-                    Умовна конструкція <code>switch/case</code> є потужним інструментом для обробки різних варіантів
+            <>
+                <Typography variant="h2" component="h2">Заключні слова</Typography>
+                <Paragraph>
+                    Умовна конструкція <Code>switch/case</Code> є потужним інструментом для обробки різних варіантів
                     значень у вашому коді. Вона дозволяє писати більш читабельний код для обробки багатьох сценаріїв.
-                    Пам'ятайте про важливість <code>break</code> та <code>default</code> для точного керування
+                    Пам'ятайте про важливість <Code>break</Code> та <Code>default</Code> для точного керування
                     виконанням.
-                </p>
-                <p>
-                    Ви можете використовувати <code>switch/case</code>, коли маєте багато варіантів, і вам потрібно
+                </Paragraph>
+                <Paragraph>
+                    Ви можете використовувати <Code>switch/case</Code>, коли маєте багато варіантів, і вам потрібно
                     визначити, який код виконувати на основі значення змінної. Практикуйте цю конструкцію, і вона стане
                     корисною у ваших JavaScript-проектах.
-                </p>
-            </div>
-        </div>
+                </Paragraph>
+            </>
+        </>
     );
 };
 

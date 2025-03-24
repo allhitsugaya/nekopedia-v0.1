@@ -2,41 +2,45 @@ import React from 'react';
 import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
 import Code from "../../../../features/Code/Code.jsx";
+import { Box, Typography } from '@mui/material';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const TemplateStringsPage = () => {
     return (
-        <div className="page-container">
+        <Box sx={{ padding: 2 }}>
             <BookHeader>Шаблонні рядки в JavaScript</BookHeader>
+
             <Paragraph>
-                Шаблонні рядки (Template Strings) - це потужний інструмент в JavaScript для створення рядків, які включають в себе значення змінних та вирази. Вони представляють собою спеціальні рядки, які визначаються за допомогою обернутих (``) та використовують вираз <code>${'{}'}</code> для вставки значень. Давайте розглянемо, як працюють шаблонні рядки та де їх можна застосовувати.
+                Шаблонні рядки (Template Strings) - це потужний інструмент в JavaScript для створення рядків, які включають в себе значення змінних та вирази. Вони представляють собою спеціальні рядки, які визначаються за допомогою обернутих (``) та використовують вираз <Code>${'{}'}</Code> для вставки значень. Давайте розглянемо, як працюють шаблонні рядки та де їх можна застосовувати.
             </Paragraph>
 
-            <h2>Основи використання</h2>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Основи використання
+            </Typography>
             <Paragraph>
                 Спершу давайте розглянемо основний синтаксис шаблонних рядків:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
+            <CodeBlock>
+                {`
 const name = "John";
 const age = 30;
 
 const message = \`Привіт, мене звати \${name} і мені \${age} років.\`;
 console.log(message); // Привіт, мене звати John і мені 30 років.
-          `}
-        </Code>
-      </pre>
-            <p>
-                У цьому прикладі ми створюємо змінні <code>name</code> і <code>age</code>, і потім ми створюємо рядок <code>message</code>, використовуючи шаблонні рядки. Змінні та вирази, заключені в <code>${'{}'}</code>, підставляються в рядок, коли він обчислюється.
-            </p>
+                `}
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми створюємо змінні <Code>name</Code> і <Code>age</Code>, і потім ми створюємо рядок <Code>message</Code>, використовуючи шаблонні рядки. Змінні та вирази, заключені в <Code>${'{}'}</Code>, підставляються в рядок, коли він обчислюється.
+            </Paragraph>
 
-            <h2>Багаторядковий текст</h2>
-            <p>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Багаторядковий текст
+            </Typography>
+            <Paragraph>
                 Шаблонні рядки також ідеально підходять для створення багаторядкових текстів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 const best = \`
   Думи мої, думи мої,
   Лихо мені з вами!
@@ -44,20 +48,20 @@ const best = \`
   Сумними рядами?..
 \`;
 console.log(best);
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі ми використовуємо шаблонні рядки для оголошення багаторядкового вірша. Обернуті лапки дозволяють вам вставити переноси рядка без потреби вручну додавати символи <code>\n</code>.
-            </p>
+                `}
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми використовуємо шаблонні рядки для оголошення багаторядкового вірша. Обернуті лапки дозволяють вам вставити переноси рядка без потреби вручну додавати символи <Code>\n</Code>.
+            </Paragraph>
 
-            <h2>Вирази та функції</h2>
-            <p>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Вирази та функції
+            </Typography>
+            <Paragraph>
                 Шаблонні рядки дозволяють вставляти не тільки змінні, але і вирази та результати функцій:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 const a = 5;
 const b = 10;
 
@@ -70,20 +74,20 @@ function capitalize(text) {
 
 const greeting = \`Привіт, \${capitalize(name)}!\`;
 console.log(greeting); // Привіт, John!
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі ми обчислюємо суму чисел <code>a</code> і <code>b</code> та вставляємо її у рядок <code>sum</code>. Також ми використовуємо функцію <code>capitalize</code> для перетворення імені у велику літеру у рядку <code>greeting</code>.
-            </p>
+                `}
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми обчислюємо суму чисел <Code>a</Code> і <Code>b</Code> та вставляємо її у рядок <Code>sum</Code>. Також ми використовуємо функцію <Code>capitalize</Code> для перетворення імені у велику літеру у рядку <Code>greeting</Code>.
+            </Paragraph>
 
-            <h2>Вирази шаблонів</h2>
-            <p>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Вирази шаблонів
+            </Typography>
+            <Paragraph>
                 Шаблонні рядки також підтримують вирази шаблонів, які дозволяють виконувати операції над виразами та вставляти їхні результати:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 const a = 5;
 const b = 10;
 
@@ -93,21 +97,22 @@ console.log(result); // "5 + 10 = 15"
 const isAdult = true;
 const ageMessage = \`Я є \${isAdult ? "дорослим" : "дитиною"}.\`;
 console.log(ageMessage); // Я є дорослим.
-          `}
-        </code>
-      </pre>
-            <p>
+                `}
+            </CodeBlock>
+            <Paragraph>
                 У цьому прикладі ми вставляємо результати арифметичного виразу та виразу тернарного оператора у наші рядки.
-            </p>
+            </Paragraph>
 
-            <div className='conclusion'>
-                <h2>Висновок</h2>
-                <p>
+            <Box sx={{ mt: 4 }}>
+                <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                    Висновок
+                </Typography>
+                <Paragraph>
                     Шаблонні рядки роблять роботу з рядками в JavaScript більш зручною та читабельною. Вони особливо
                     корисні, коли потрібно комбінувати рядки та значення змінних у складних рядках.
-                </p>
-            </div>
-        </div>
+                </Paragraph>
+            </Box>
+        </Box>
     );
 };
 

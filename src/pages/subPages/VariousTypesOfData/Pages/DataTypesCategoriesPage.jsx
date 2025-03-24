@@ -1,123 +1,80 @@
 import React from 'react';
+import { Typography, Box, List, ListItem } from '@mui/material';
+import Code from '../../../../features/Code/Code.jsx';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
 
 const DataTypesCategoriesPage = () => {
     return (
-        <div className="page-container">
-            <h1>Основні категорії типів даних та їх призначення</h1>
-            <p>
-                JavaScript є мовою програмування, яка має динамічну систему типів, що означає, що типи даних визначаються автоматично в процесі виконання програми. Це відрізняє JavaScript від мов зі статичною системою типів, де тип даних має бути визначений явно. У JavaScript існують різні типи даних, і кожен з них відповідає певному роду даних або значенню.
-            </p>
-            <p>
-                Розуміння типів даних має важливе значення для розробників програмного забезпечення. Воно допомагає визначити, як дані будуть використовуватися та оброблятися в програмі, а також визначити їхні обмеження та можливості. Помилки в роботі з типами даних можуть призвести до неправильної роботи програми, її зависання або навіть до вразливостей безпеки.
-            </p>
+        <Box className="page-container" sx={{ p: 3 }}>
+            <Typography variant="h2" gutterBottom>Основні категорії типів даних та їх призначення</Typography>
+            <Paragraph>
+                JavaScript має динамічну систему типів, що означає автоматичне визначення типів у процесі виконання програми.
+                Це відрізняє його від мов зі статичною типізацією, де тип має бути вказаний явно.
+            </Paragraph>
+            <Paragraph>
+                Розуміння типів даних допомагає коректно працювати з інформацією, уникати помилок та покращувати продуктивність коду.
+            </Paragraph>
 
-            <h2>Типи даних у JavaScript</h2>
-            <p>
-                Типи даних у JavaScript поділяються на дві категорії: <strong>примітивні</strong> та <strong>об'єктні</strong>.
-            </p>
-            <ul>
-                <li>
-                    <strong>Примітивні типи даних</strong> включають в себе числа (<code>number</code>), рядки (<code>string</code>), булеві значення (<code>boolean</code>), <code>null</code>, <code>undefined</code>, <code>BigInt</code> та <code>Symbol</code>. Вони володіють простою структурою та передаються за значенням, що означає, що при копіюванні одного значення в інше створюється нова копія даних.
-                </li>
-                <li>
-                    <strong>Об'єктні типи даних</strong> включають в себе об'єкти (<code>object</code>), масиви (<code>array</code>), функції (<code>function</code>) та інші. Вони володіють складною структурою та передаються за посиланням, що означає, що при копіюванні створюється посилання на той самий об'єкт.
-                </li>
-            </ul>
+            <Typography variant="h2" gutterBottom>Типи даних у JavaScript</Typography>
+            <Paragraph>
+                У JavaScript є дві основні категорії типів даних:
+            </Paragraph>
+            <List>
+                <ListItem>
+                    <strong>Примітивні типи:</strong> <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>BigInt</code>, <code>Symbol</code>.
+                </ListItem>
+                <ListItem>
+                    <strong>Об'єктні типи:</strong> <code>object</code>, <code>array</code>, <code>function</code>.
+                </ListItem>
+            </List>
 
-            <h2>Основні категорії типів даних та їх призначення</h2>
+            <Typography variant="h3" gutterBottom>Числа (number)</Typography>
+            <Paragraph>Представляють цілі та дробові числа.</Paragraph>
+            <Code>{`const age = 30;
+const price = 19.99;`}</Code>
 
-            <h3>Числа (number)</h3>
-            <p>Використовуються для представлення числових значень, як цілі, так і дробові числа.</p>
-            <pre>
-        <code>
-          {`
-const age = 30;
-const price = 19.99;
-          `}
-        </code>
-      </pre>
+            <Typography variant="h3" gutterBottom>BigInt</Typography>
+            <Paragraph>Для представлення дуже великих чисел.</Paragraph>
+            <CodeBlock>{`const bigNumber = 1234567890123456789012345678901234567890n;`}</CodeBlock>
 
-            <h3>BigInt</h3>
-            <p>Цей тип даних дозволяє представляти дуже великі цілі числа, які не можуть бути точно виражені типом <code>Number</code>.</p>
-            <pre>
-        <code>
-          {`
-const bigNumber = 1234567890123456789012345678901234567890n;
-          `}
-        </code>
-      </pre>
+            <Typography variant="h3" gutterBottom>Рядки (string)</Typography>
+            <Paragraph>Використовуються для текстових даних.</Paragraph>
+            <CodeBlock>{`const name = "John";`}</CodeBlock>
 
-            <h3>Рядки (string)</h3>
-            <p>Використовуються для представлення текстової інформації.</p>
-            <pre>
-        <code>
-          {`
-const name = "John";
-          `}
-        </code>
-      </pre>
+            <Typography variant="h3" gutterBottom>Булеві значення (boolean)</Typography>
+            <Paragraph>Мають два можливих значення: <code>true</code> або <code>false</code>.</Paragraph>
+            <CodeBlock>{`const isLogged = true;
+const hasPermission = false;`}</CodeBlock>
 
-            <h3>Булеві значення (boolean)</h3>
-            <p>Мають два можливих стани: <code>true</code> (істина) та <code>false</code> (хибність). Використовуються для умовних виразів.</p>
-            <pre>
-        <code>
-          {`
-const isLogged = true;
-const hasPermission = false;
-          `}
-        </code>
-      </pre>
-
-            <h3>Null та Undefined</h3>
-            <p>
-                Використовуються для представлення відсутності значення. <code>null</code> вказує на відсутність значення, тоді як <code>undefined</code> вказує на змінну, яка була оголошена, але не має значення.
-            </p>
-            <pre>
-        <code>
-          {`
-const emptyValue = null;
+            <Typography variant="h3" gutterBottom>Null та Undefined</Typography>
+            <Paragraph>
+                <code>null</code> означає відсутність значення, <code>undefined</code> — змінна існує, але значення не встановлене.
+            </Paragraph>
+            <CodeBlock>{`const emptyValue = null;
 console.log(emptyValue); // null
 
 let variable;
-console.log(variable); // undefined
-          `}
-        </code>
-      </pre>
-            <p>
-                ⚠️ <code>null</code> має тип <code>"object"</code> у JavaScript з історичних причин. Коли JavaScript був розроблений на початку 1990-х, помилка була допущена в дизайні мови, і тип даних <code>null</code> був помилково визначений як <code>"object"</code>. Ця помилка залишилася в мові для забезпечення сумісності з існуючими програмами. Тобто тип <code>"object"</code> для <code>null</code> - це особливість мови JavaScript, яку потрібно пам'ятати при роботі з цим значенням.
-            </p>
+console.log(variable); // undefined`}</CodeBlock>
+            <CodeBlock> ⚠️ null має тип "object" через помилку в дизайні JavaScript, яка залишилася для зворотної сумісності.</CodeBlock>
 
-            <h3>Symbol</h3>
-            <p>Використовуються для створення унікальних ідентифікаторів.</p>
-            <pre>
-        <code>
-          {`
-const uniqueID = Symbol('description');
-          `}
-        </code>
-      </pre>
+            <Typography variant="h3" gutterBottom>Symbol</Typography>
+            <Paragraph>Використовується для створення унікальних ідентифікаторів.</Paragraph>
+            <CodeBlock>{`const uniqueID = Symbol('description');`}</CodeBlock>
 
-            <h3>Object (Об'єкт)</h3>
-            <p>
-                Це структура, яка використовується не тільки для зберігання даних, але й для створення інших структур, де будь-яка структура створюється з використанням ключового слова <code>new</code>: <code>new Object</code>, <code>new Array</code>, <code>new Map</code>, <code>new Set</code>, <code>new WeakMap</code>, <code>new WeakSet</code>, <code>new Date</code> та безліч інших структур.
-            </p>
-            <pre>
-        <code>
-          {`
-let person = {
+            <Typography variant="h3" gutterBottom>Object (Об'єкт)</Typography>
+            <Paragraph>Об'єкти містять пари ключ-значення та можуть включати методи.</Paragraph>
+            <CodeBlock>{`let person = {
   name: 'Alice',
   age: 30,
   sayHello: function() {
     console.log('Hello, ' + this.name);
   }
-};
-          `}
-        </code>
-      </pre>
-            <p>
-                ⚠️ В JavaScript тип даних <code>function</code> відноситься до об'єктів (<code>object</code>). Функції у JavaScript є об'єктами першого класу, що означає, що вони можуть бути передані як аргументи, присвоєні змінним, збережені у властивостях об'єктів і повертати із функцій. Функції також можуть мати властивості, які можна додавати до них.
-            </p>
-        </div>
+};`}</CodeBlock>
+       <CodeBlock>
+           ⚠️ У JavaScript функції є об'єктами першого класу, тобто їх можна передавати як аргументи, зберігати у змінних і повертати з інших функцій.
+       </CodeBlock>
+        </Box>
     );
 };
 

@@ -1,13 +1,7 @@
 import React from 'react';
-import {Container, Typography} from "@mui/material";
 import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 import Code from "../../../../features/Code/Code.jsx";
 import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
-
-
-
-
-
 
 const DataTypesPage = () => {
     return (

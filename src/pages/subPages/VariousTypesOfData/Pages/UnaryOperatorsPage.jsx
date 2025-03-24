@@ -1,20 +1,31 @@
 import React from 'react';
+import { Box, Container } from '@mui/material';
+import { Typography } from '@mui/material';
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import Code from "../../../../features/Code/Code.jsx";
 
 const UnaryOperatorsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Унарні оператори та їх роль</h1>
-            <p>
-                У JavaScript є два типи операторів: унарні та бінарні. Унарні оператори діють на один операнд, тоді як бінарні оператори діють на два операнди. Унарні оператори можуть бути передоператорами або постдекрементами.
-            </p>
+        <Container>
+            <Box sx={{ mb: 3 }}>
+                <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                    Унарні оператори та їх роль
+                </Typography>
+            </Box>
 
-            <h2>Передоператори</h2>
-            <p>
+            <Paragraph>
+                У JavaScript є два типи операторів: унарні та бінарні. Унарні оператори діють на один операнд, тоді як бінарні оператори діють на два операнди. Унарні оператори можуть бути передоператорами або постдекрементами.
+            </Paragraph>
+
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Передоператори
+            </Typography>
+            <Paragraph>
                 Передоператор - це унарний оператор, який змінює значення операнду перед тим, як виконається дія. Унарні передоператори включають в себе плюс, мінус, логічне заперечення та інші. Ось декілька прикладів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let x = 10;
 x = -x; // Переприсвоюємо x зі зміненим знаком
 console.log(x); // -10
@@ -22,81 +33,84 @@ console.log(x); // -10
 let z = true;
 let w = !z;
 console.log(w); // false
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Постдекременти</h2>
-            <p>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Постдекременти
+            </Typography>
+            <Paragraph>
                 Постдекремент - це унарний оператор, який зменшує значення операнду після того, як виконано дію. Постдекремент може використовуватися зі змінними, об'єктами та іншими типами даних. Ось декілька прикладів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let x = 10;
 x--;
 console.log(x); // 9
 
 let obj = { a: 1, b: 2 };
 let z = obj.a--; // z = 1, obj.a = 0
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Роль унарних операторів</h2>
-            <p>
+            <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                Роль унарних операторів
+            </Typography>
+            <Paragraph>
                 Унарні оператори є важливими елементами JavaScript, оскільки вони допомагають здійснювати швидкі та ефективні операції з даними. Вони також дозволяють змінювати значення змінних та об'єктів за допомогою простих операцій.
-            </p>
+            </Paragraph>
 
-            <h3>Перетворення рядків у числа</h3>
-            <p>
+            <Typography variant="h3" component="h3" sx={{ fontWeight: 600 }}>
+                Перетворення рядків у числа
+            </Typography>
+            <Paragraph>
                 Унарний плюс дозволяє перетворювати рядки у числа, що може бути корисним при обчисленнях:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let str = "10";
 let num = +str; // num = 10
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>Перевірка на існування</h3>
-            <p>
-                Унарні оператори корисні при перевірці на існування (<code>null</code> або <code>undefined</code>):
-            </p>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h3" component="h3" sx={{ fontWeight: 600 }}>
+                Перевірка на існування
+            </Typography>
+            <Paragraph>
+                Унарні оператори корисні при перевірці на існування (<Code>null</Code> або <Code>undefined</Code>):
+            </Paragraph>
+            <CodeBlock>
+                {`
 let obj = null;
 let exists = !!obj; // exists = false
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>Інкремент та декремент</h3>
-            <p>
+            <Typography variant="h3" component="h3" sx={{ fontWeight: 600 }}>
+                Інкремент та декремент
+            </Typography>
+            <Paragraph>
                 Унарні оператори дозволяють здійснювати швидкий інкремент або декремент змінної, що може пришвидшити виконання коду:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let a = 0;
 let b = ++a;
 console.log(b); // 1
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Висновок</h2>
-                <p>
+            <Box sx={{ mt: 4 }}>
+                <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
+                    Висновок
+                </Typography>
+                <Paragraph>
                     Розуміння явного та неявного перетворення типів даних є важливим для написання надійного та
                     передбачуваного коду. Використання явного перетворення допомагає уникнути неочікуваних помилок, а
-                    строге порівняння <code>===</code> запобігає проблемам, пов'язаним із неявним перетворенням.
-                </p>
-            </div>
-        </div>
+                    строге порівняння <Code>===</Code> запобігає проблемам, пов'язаним із неявним перетворенням.
+                </Paragraph>
+            </Box>
+        </Container>
     );
 };
 
