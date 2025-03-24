@@ -1,7 +1,7 @@
-import {ErrorBoundaries} from "../components/ErrorBoundaries/ErrorBoundaries.jsx";
+import {ErrorBoundaries} from "./components/ErrorBoundaries/ErrorBoundaries.jsx";
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
-import routes from '../components/route/router.jsx';
+import routes from './components/route/router.jsx';
 
 
 
