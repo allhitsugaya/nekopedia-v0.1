@@ -19,3 +19,9 @@
     { id: 18, title: "jQuery", path: '/jquery'  },
     { id: 19, title: "TypeScript", path: '/typescript'  },
 ];
+
+export const pages = [
+    { name: 'Learn more', path: '/learn-more' },
+    { name: 'About us', path: '/about' },
+    { name: 'Contact', path: '/contact' },
+];

@@ -12,17 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { IoLogoOctocat } from "react-icons/io5";
 import { NavLink} from "react-router-dom";
 import {Breadcrumbs, FormControl, FormLabel, Link, Switch, useColorScheme} from "@mui/material";
+import {pages} from './route/router.config.js';
 
 
 
 
 
-
-const pages = [
-    { name: 'Learn more', path: '/learn-more' },
-    { name: 'About us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
