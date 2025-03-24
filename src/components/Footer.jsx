@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, Typography, Box, IconButton } from '@mui/material';
+import {Container, Typography, Box, IconButton, Paper} from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -8,14 +8,8 @@ import {NavLink} from "react-router-dom";
 
 function Footer() {
     return (
-        <Box
-            component="footer"
-            sx={{
-                py: 3,
-                mt: 'auto',
-            }}
-        >
-            <Container maxWidth="lg">
+        <Paper component="footer" >
+            <Container maxWidth="xl">
                 <Box
                     sx={{
                         display: 'flex',
@@ -26,7 +20,7 @@ function Footer() {
                     }}
                 >
                     <Box component = {NavLink} to='/'>
-                        <IoLogoOctocat style={{ color: '#A2D9CE', fontSize: '2rem' }} />
+                        <IoLogoOctocat   />
                     </Box>
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya
@@ -38,7 +32,6 @@ function Footer() {
                             href="https://github.com/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
-                            sx={{ color: '#A2D9CE' }}
                         >
                             <GitHubIcon />
                         </IconButton>
@@ -47,7 +40,6 @@ function Footer() {
                             href="https://www.linkedin.com/in/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
-                            sx={{ color: '#A2D9CE' }}
                         >
                             <LinkedInIcon />
                         </IconButton>
@@ -56,22 +48,13 @@ function Footer() {
                             href="https://twitter.com/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
-                            sx={{ color: '#A2D9CE' }}
                         >
                             <TwitterIcon />
                         </IconButton>
                     </Box>
-                    <Box
-                        sx={{
-
-                            display: 'flex',
-                            gap: 2,
-                        }}
-                    >
                     </Box>
-                </Box>
             </Container>
-        </Box>
+        </Paper>
     );
 }
 

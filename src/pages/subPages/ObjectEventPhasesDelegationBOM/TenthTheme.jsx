@@ -9,34 +9,26 @@ import URLAndLocationPage from "./Pages/BOM/URLAndLocationPage.jsx";
 import NavigatorObjectPage from "./Pages/BOM/NavigatorObjectPage.jsx";
 import HistoryObjectPage from "./Pages/BOM/HistoryObjectPage.jsx";
 import ScreenObjectPage from "./Pages/BOM/ScreenObjectPage.jsx";
-import './TenthTheme.css'
+import {Paper} from "@mui/material";
+
 
 const TenthTheme = () => {
     return (
-        <div className='theme'>
-            <IntroductionPage className='theme-section'/>
-            <hr/>
-            <EventBubblingPage className='theme-section'/>
-            <hr/>
-            <SecondEventBubblingPage className='theme-section'/>
-            <hr/>
-            <EventBubblingExamplePage className='theme-section'/>
-            <hr/>
-            <EventDelegationPage className='theme-section'/>
-            <hr/>
-            <EventDelegationExamples className='theme-section'/>
-            <hr/>
-            <BOMAndWindowPage className='theme-section'/>
-            <hr/>
-            <URLAndLocationPage className='theme-section'/>
-            <hr/>
-            <NavigatorObjectPage className='theme-section'/>
-            <hr/>
-            <HistoryObjectPage className='theme-section'/>
-            <hr/>
-            <ScreenObjectPage className='theme-section'/>
-
-        </div>
+        <>
+            <Paper>
+            <IntroductionPage/>
+            <EventBubblingPage/>
+            <SecondEventBubblingPage/>
+            <EventBubblingExamplePage/>
+            <EventDelegationPage/>
+            <EventDelegationExamples/>
+            <BOMAndWindowPage/>
+            <URLAndLocationPage/>
+            <NavigatorObjectPage/>
+            <HistoryObjectPage/>
+            <ScreenObjectPage/>
+            </Paper>
+        </>
     )
 }
 

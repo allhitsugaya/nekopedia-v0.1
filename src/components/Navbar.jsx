@@ -7,10 +7,16 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+
 import MenuItem from '@mui/material/MenuItem';
 import { IoLogoOctocat } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
+import {Breadcrumbs, FormControl, FormLabel, Link, Switch, useColorScheme} from "@mui/material";
+
+
+
+
+
 
 const pages = [
     { name: 'Learn more', path: '/learn-more' },
@@ -29,26 +35,31 @@ function ResponsiveAppBar() {
         setAnchorElNav(null);
     };
 
+    const{mode,setMode} = useColorScheme()
+    const handleChange = () => {
+      setMode(mode ==="light"?"dark":"light");
+    }
+
+
+
     return (
         <AppBar position="static" >
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{justifyContent: 'space-between'}}>
                     <Typography
-                        variant="h6"
+                       variant="h6"
                         noWrap
                         component={NavLink}
                         to="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: '#A2D9CE',
                             textDecoration: 'none',
                         }}
                     >
-                        Nekopedia <IoLogoOctocat style={{ color: '#A2D9CE', fontSize: '2rem' }} />
+                        Nekopedia <IoLogoOctocat style={{ fontSize: '2rem' }} />
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -80,7 +91,7 @@ function ResponsiveAppBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page.name} onClick={handleCloseNavMenu} component={NavLink} to={page.path}>
-                                    <Typography sx={{ textAlign: 'center' }} color="dark">{page.name}</Typography>
+                                    <Typography sx={{ textAlign: 'center' }} >{page.name}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -94,7 +105,6 @@ function ResponsiveAppBar() {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: '#A2D9CE',
@@ -103,18 +113,36 @@ function ResponsiveAppBar() {
                     >
                         Nekopedia
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page.name}
-                                component={NavLink}
-                                to={page.path}
-                                sx={{ my: 2, color: '#A2D9CE', display: 'block' }}
-                            >
-                                {page.name}
-                            </Button>
-                        ))}
-                    </Box>
+
+                        <Breadcrumbs sx={{"& .MuiBreadcrumbs-separator":{display:"none"}}}>
+                            {pages.map((page) => (
+                                <Link
+                                    underline={"hover"}
+                                    key={page.name}
+                                    to={page.path}
+                                    component={NavLink}
+                                    color="inherit"
+                                     >
+                                    {page.name}
+                                </Link>
+                            ))}
+                        </Breadcrumbs>
+
+
+                    <FormControl >
+                            <FormLabel id="demo-theme-toggle">
+                                <Switch
+                                        name="theme-toggle"
+                                        aria-labelledby="demo-theme-toggle"
+                                        value={mode}
+                                        onChange={handleChange}
+                                >
+
+                                </Switch>
+                            </FormLabel>
+                    </FormControl>
+
+
                 </Toolbar>
             </Container>
         </AppBar>

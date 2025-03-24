@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box, Button, Container,Typography} from '@mui/material';
+import {Box, Button, Container, Paper, Typography} from '@mui/material';
 import {NavLink} from "react-router-dom";
 
 
@@ -7,11 +7,7 @@ import {NavLink} from "react-router-dom";
 
 function HeroSection() {
     return (
-            <Box
-                sx={{
-
-                }}
-            >
+        <Paper>
                 <Container maxWidth="sm">
                     <Typography
                         component="h1"
@@ -46,15 +42,13 @@ function HeroSection() {
                         </Button>
                     </Box>
                 </Container>
-            </Box>
+        </Paper>
 
     );
 }
 
 export default function MainPage() {
     return (
-        <Box >
             <HeroSection />
-        </Box>
     );
 }

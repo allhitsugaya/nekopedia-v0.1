@@ -6,28 +6,23 @@ import UnaryOperatorsPage from "./Pages/UnaryOperatorsPage.jsx";
 import TypeConversionPage from "./Pages/TypeConversionPage.jsx";
 import ComparisonOperatorsPage from "./Pages/ComparisonOperatorsPage.jsx";
 import TemplateStringsPage from "./Pages/TemplateStringsPage.jsx";
-import './FirstTheme.css'
+import {Paper} from "@mui/material";
+
 
 const FirstTheme = () => {
     return (
-        <div className="theme">
-            <DataTypesPage className="theme-section"/>
-            <hr/>
-            <VariableDeclarationPage className="theme-section"/>
-            <hr/>
-            <DataTypesCategoriesPage className="theme-section"/>
-            <hr/>
-            <EverythingIsAnObjectPage className="theme-section"/>
-            <hr/>
-            <UnaryOperatorsPage className="theme-section"/>
-            <hr/>
-            <TypeConversionPage className="theme-section"/>
-            <hr/>
-            <ComparisonOperatorsPage className="theme-section"/>
-            <hr/>
-            <TemplateStringsPage className="theme-section"/>
-            <hr/>
-        </div>
+        <>
+            <Paper>
+            <DataTypesPage/>
+            <VariableDeclarationPage/>
+            <DataTypesCategoriesPage/>
+            <EverythingIsAnObjectPage/>
+            <UnaryOperatorsPage/>
+            <TypeConversionPage/>
+            <ComparisonOperatorsPage/>
+            <TemplateStringsPage/>
+            </Paper>
+        </>
     )
 }
 

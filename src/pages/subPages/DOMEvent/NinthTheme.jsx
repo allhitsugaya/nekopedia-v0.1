@@ -9,33 +9,26 @@ import SecondEventHandlingPage from "./Pages/Event/SecondEventHandlingPage.jsx";
 import CommonEventErrorsPage from "./Pages/Event/CommonEventErrorsPage.jsx";
 import DomContentLoadedAndWindowOnloadPage from "./Pages/DOMWindow/DomContentLoadedAndWindowOnloadPage.jsx";
 import UsingDomContentLoadedAndWindowOnloadPage from "./Pages/DOMWindow/UsingDomContentLoadedAndWindowOnloadPage.jsx";
-import './NinthTheme.css'
+import {Paper} from "@mui/material";
+
 
 const NinthTheme = () => {
     return (
-        <div className='theme'>
-            <IntroductionPage className='theme-section'/>
-            <hr/>
-            <BasicsOfDOM className='theme-section'/>
-            <hr/>
-            <DOMElementsManipulation className='theme-section'/>
-            <hr/>
-            <DomManipulationPage className='theme-section'/>
-            <hr/>
-            <SecondDomManipulationPage className='theme-section'/>
-            <hr/>
-            <EventHandlingPage className='theme-section'/>
-            <hr/>
-            <EventObjectExample className='theme-section'/>
-            <hr/>
-            <SecondEventHandlingPage className='theme-section'/>
-            <hr/>
-            <CommonEventErrorsPage className='theme-section'/>
-            <hr/>
-            <DomContentLoadedAndWindowOnloadPage className='theme-section'/>
-            <hr/>
-            <UsingDomContentLoadedAndWindowOnloadPage className='theme-section'/>
-        </div>
+        <>
+            <Paper>
+            <IntroductionPage/>
+            <BasicsOfDOM/>
+            <DOMElementsManipulation/>
+            <DomManipulationPage/>
+            <SecondDomManipulationPage/>
+            <EventHandlingPage/>
+            <EventObjectExample/>
+            <SecondEventHandlingPage/>
+            <CommonEventErrorsPage/>
+            <DomContentLoadedAndWindowOnloadPage/>
+            <UsingDomContentLoadedAndWindowOnloadPage/>
+            </Paper>
+        </>
     )
 }
 

@@ -1,19 +1,22 @@
 import React from 'react';
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import Code from "../../../../features/Code/Code.jsx";
 
 const TemplateStringsPage = () => {
     return (
         <div className="page-container">
-            <h1>Шаблонні рядки в JavaScript</h1>
-            <p>
+            <BookHeader>Шаблонні рядки в JavaScript</BookHeader>
+            <Paragraph>
                 Шаблонні рядки (Template Strings) - це потужний інструмент в JavaScript для створення рядків, які включають в себе значення змінних та вирази. Вони представляють собою спеціальні рядки, які визначаються за допомогою обернутих (``) та використовують вираз <code>${'{}'}</code> для вставки значень. Давайте розглянемо, як працюють шаблонні рядки та де їх можна застосовувати.
-            </p>
+            </Paragraph>
 
             <h2>Основи використання</h2>
-            <p>
+            <Paragraph>
                 Спершу давайте розглянемо основний синтаксис шаблонних рядків:
-            </p>
+            </Paragraph>
             <pre>
-        <code>
+        <Code>
           {`
 const name = "John";
 const age = 30;
@@ -21,7 +24,7 @@ const age = 30;
 const message = \`Привіт, мене звати \${name} і мені \${age} років.\`;
 console.log(message); // Привіт, мене звати John і мені 30 років.
           `}
-        </code>
+        </Code>
       </pre>
             <p>
                 У цьому прикладі ми створюємо змінні <code>name</code> і <code>age</code>, і потім ми створюємо рядок <code>message</code>, використовуючи шаблонні рядки. Змінні та вирази, заключені в <code>${'{}'}</code>, підставляються в рядок, коли він обчислюється.
