@@ -1,29 +1,45 @@
 import * as React from 'react';
-import {Container, Typography, Box, IconButton, Paper} from '@mui/material';
+import {
+    Container,
+    Typography,
+    Box,
+    IconButton,
+    Paper,
+    Link
+} from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { IoLogoOctocat } from "react-icons/io5";
-import {NavLink} from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 function Footer() {
     return (
-        <Paper component="footer" >
+        <Paper
+            component="footer"
+            sx={{
+                py: 3,
+                boxShadow: '0px -2px 4px -1px rgba(0,0,0,0.2)',
+                position: 'relative',
+                width: '100%'
+            }}
+        >
             <Container maxWidth="xl">
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: { xs: 'column', sm: 'row' },
+                        flexDirection: { xs: 'column', md: 'row' },
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         gap: 2,
                     }}
                 >
-                    <Box component = {NavLink} to='/'>
-                        <IoLogoOctocat   />
-                    </Box>
+                    <Link component={RouterLink} to="/" sx={{ color: 'inherit' }}>
+                        <IoLogoOctocat size={24} style={{ color: '#A2D9CE' }} />
+                    </Link>
+
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                       Copyright &copy; {new Date().getFullYear()} by allhitsugaya
+                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya
                     </Typography>
 
                     <Box>
@@ -32,6 +48,7 @@ function Footer() {
                             href="https://github.com/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
+                            color="primary"
                         >
                             <GitHubIcon />
                         </IconButton>
@@ -40,6 +57,7 @@ function Footer() {
                             href="https://www.linkedin.com/in/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
+                            color="primary"
                         >
                             <LinkedInIcon />
                         </IconButton>
@@ -48,11 +66,12 @@ function Footer() {
                             href="https://twitter.com/allhitsugaya"
                             target="_blank"
                             rel="noopener noreferrer"
+                            color="primary"
                         >
                             <TwitterIcon />
                         </IconButton>
                     </Box>
-                    </Box>
+                </Box>
             </Container>
         </Paper>
     );

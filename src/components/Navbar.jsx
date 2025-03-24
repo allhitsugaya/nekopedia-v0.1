@@ -1,26 +1,57 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Typography,
+    Menu,
+    Container,
+    MenuItem,
+    Breadcrumbs,
+    Switch,
+    FormControlLabel,
+    Link,
+    useTheme,
+    useMediaQuery
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-
-import MenuItem from '@mui/material/MenuItem';
 import { IoLogoOctocat } from "react-icons/io5";
-import { NavLink} from "react-router-dom";
-import {Breadcrumbs, FormControl, FormLabel, Link, Switch, useColorScheme} from "@mui/material";
-import {pages} from './route/router.config.js';
+import { NavLink } from "react-router-dom";
+import { pages } from './route/router.config.js';
 
-
-
-
-
+const StyledNavLink = ({ children, to }) => {
+    const theme = useTheme();
+    return (
+        <Link
+            component={NavLink}
+            to={to}
+            color="text.primary"
+            underline="none"
+            sx={{
+                px: 2,
+                py: 1,
+                borderRadius: 1,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                    bgcolor: theme.palette.mode === 'light' ? 'rgba(162, 217, 206, 0.1)' : 'rgba(162, 217, 206, 0.2)',
+                    transform: 'translateY(-2px)'
+                },
+                '&.active': {
+                    bgcolor: theme.palette.mode === 'light' ? 'rgba(162, 217, 206, 0.3)' : 'rgba(162, 217, 206, 0.4)',
+                    fontWeight: 'bold'
+                }
+            }}
+        >
+            {children}
+        </Link>
+    );
+};
 
 function ResponsiveAppBar() {
+    const theme = useTheme();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -30,117 +61,191 @@ function ResponsiveAppBar() {
         setAnchorElNav(null);
     };
 
-    const{mode,setMode} = useColorScheme()
-    const handleChange = () => {
-      setMode(mode ==="light"?"dark":"light");
-    }
-
-
-
     return (
-        <AppBar position="static" >
-            <Container maxWidth="xl">
-                <Toolbar disableGutters sx={{justifyContent: 'space-between'}}>
-                    <Typography
-                       variant="h6"
-                        noWrap
+        <AppBar
+            position="static"
+            elevation={0}
+            component="header"
+            sx={{
+                bgcolor: 'background.paper',
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                py: 1
+            }}
+        >
+            <Container maxWidth="xl" component="div">
+                <Toolbar
+                    disableGutters
+                    component="nav"
+                    sx={{
+                        justifyContent: 'space-between',
+                        '& > *': {
+                            minHeight: '64px',
+                            display: 'flex',
+                            alignItems: 'center'
+                        }
+                    }}
+                >
+                    {/* Desktop Logo */}
+                    <Box
                         component={NavLink}
                         to="/"
                         sx={{
-                            mr: 2,
                             display: { xs: 'none', md: 'flex' },
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
                             textDecoration: 'none',
+                            gap: 1,
+                            alignItems: 'center'
                         }}
                     >
-                        Nekopedia <IoLogoOctocat style={{ fontSize: '2rem' }} />
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon color="primary" />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
+                        <Typography
+                            component="span"
+                            variant="h6"
+                            sx={{
+                                background: 'linear-gradient(45deg, #A2D9CE 30%, #48C9B0 90%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                fontWeight: 800,
+                                letterSpacing: '0.3rem'
                             }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page.name} onClick={handleCloseNavMenu} component={NavLink} to={page.path}>
-                                    <Typography sx={{ textAlign: 'center' }} >{page.name}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
+                            Nekopedia
+                        </Typography>
+                        <IoLogoOctocat style={{ fontSize: '2rem', color: '#A2D9CE' }} />
                     </Box>
-                    <Typography
-                        variant="h5"
-                        noWrap
+
+                    {/* Mobile Menu */}
+                    {isMobile && (
+                        <>
+                            <IconButton
+                                size="large"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                                sx={{ mr: 1 }}
+                            >
+                                <MenuIcon sx={{ color: '#A2D9CE' }} />
+                            </IconButton>
+                            <Menu
+                                anchorEl={anchorElNav}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                slotProps={{
+                                    paper: {
+                                        elevation: 0,
+                                        sx: {
+                                            bgcolor: 'background.paper',
+                                            border: '1px solid',
+                                            borderColor: 'divider',
+                                            minWidth: 200,
+                                            mt: 1.5
+                                        }
+                                    }
+                                }}
+                            >
+                                {pages.map((page) => (
+                                    <MenuItem
+                                        key={page.name}
+                                        onClick={handleCloseNavMenu}
+                                        component={NavLink}
+                                        to={page.path}
+                                        sx={{
+                                            '&.active': {
+                                                bgcolor: 'rgba(162, 217, 206, 0.2)'
+                                            }
+                                        }}
+                                    >
+                                        <Typography component="span" variant="body2">
+                                            {page.name}
+                                        </Typography>
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </>
+                    )}
+
+                    {/* Mobile Logo */}
+                    <Box
                         component={NavLink}
                         to="/"
                         sx={{
-                            mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: '#A2D9CE',
                             textDecoration: 'none',
+                            gap: 1,
+                            alignItems: 'center'
                         }}
                     >
-                        Nekopedia
-                    </Typography>
+                        <Typography
+                            component="span"
+                            variant="h6"
+                            sx={{
+                                background: 'linear-gradient(45deg, #A2D9CE 30%, #48C9B0 90%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                fontWeight: 800,
+                                letterSpacing: '0.3rem'
+                            }}
+                        >
+                            Nekopedia
+                        </Typography>
+                    </Box>
 
-                        <Breadcrumbs sx={{"& .MuiBreadcrumbs-separator":{display:"none"}}}>
-                            {pages.map((page) => (
-                                <Link
-                                    underline={"hover"}
-                                    key={page.name}
-                                    to={page.path}
-                                    component={NavLink}
-                                    color="inherit"
-                                     >
-                                    {page.name}
-                                </Link>
-                            ))}
-                        </Breadcrumbs>
+                    {/* Desktop Navigation */}
+                    {!isMobile && (
+                        <Box component="div" sx={{ mx: 4 }}>
+                            <Breadcrumbs
+                                separator=""
+                                sx={{
+                                    '& .MuiBreadcrumbs-li': {
+                                        position: 'relative',
+                                        '&:after': {
+                                            content: '""',
+                                            position: 'absolute',
+                                            bottom: 0,
+                                            left: '50%',
+                                            width: 0,
+                                            height: 2,
+                                            bgcolor: '#A2D9CE',
+                                            transition: 'all 0.3s ease'
+                                        },
+                                        '&:hover:after': {
+                                            width: '100%',
+                                            left: 0
+                                        }
+                                    }
+                                }}
+                            >
+                                {pages.map((page) => (
+                                    <StyledNavLink key={page.name} to={page.path}>
+                                        {page.name}
+                                    </StyledNavLink>
+                                ))}
+                            </Breadcrumbs>
+                        </Box>
+                    )}
 
-
-                    <FormControl >
-                            <FormLabel id="demo-theme-toggle">
-                                <Switch
-                                        name="theme-toggle"
-                                        aria-labelledby="demo-theme-toggle"
-                                        value={mode}
-                                        onChange={handleChange}
-                                >
-
-                                </Switch>
-                            </FormLabel>
-                    </FormControl>
-
-
+                    {/* Theme Toggle */}
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                onChange={theme.toggleColorMode}
+                                checked={theme.palette.mode === 'dark'}
+                                sx={{
+                                    '& .MuiSwitch-thumb': {
+                                        color: '#A2D9CE'
+                                    },
+                                    '& .Mui-checked .MuiSwitch-thumb': {
+                                        color: '#A2D9CE'
+                                    }
+                                }}
+                            />
+                        }
+                        label={theme.palette.mode === 'light' ? 'Dark' : 'Light'}
+                        sx={{ m: 0 }}
+                    />
                 </Toolbar>
             </Container>
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;
