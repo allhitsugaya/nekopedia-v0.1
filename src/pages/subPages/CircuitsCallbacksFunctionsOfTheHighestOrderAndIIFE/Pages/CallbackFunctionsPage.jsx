@@ -1,21 +1,25 @@
 import React from 'react';
+import { Box, Paper } from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 
 const CallbackFunctionsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Функція-колбек: Основи та Асинхронність</h1>
-            <p>
-                Функції-колбеки є важливою концепцією в JavaScript, особливо у контексті асинхронного програмування та обробки подій. У цій доповіді ми детально розглянемо, що таке функції-колбеки, як їх використовувати та робити асинхронні виклики за допомогою них.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Функції-колбеки: Основи та Асинхронність</BookHeader>
 
-            <h2>Основи функцій-колбеків</h2>
-            <p>
+            <Paragraph>
+                Функції-колбеки є важливою концепцією в JavaScript, особливо у контексті асинхронного програмування та обробки подій. У цій доповіді ми детально розглянемо, що таке функції-колбеки, як їх використовувати та робити асинхронні виклики за допомогою них.
+            </Paragraph>
+
+            <SubHeader>Основи функцій-колбеків</SubHeader>
+            <Paragraph>
                 Функція-колбек - це функція, яка передається іншій функції як аргумент. Ця концепція є основою функцій вищого порядку, і вона дозволяє структурувати код та здійснювати динамічні виклики.
-            </p>
-            <pre>
-        <code>
-          {`
-function process(callback) {
+            </Paragraph>
+            <CodeBlock>
+                {`function process(callback) {
   // Виконуємо певні обчислення
   const result = 42;
   // Викликаємо колбек, передаючи результат
@@ -25,22 +29,18 @@ function process(callback) {
 // Виклик функції process з функцією-колбеком
 process(function (data) {
   console.log('Результат обробки: ' + data);
-});
-          `}
-        </code>
-      </pre>
-            <p>
+});`}
+            </CodeBlock>
+            <Paragraph>
                 У цьому прикладі <code>process</code> - це функція, яка приймає функцію-колбек <code>callback</code>. Після обчислення результату вона викликає колбек і передає йому результат.
-            </p>
+            </Paragraph>
 
-            <h2>Використання функцій-колбеків</h2>
-            <p>
+            <SubHeader>Використання функцій-колбеків</SubHeader>
+            <Paragraph>
                 Функції-колбеки широко використовуються в асинхронному програмуванні, такому як робота з таймерами, завантаженням файлів, запитами до сервера та іншими операціями, які займають час.
-            </p>
-            <pre>
-        <code>
-          {`
-// Асинхронний таймер
+            </Paragraph>
+            <CodeBlock>
+                {`// Асинхронний таймер
 setTimeout(function () {
   console.log('Таймер викликав цей колбек');
 }, 1000);
@@ -52,22 +52,18 @@ fetch('https://api.example.com/data')
   })
   .then(function (data) {
     console.log('Дані з сервера: ' + JSON.stringify(data));
-  });
-          `}
-        </code>
-      </pre>
-            <p>
+  });`}
+            </CodeBlock>
+            <Paragraph>
                 У цих прикладах ми бачимо, що функції-колбеки передаються до <code>setTimeout</code> та методів <code>then</code> об'єкта <code>Promise</code> для асинхронного коду.
-            </p>
+            </Paragraph>
 
-            <h2>Асинхронні колбеки</h2>
-            <p>
+            <SubHeader>Асинхронні колбеки</SubHeader>
+            <Paragraph>
                 Асинхронні функції-колбеки є потужним інструментом для управління асинхронним кодом та подіями. Вони використовуються для реалізації зворотного виклику, коли операція завершилася.
-            </p>
-            <pre>
-        <code>
-          {`
-function fetchData(url, callback) {
+            </Paragraph>
+            <CodeBlock>
+                {`function fetchData(url, callback) {
   // Симулюємо асинхронний запит до сервера
   setTimeout(function () {
     const data = { name: 'John', age: 30 };
@@ -78,24 +74,22 @@ function fetchData(url, callback) {
 // Виклик функції з асинхронним колбеком
 fetchData('https://api.example.com/user', function (user) {
   console.log('Отримані дані користувача: ' + JSON.stringify(user));
-});
-          `}
-        </code>
-      </pre>
-            <p>
+});`}
+            </CodeBlock>
+            <Paragraph>
                 У цьому прикладі <code>fetchData</code> симулює асинхронний запит та передає дані через колбек.
-            </p>
+            </Paragraph>
 
-            <div className='conclusion'>
-                <h2>Заключні слова</h2>
-                <p>
-                    Функції-колбеки є потужним інструментом в JavaScript для роботи з асинхронним кодом та обробки
-                    подій. Вони дозволяють створювати динамічні та гнучкі програми, які можуть взаємодіяти з подіями та
-                    асинхронними операціями. Розуміння цієї концепції є важливим для розвитку навичок програмування в
-                    JavaScript.
-                </p>
-            </div>
-        </div>
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }} className='conclusion'>
+                <SubHeader>Висновок</SubHeader>
+                <Paragraph>
+                    Функції-колбеки є потужним інструментом в JavaScript для роботи з асинхронним кодом та обробки подій. Вони дозволяють створювати динамічні та гнучкі програми, які можуть взаємодіяти з подіями та асинхронними операціями.
+                </Paragraph>
+                <Paragraph>
+                    Хоча сучасний JavaScript пропонує новіші підходи (як Promises та async/await), розуміння колбеків залишається важливим для роботи зі старим кодом та деякими API.
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

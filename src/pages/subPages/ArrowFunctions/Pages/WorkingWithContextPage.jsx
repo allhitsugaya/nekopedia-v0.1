@@ -1,84 +1,208 @@
 import React from 'react';
+import { Box, Typography, Paper, List, ListItem, ListItemText } from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from '../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../features/SubHeader/SubHeader.jsx';
 
 const WorkingWithContextPage = () => {
     return (
-        <div className="page-container">
-            <h1>Робота з Контекстом виклику</h1>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Робота з Контекстом виклику</BookHeader>
 
-            <h2>1. Використання this у методах об'єктів</h2>
-            <p>
-                У методах об'єктів <code>this</code> посилається на сам об'єкт, в якому метод був викликаний.
-            </p>
-            <pre>
-        <code>
-          {`
-const car = {
-  brand: 'Toyota',
-  model: 'Camry',
-  start: function() {
-    console.log(\`Starting \${this.brand} \${this.model}\`);
-  },
+            <Paragraph sx={{ mb: 4 }}>
+                Контекст виклику (<code>this</code>) - це одна з найпотужніших, але й найскладніших для розуміння концепцій JavaScript. У цьому розділі ми детально розглянемо практичні аспекти роботи з контекстом у різних ситуаціях.
+            </Paragraph>
+
+            <Box component="section" mb={6}>
+                <SubHeader>1. Контекст у методах об'єктів</SubHeader>
+                <Paragraph>
+                    У методах об'єктів <code>this</code> автоматично посилається на об'єкт, до якого належить метод:
+                </Paragraph>
+                <CodeBlock>
+                    {`const user = {
+  name: 'Anna',
+  age: 28,
+  introduce() {
+    console.log(\`Мене звати \${this.name}, мені \${this.age} років\`);
+  }
 };
 
-car.start(); // Starting Toyota Camry
-          `}
-        </code>
-      </pre>
+user.introduce(); // Мене звати Anna, мені 28 років`}
+                </CodeBlock>
 
-            <h2>2. Використання this в конструкторах</h2>
-            <p>
-                Контекст виклику може бути важливим при створенні об'єктів за допомогою конструктора. У конструкторах <code>this</code> посилається на новий об'єкт, який створюється.
-            </p>
-            <pre>
-        <code>
-          {`
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  this.sayHello = function() {
-    console.log(\`Hello, my name is \${this.name}, and I am \${this.age} years old.\`);
+                <Paragraph sx={{ mt: 2 }}>
+                    Важливо пам'ятати, що значення <code>this</code> визначається у момент виклику методу, а не його оголошення:
+                </Paragraph>
+                <CodeBlock>
+                    {`const intro = user.introduce;
+intro(); // Помилка! this буде undefined (у строгому режимі)`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={6}>
+                <SubHeader>2. Контекст у конструкторах та класах</SubHeader>
+                <Paragraph>
+                    У конструкторах функцій та класах ES6, <code>this</code> посилається на новостворений екземпляр:
+                </Paragraph>
+                <CodeBlock>
+                    {`function Car(brand, model) {
+  this.brand = brand;
+  this.model = model;
+  this.displayInfo = function() {
+    console.log(\`\${this.brand} \${this.model}\`);
   };
 }
 
-const person1 = new Person('Alice', 25);
-const person2 = new Person('Bob', 30);
+const myCar = new Car('Toyota', 'Camry');
+myCar.displayInfo(); // Toyota Camry`}
+                </CodeBlock>
 
-person1.sayHello(); // Hello, my name is Alice, and I am 25 years old.
-person2.sayHello(); // Hello, my name is Bob, and I am 30 years old.
-          `}
-        </code>
-      </pre>
+                <Paragraph sx={{ mt: 2 }}>
+                    У класах ES6 синтаксис більш сучасний, але принцип роботи <code>this</code> залишається таким самим:
+                </Paragraph>
+                <CodeBlock>
+                    {`class User {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  greet() {
+    console.log(\`Привіт, \${this.name}!\`);
+  }
+}
 
-            <h2>3. Використання bind для збереження контексту</h2>
-            <p>
-                Метод <code>bind</code> дозволяє зафіксувати контекст виклику функції, щоб він не змінювався при передачі функції як колбека або виклику в іншому контексті.
-            </p>
-            <pre>
-        <code>
-          {`
-const user = {
-  name: 'John',
-  logName: function() {
-    console.log(this.name);
-  },
+const user = new User('Марія');
+user.greet(); // Привіт, Марія!`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={6}>
+                <SubHeader>3. Явне зв'язування контексту</SubHeader>
+                <Paragraph>
+                    JavaScript надає три методи для явного управління контекстом:
+                </Paragraph>
+
+                <List sx={{ mb: 3 }}>
+                    <ListItem>
+                        <ListItemText
+                            primary="call() - викликає функцію з вказаним контекстом та аргументами"
+                            secondary="Функція викликається негайно"
+                        />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText
+                            primary="apply() - аналогічно call(), але аргументи передаються масивом"
+                            secondary="Корисно для функцій зі змінною кількістю аргументів"
+                        />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText
+                            primary="bind() - створює нову функцію з постійно прив'язаним контекстом"
+                            secondary="Функція не викликається негайно"
+                        />
+                    </ListItem>
+                </List>
+
+                <CodeBlock>
+                    {`const product = {
+  name: 'Телефон',
+  price: 10000,
+  getDescription(discount) {
+    return \`\${this.name}, ціна: \${this.price - discount} грн\`;
+  }
 };
 
-const button = document.getElementById('myButton');
-button.addEventListener('click', user.logName.bind(user));
-          `}
-        </code>
-      </pre>
+// Використання call
+console.log(product.getDescription.call(product, 500)); // Телефон, ціна: 9500 грн
 
-            <div className='conclusion'>
-                <h2>Заключення</h2>
-                <p>
-                    Розуміння контексту виклику є ключовим для ефективного використання JavaScript. Вивчення його різних
-                    аспектів, таких як глобальний контекст, контекст функцій та методи зміни контексту, допомагає
-                    розробникам використовувати цю особливість мови для досягнення кращої читабельності та ефективності
-                    свого коду.
-                </p>
-            </div>
-        </div>
+// Використання apply
+console.log(product.getDescription.apply(product, [500])); // Телефон, ціна: 9500 грн
+
+// Використання bind
+const getProductDesc = product.getDescription.bind(product);
+console.log(getProductDesc(500)); // Телефон, ціна: 9500 грн`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={6}>
+                <SubHeader>4. Практичні приклади використання</SubHeader>
+                <Paragraph>
+                    Розглянемо реальні сценарії, де контроль контексту є критично важливим:
+                </Paragraph>
+
+                <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+                    Обробка подій
+                </Typography>
+                <CodeBlock>
+                    {`class ButtonComponent {
+  constructor() {
+    this.text = 'Натисни мене';
+    this.button = document.getElementById('myButton');
+    this.button.addEventListener('click', this.handleClick.bind(this));
+  }
+  
+  handleClick() {
+    console.log(\`Кнопка з текстом: \${this.text} була натиснута\`);
+  }
+}`}
+                </CodeBlock>
+
+                <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
+                    Виклик методів з колбеками
+                </Typography>
+                <CodeBlock>
+                    {`const dataFetcher = {
+  data: [],
+  fetchData(callback) {
+    // Імітація асинхронного запиту
+    setTimeout(() => {
+      this.data = [1, 2, 3];
+      callback.call(this); // Передаємо поточний контекст
+    }, 1000);
+  },
+  displayData() {
+    console.log('Отримані дані:', this.data);
+  }
+};
+
+dataFetcher.fetchData(dataFetcher.displayData);`}
+                </CodeBlock>
+            </Box>
+
+            <Paper
+                component="section"
+                sx={{
+                    p: 4,
+                    backgroundColor: 'background.paper',
+                    borderRadius: 2,
+                    boxShadow: 3,
+                    borderLeft: '4px solid',
+                    borderColor: 'primary.main'
+                }}
+            >
+                <Box className='conclusion'>
+                    <SubHeader>Ключові висновки</SubHeader>
+                    <List>
+                        <ListItem>
+                            <ListItemText primary="Контекст виклику визначається способом виклику функції, а не її оголошення" />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Методи об'єктів автоматично отримують посилання на свій об'єкт через this" />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="Для збереження контексту використовуйте bind(), або стрілкові функції" />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemText primary="call() та apply() дозволяють викликати функції з явно вказаним контекстом" />
+                        </ListItem>
+                    </List>
+                    <Paragraph sx={{ mt: 2 }}>
+                        Правильне розуміння контексту виклику дозволить вам писати більш надійний та передбачуваний код, особливо при роботі з об'єктами, подіями та асинхронними операціями.
+                    </Paragraph>
+                </Box>
+            </Paper>
+        </Box>
     );
 };
 

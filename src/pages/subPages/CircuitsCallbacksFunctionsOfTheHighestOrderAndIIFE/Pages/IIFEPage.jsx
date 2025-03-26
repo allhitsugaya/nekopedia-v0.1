@@ -1,109 +1,158 @@
 import React from 'react';
+import { Box, Typography, Paper, ListItem, List } from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../features/Code/Code.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 
 const IIFEPage = () => {
     return (
-        <div className="page-container">
-            <h1>Функція, що самовикликається (IIFE)</h1>
-            <p>
-                Самовикликаючіся функції, також відомі як IIFE (Immediately Invoked Function Expressions), - це потужний інструмент в JavaScript, який дозволяє створювати функції та викликати їх безпосередньо після визначення. Ця техніка корисна для ізоляції змінних, створення приватних областей видимості та уникнення конфліктів імен. Тут розглянемо синтаксис IIFE та способи їх використання для створення приватних областей видимості в JavaScript.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Функції, що самовикликаються (IIFE)</BookHeader>
 
-            <h2>Синтаксис IIFE</h2>
-            <p>
-                IIFE - це функція, яка визначається та викликається одразу. Ось загальний синтаксис IIFE:
-            </p>
-            <pre>
-        <code>
-          {`
-(function () {
-  // код функції
+            <Paragraph>
+                Самовикликаючіся функції (IIFE - Immediately Invoked Function Expressions) - це фундаментальна концепція JavaScript, яка дозволяє виконувати функції негайно після їх оголошення. Ця техніка особливо корисна для створення ізольованих областей видимості та інкапсуляції коду.
+            </Paragraph>
+
+            <SubHeader>Синтаксис IIFE</SubHeader>
+            <Paragraph>
+                Базовий синтаксис IIFE складається з двох частин:
+            </Paragraph>
+            <CodeBlock>
+                {`(function() {
+  // Тіло функції
+})();`}
+            </CodeBlock>
+            <Paragraph>
+                Або з використанням стрілкової функції (ES6+):
+            </Paragraph>
+            <CodeBlock>
+                {`(() => {
+  // Тіло функції
+})();`}
+            </CodeBlock>
+            <Paragraph>
+                Функція огортається в дужки, що перетворює її у вираз функції, і негайно викликається за допомогою <Code>()</Code> в кінці.
+            </Paragraph>
+
+            <SubHeader>Основні випадки використання</SubHeader>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    1. Приватна область видимості
+                </Typography>
+                <Paragraph>
+                    IIFE створює замикання, що дозволяє мати приватні змінні:
+                </Paragraph>
+                <CodeBlock>
+                    {`(function() {
+  const privateVar = 'Доступно тільки тут';
+  console.log(privateVar); // Працює
 })();
-          `}
-        </code>
-      </pre>
-            <p>
-                Визначення функції розміщується в круглих дужках, що негайно викликають її для виконання. Функція може бути анонімною, тобто вона не має імені.
-            </p>
 
-            <h2>Використання IIFE для створення приватних областей видимості</h2>
-            <p>
-                Однією з ключових переваг IIFE є їх здатність створювати приватні області видимості для змінних. Це означає, що змінні, оголошені всередині IIFE, недоступні ззовні і не конфліктують з іншими змінними в глобальному контексті. Ось приклад:
-            </p>
-            <pre>
-        <code>
-          {`
-(function () {
-  var privateVariable = 'Ця змінна приватна';
-  // Отримання доступу до приватної змінної
-  console.log(privateVariable);
-})();
+console.log(privateVar); // Помилка: privateVar is not defined`}
+                </CodeBlock>
+            </Box>
 
-console.log(privateVariable); // Спроба доступу до privateVariable ззовні IIFE призведе до помилки:
-// Uncaught ReferenceError: privateVariable is not defined
-          `}
-        </code>
-      </pre>
-            <p>
-                В даному прикладі <code>privateVariable</code> є приватною змінною, доступною лише всередині IIFE. Це дозволяє уникнути конфліктів імен та зберегти дані відсутніми для зовнішнього світу.
-            </p>
-            <p>
-                IIFE також корисні для уникнення забруднення глобального об'єкту, оскільки змінні та функції, оголошені всередині IIFE, не забруднюють глобальний об'єкт <code>window</code> (у веб-середовищі) чи глобальний об'єкт <code>Node.js</code>.
-            </p>
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    2. Уникнення забруднення глобальної області
+                </Typography>
+                <Paragraph>
+                    IIFE допомагають уникати конфліктів імен у глобальній області:
+                </Paragraph>
+                <CodeBlock>
+                    {`// Без IIFE - змінні у глобальній області
+var count = 0;
 
-            <h2>Приклади використання IIFE</h2>
+// З IIFE - змінні інкапсульовані
+(function() {
+  var count = 0;
+  // Логіка роботи з count
+})();`}
+                </CodeBlock>
+            </Box>
 
-            <h3>1. Захист даних</h3>
-            <p>
-                Використання IIFE для захисту конфіденційних даних:
-            </p>
-            <pre>
-        <code>
-          {`
-(function () {
-  var secretKey = 'mySecretKey';
-  function encryptData(data) {
-    // Логіка шифрування з використанням secretKey
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    3. Модульний патерн
+                </Typography>
+                <Paragraph>
+                    IIFE дозволяють реалізувати модульний підхід до організації коду:
+                </Paragraph>
+                <CodeBlock>
+                    {`const myModule = (function() {
+  // Приватні змінні та функції
+  const privateData = 'hidden';
+  
+  function privateMethod() {
+    console.log('Цей метод приватний');
   }
-  // Захищені функції та дані
-})();
-          `}
-        </code>
-      </pre>
 
-            <h3>2. Модульний підхід</h3>
-            <p>
-                Використання IIFE для створення модульних компонентів коду:
-            </p>
-            <pre>
-        <code>
-          {`
-var myModule = (function () {
-  var privateVar = 'Це приватна змінна';
-
-  function privateFunction() {
-    // Приватна функція
-  }
-
+  // Публічний API
   return {
-    publicVar: 'Це публічна змінна',
-    publicFunction: function () {
-      // Публічна функція
-    },
+    publicMethod: function() {
+      privateMethod();
+      return 'Доступ до: ' + privateData;
+    }
   };
 })();
-          `}
-        </code>
-      </pre>
 
-            <div className='conclusion'>
-                <h2>Заключення</h2>
-                <p>
-                    IIFE є потужним інструментом в JavaScript, який дозволяє створювати приватні області видимості та
-                    захищати дані від неповноважних доступів. Вони знаходять застосування в багатьох аспектах розробки,
-                    допомагаючи створювати надійний та організований код.
-                </p>
-            </div>
-        </div>
+myModule.publicMethod(); // Виклик публічного методу`}
+                </CodeBlock>
+            </Box>
+
+            <SubHeader>Розширені приклади</SubHeader>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    1. IIFE з параметрами
+                </Typography>
+                <Paragraph>
+                    Можна передавати параметри в IIFE:
+                </Paragraph>
+                <CodeBlock>
+                    {`(function(window, document) {
+  // Робота з window і document
+  console.log('DOM ready');
+})(window, document);`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    2. Асинхронні IIFE
+                </Typography>
+                <Paragraph>
+                    Можна використовувати IIFE з async/await:
+                </Paragraph>
+                <CodeBlock>
+                    {`(async function() {
+  const data = await fetchData();
+  console.log(data);
+})();`}
+                </CodeBlock>
+            </Box>
+
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }}>
+                <SubHeader>Сучасні альтернативи</SubHeader>
+                <Paragraph>
+                    У сучасному JavaScript (ES6+) існують альтернативи IIFE:
+                </Paragraph>
+                <List>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        <Code>Блоки {}</Code> з <Code>let/const</Code> (створюють блокову область видимості)
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        <Code>Модулі ES6</Code> (нативна інкапсуляція коду)
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    Однак IIFE все ще залишаються корисними для специфічних випадків використання та підтримки старого коду.
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

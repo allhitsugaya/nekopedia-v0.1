@@ -1,18 +1,19 @@
+import { createTheme, ThemeProvider, Box, CssBaseline } from "@mui/material";
+import { useState, useMemo } from "react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
-import {Outlet} from "react-router";
-import {createTheme, ThemeProvider} from "@mui/material";
+import { Outlet } from "react-router";
 
+const Layout = () => {
+    const [mode, setMode] = useState('dark');
 
-
-const appTheme = createTheme({
-    colorSchemes: {
-        light: {
-            palette: {
+    const theme = useMemo(() => createTheme({
+        palette: {
+            mode,
+            ...(mode === 'light' ? {
                 primary: {
                     dark: "#628e85",
                     main: "#A2D9CE",
-
                 },
                 secondary: {
                     main: "#A2D9CE",
@@ -20,26 +21,14 @@ const appTheme = createTheme({
                     contrastText: "#111"
                 },
                 background: {
-                  default: "#D3D3D3",
-                  paper: "#FFFFFF",
+                    default: "#D3D3D3",
+                    paper: "#FFFFFF",
                 },
                 text: {
                     primary: "#111",
                     secondary: "#111",
                 }
-            },
-            components:{
-                MuiSvgIcon:{
-                    styleOverrides: {
-                        root: {
-                            color:"#111"
-                        }
-                    }
-                }
-            }
-        },
-        dark: {
-            palette: {
+            } : {
                 primary: {
                     dark: '#628e85',
                     main: '#A2D9CE',
@@ -57,39 +46,44 @@ const appTheme = createTheme({
                     primary: "#FFF",
                     secondary: "#FFF",
                 },
-            },
-            components:{
-                MuiSvgIcon:{
-                    styleOverrides: {
-                        root:{
-                            color: "#A2D9CE",
-                        }
+            })
+        },
+        components: {
+            MuiTypography: {
+                styleOverrides: {
+                    root: {
+                        fontFamily: ["Nunito Sans", "sans-serif"].join(",")
                     }
                 }
             }
         }
-    },
-    components:{
-        MuiTypography:{
-            styleOverrides:{
-                root:{
-                    fontFamily: ["Nunito Sans","sans-serif"].join(",")
-                }
-            }
-        }
-    }
-});
+    }), [mode]);
 
+    const toggleColorMode = () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    };
 
-const Layout = () => {
     return (
-        <>
-            <ThemeProvider theme={appTheme} defaultMode="dark">
-                <Navbar/>
-                <Outlet/>
-                <Footer/>
-            </ThemeProvider>
-        </>
-    )
-}
-export default Layout
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Box sx={{
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
+                <Navbar toggleColorMode={toggleColorMode} />
+                <Box component="main" sx={{ flexGrow: 1, pb: 8 }}>
+                    <Outlet />
+                </Box>
+                <Footer sx={{
+                    position: 'fixed',
+                    bottom: 0,
+                    width: '100%',
+                    zIndex: 1000
+                }} />
+            </Box>
+        </ThemeProvider>
+    );
+};
+
+export default Layout;

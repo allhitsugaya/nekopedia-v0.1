@@ -1,102 +1,152 @@
 import React from 'react';
+import { Box, Typography, Paper, List, ListItem } from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 
 const PureFunctionsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Чисті функції</h1>
-            <p>
-                Чисті функції є фундаментальним поняттям в програмуванні, особливо в JavaScript. Це функції, які мають певні властивості, спрощуючи розробку, розуміння і тестування коду.
-            </p>
-            <p>
-                Використовуючи чисті функції, можна забезпечити більшу стабільність, легкість розуміння і підтримки коду, що робить їх важливою концепцією в розробці програмного забезпечення.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Чисті функції в JavaScript</BookHeader>
 
-            <h2>Основні характеристики чистих функцій</h2>
-            <p>
-                Ось основні характеристики чистих функцій:
-            </p>
+            <Paragraph>
+                Чисті функції є фундаментальною концепцією функціонального програмування, яка спрощує розробку, тестування та підтримку коду завдяки своїй передбачуваності та відсутності побічних ефектів.
+            </Paragraph>
 
-            <h3>1. Детермінованість</h3>
-            <p>
-                Чиста функція завжди повертає однаковий результат для однакових вхідних даних. Немає впливу зовнішнього стану або змінних.
-            </p>
-            <pre>
-        <code>
-          {`
-function add(a, b) {
-  return a + b;
-}
-          `}
-        </code>
-      </pre>
+            <SubHeader>Ознаки чистих функцій</SubHeader>
 
-            <h3>2. Без побічних ефектів</h3>
-            <p>
-                Це означає, що чиста функція не змінює стану програми і не виконує операцій, які впливають на зовнішнє середовище. Вона лише обчислює результат і повертає його.
-            </p>
-            <pre>
-        <code>
-          {`
-let x = 10;
-
-function double(n) {
-  return n * 2;
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    1. Детермінованість
+                </Typography>
+                <Paragraph>
+                    Чиста функція завжди повертає однаковий результат для однакових вхідних даних:
+                </Paragraph>
+                <CodeBlock>
+                    {`function square(x) {
+  return x * x;
 }
 
-let result = double(x); // result = 20, x не змінюється
-          `}
-        </code>
-      </pre>
+console.log(square(5)); // 25 (завжди)`}
+                </CodeBlock>
+                <Paragraph>
+                    На відміну від нечистої функції:
+                </Paragraph>
+                <CodeBlock>
+                    {`function randomSquare(x) {
+  return x * x * Math.random(); // Різний результат кожного разу
+}`}
+                </CodeBlock>
+            </Box>
 
-            <h3>3. Без побічних ефектів вводу-виводу</h3>
-            <p>
-                Чисті функції не залежать від зовнішніх джерел даних, таких як файли, мережа або консольний вивід.
-            </p>
-            <pre>
-        <code>
-          {`
-function fetchData() {
-  // Ця функція не є чистою, оскільки залежить від зовнішнього ресурсу
-  return fetch('https://example.com/data.json').then(response => response.json());
-}
-          `}
-        </code>
-      </pre>
-
-            <h3>4. Незалежність від порядку</h3>
-            <p>
-                Результат виконання чистої функції не залежить від порядку виклику функцій або інших операцій у програмі.
-            </p>
-            <pre>
-        <code>
-          {`
-function add(a, b) {
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    2. Відсутність побічних ефектів
+                </Typography>
+                <Paragraph>
+                    Чисті функції не змінюють зовнішній стан:
+                </Paragraph>
+                <CodeBlock>
+                    {`// Чиста функція
+function sum(a, b) {
   return a + b;
 }
 
-let sum1 = add(2, 3); // sum1 = 5
-let sum2 = add(3, 2); // sum2 = 5, порядок не має значення
-          `}
-        </code>
-      </pre>
+// Нечиста функція (змінює зовнішню змінну)
+let total = 0;
+function addToTotal(amount) {
+  total += amount; // Побічний ефект
+  return total;
+}`}
+                </CodeBlock>
+            </Box>
 
-            <h3>5. Чудова тестируваність</h3>
-            <p>
-                Чисті функції легше тестувати, оскільки їх результати передбачувані та не залежать від зовнішніх умов.
-            </p>
-            <pre>
-        <code>
-          {`
-function isEven(number) {
-  return number % 2 === 0;
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    3. Незалежність від зовнішнього стану
+                </Typography>
+                <Paragraph>
+                    Чисті функції не покладаються на зовнішні змінні:
+                </Paragraph>
+                <CodeBlock>
+                    {`// Нечиста функція (залежить від зовнішньої змінної)
+let taxRate = 0.2;
+function calculateTax(amount) {
+  return amount * taxRate;
 }
 
-console.log(isEven(4)); // true
-console.log(isEven(7)); // false
-          `}
-        </code>
-      </pre>
-        </div>
+// Чиста функція
+function calculatePureTax(amount, rate) {
+  return amount * rate;
+}`}
+                </CodeBlock>
+            </Box>
+
+            <SubHeader>Переваги чистих функцій</SubHeader>
+            <List sx={{ mb: 3 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Легкість тестування:</Typography> Не потрібні складні налаштування середовища
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Передбачуваність:</Typography> Менше несподіваних помилок
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Можливість кешування:</Typography> Мемоізація результатів
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Паралельне виконання:</Typography> Без ризику конфліктів
+                </ListItem>
+            </List>
+
+            <SubHeader>Приклади використання</SubHeader>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    1. Обробка даних
+                </Typography>
+                <CodeBlock>
+                    {`// Чиста функція для фільтрації
+function filterByLength(words, minLength) {
+  return words.filter(word => word.length >= minLength);
+}`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    2. Математичні операції
+                </Typography>
+                <CodeBlock>
+                    {`// Чиста функція для факторіалу
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}`}
+                </CodeBlock>
+            </Box>
+
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }} className='conclusion'>
+                <SubHeader>Висновок</SubHeader>
+                <Paragraph>
+                    Використання чистих функцій є важливою практикою сучасного JavaScript. Вони допомагають:
+                </Paragraph>
+                <List>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Покращити читабельність та підтримку коду
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Зробити код більш передбачуваним і менш схильним до помилок
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Спростити тестування та рефакторинг
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    Хоча не завжди можна використовувати чисті функції для всіх задач (наприклад, для роботи з DOM або мережевими запитами), їх слід застосовувати там, де це можливо.
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

@@ -1,71 +1,75 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import BookHeader from '../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const BasicsOfDOM = () => {
     return (
-        <div>
-            <h1>Основи DOM</h1>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Основи DOM</BookHeader>
 
-            <h2>Що таке DOM (Document Object Model)?</h2>
-            <p>
+            <SubHeader>Що таке DOM (Document Object Model)?</SubHeader>
+            <Paragraph>
                 DOM, або Document Object Model (Модель Об'єктів Документу), - це інтерфейс програмування, який представляє структуру і контент веб-сторінки як деревоподібну колекцію об'єктів. Ця модель дозволяє розробникам легко отримувати доступ до структури та вмісту веб-сторінок, а також змінювати їх з використанням скриптів.
-            </p>
+            </Paragraph>
 
-            <h2>Роль DOM у веб-розробці</h2>
-            <p>
+            <SubHeader>Роль DOM у веб-розробці</SubHeader>
+            <Paragraph>
                 DOM є фундаментальною частиною веб-розробки, оскільки він дозволяє JavaScript взаємодіяти з веб-сторінкою. Він визначає, як браузер представляє HTML-документи, і це робить їх доступними для програмного змінення. Будь-які зміни, які ви бачите на сторінці після завантаження, зазвичай викликані JavaScript, який змінює DOM.
-            </p>
+            </Paragraph>
 
-            <h2>Представлення HTML-сторінки в об'єктному дереві</h2>
-            <p>
-                HTML-сторінка представлена у вигляді дерева об'єктів DOM, де кожен елемент сторінки, такий як <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;a&gt;</code>, є об'єктом DOM. Ці об'єкти вкладені один в одного в ієрархічному порядку від кореня документа до листя.
-            </p>
+            <SubHeader>Представлення HTML-сторінки в об'єктному дереві</SubHeader>
+            <Paragraph>
+                HTML-сторінка представлена у вигляді дерева об'єктів DOM, де кожен елемент сторінки, такий як <Code>&lt;body&gt;</Code>, <Code>&lt;p&gt;</Code>, <Code>&lt;a&gt;</Code>, є об'єктом DOM. Ці об'єкти вкладені один в одного в ієрархічному порядку від кореня документа до листя.
+            </Paragraph>
 
-            <pre>
-        <code>
-          {`
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <title>Приклад DOM</title>
-            </head>
-            <body>
-              <h1>Вітаємо в світі DOM!</h1>
-              <p>Це приклад сторінки.</p>
-              <a href="#">Посилання</a>
-            </body>
-          </html>
-          `}
-        </code>
-      </pre>
+            <CodeBlock>
+                {`
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Приклад DOM</title>
+  </head>
+  <body>
+    <h1>Вітаємо в світі DOM!</h1>
+    <p>Це приклад сторінки.</p>
+    <a href="#">Посилання</a>
+  </body>
+</html>
+                `}
+            </CodeBlock>
 
-            <h2>Ієрархічна природа DOM та взаємозв'язки</h2>
-            <p>
-                DOM має ієрархічну природу, що означає, що об'єкти розташовані в дереві відповідно до їх вкладеності в HTML-сторінці. Наприклад, <code>&lt;p&gt;</code> є дочірнім елементом <code>&lt;body&gt;</code>. Це розташування вказує на ієрархічні відносини.
-            </p>
+            <SubHeader>Ієрархічна природа DOM та взаємозв'язки</SubHeader>
+            <Paragraph>
+                DOM має ієрархічну природу, що означає, що об'єкти розташовані в дереві відповідно до їх вкладеності в HTML-сторінці. Наприклад, <Code>&lt;p&gt;</Code> є дочірнім елементом <Code>&lt;body&gt;</Code>. Це розташування вказує на ієрархічні відносини.
+            </Paragraph>
 
-            <h3>Зміна елементів DOM за допомогою JavaScript</h3>
-            <p>
-                Ви можете отримати доступ до елементів і їх властивостей, використовуючи JavaScript. Наприклад, ви можете знайти та змінити текст <code>&lt;h1&gt;</code> так:
-            </p>
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 600, mt: 3, mb: 2 }}>
+                Зміна елементів DOM за допомогою JavaScript
+            </Typography>
+            <Paragraph>
+                Ви можете отримати доступ до елементів і їх властивостей, використовуючи JavaScript. Наприклад, ви можете знайти та змінити текст <Code>&lt;h1&gt;</Code> так:
+            </Paragraph>
 
-            <pre>
-        <code>
-          {`
-          const title = document.querySelector("h1");
-          title.textContent = "Новий заголовок!";
-          `}
-        </code>
-      </pre>
+            <CodeBlock>
+                {`
+const title = document.querySelector("h1");
+title.textContent = "Новий заголовок!";
+                `}
+            </CodeBlock>
 
-            <p>
+            <Paragraph>
                 DOM також підтримує події, такі як кліки та наведення, які дозволяють реагувати на взаємодію користувача зі сторінкою.
-            </p>
+            </Paragraph>
 
-            <p>
+            <Paragraph>
                 Це базові концепції, які стосуються DOM у веб-розробці та допомагають розуміти, як ви можете взаємодіяти з веб-сторінкою за допомогою JavaScript.
-            </p>
-        </div>
+            </Paragraph>
+        </Box>
     );
-}
+};
 
 export default BasicsOfDOM;

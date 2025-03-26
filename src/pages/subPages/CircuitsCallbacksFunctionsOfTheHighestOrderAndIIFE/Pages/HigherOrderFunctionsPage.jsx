@@ -1,116 +1,174 @@
 import React from 'react';
+import { Box, Typography, Paper, List, ListItem } from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 
 const HigherOrderFunctionsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Функція вищого порядку</h1>
-            <p>
-                Функції вищого порядку - це потужний інструмент в мові програмування JavaScript, який дозволяє працювати з функціями як зі звичайними даними. Ці функції можуть приймати інші функції як аргументи, повертати функції як результати і використовувати їх для створення більш складних алгоритмів. У цій доповіді ми розглянемо основні концепції функцій вищого порядку та їх використання для обробки масивів у JavaScript.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Функції вищого порядку в JavaScript</BookHeader>
 
-            <h2>Що таке функції вищого порядку?</h2>
-            <p>
-                Функції вищого порядку (higher-order functions) - це функції, які приймають одну або декілька інших функцій як аргументи і/або повертають функції як результат своєї роботи. Функції вищого порядку є потужним інструментом в функціональному програмуванні і в JavaScript загалом, оскільки вони дозволяють створювати більш абстрактний та зрозумілий код.
-            </p>
-            <p>
-                Основні характеристики функцій вищого порядку:
-            </p>
-            <ul>
-                <li>
-                    <strong>Прийом функцій як аргументів:</strong> Функція вищого порядку може приймати інші функції як параметри. Це дозволяє передавати логіку обробки даних в якості аргументу.
-                </li>
-                <li>
-                    <strong>Повернення функцій:</strong> Функція вищого порядку може повертати іншу функцію як результат своєї роботи. Це дозволяє створювати інші функції "на льоту" залежно від умов або потреби.
-                </li>
-                <li>
-                    <strong>Маніпуляція функціями:</strong> Функції вищого порядку можуть виконувати різні операції з функціями, такі як композиція, каррінг, фільтрація, мапування тощо.
-                </li>
-                <li>
-                    <strong>Абстракція:</strong> Вони дозволяють абстрагуватися від конкретних операцій та дій, що роблять функції більш універсальними та повторно використовуваними.
-                </li>
-                <li>
-                    <strong>Підвищення зрозумілості коду:</strong> Використання функцій вищого порядку може покращити зрозумілість та читабельність коду, оскільки вони дозволяють виразити логіку більш декларативним способом.
-                </li>
-            </ul>
+            <Paragraph>
+                Функції вищого порядку - це потужний інструмент в JavaScript, який дозволяє працювати з функціями як зі звичайними даними. Ці функції можуть приймати інші функції як аргументи, повертати функції як результати і використовувати їх для створення більш складних алгоритмів.
+            </Paragraph>
 
-            <h2>Використання функцій вищого порядку для обробки масивів</h2>
-            <p>
-                Одним із найпоширеніших використань функцій вищого порядку у JavaScript є їх застосування до обробки масивів. Декілька основних методів масивів, які використовують функції вищого порядку:
-            </p>
+            <SubHeader>Що таке функції вищого порядку?</SubHeader>
+            <Paragraph>
+                Функції вищого порядку (higher-order functions) - це функції, які:
+            </Paragraph>
+            <List sx={{ mb: 3 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Приймають інші функції як аргументи
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Повертають функції як результат
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Дозволяють маніпулювати поведінкою інших функцій
+                </ListItem>
+            </List>
 
-            <h3>1. map()</h3>
-            <p>
-                Цей метод створює новий масив, застосовуючи задану функцію до кожного елемента початкового масиву. Наприклад, для подвоєння значень масиву можна використовувати такий код:
-            </p>
-            <pre>
-        <code>
-          {`
-const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(function (number) {
-  return number * 2;
-});
-// doubled стає [2, 4, 6, 8, 10]
-          `}
-        </code>
-      </pre>
+            <SubHeader>Переваги функцій вищого порядку</SubHeader>
+            <Paragraph>
+                Основні переваги використання функцій вищого порядку:
+            </Paragraph>
+            <List sx={{ mb: 3 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Абстракція:</Typography> Приховують деталі реалізації, роблячи код більш зрозумілим
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Повторне використання:</Typography> Дозволяють уникнути дублювання коду
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Композиція:</Typography> Дозволяють комбінувати прості функції у складніші
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Декларативність:</Typography> Роблять код більш читабельним
+                </ListItem>
+            </List>
 
-            <h3>2. filter()</h3>
-            <p>
-                Цей метод створює новий масив, включаючи тільки ті елементи, для яких задана функція повертає <code>true</code>. Наприклад, для відфільтровування парних чисел з масиву:
-            </p>
-            <pre>
-        <code>
-          {`
-const numbers = [1, 2, 3, 4, 5];
-const evens = numbers.filter(function (number) {
-  return number % 2 === 0;
-});
-// evens стає [2, 4]
-          `}
-        </code>
-      </pre>
+            <SubHeader>Приклади функцій вищого порядку</SubHeader>
+            <Paragraph>
+                Ось приклад простої функції вищого порядку, яка приймає функцію як аргумент:
+            </Paragraph>
+            <CodeBlock>
+                {`function greet(name, formatter) {
+  return formatter(name);
+}
 
-            <h3>3. reduce()</h3>
-            <p>
-                Цей метод застосовує задану функцію до всіх елементів масиву та акумулює результати в одне значення. Наприклад, для обчислення суми елементів масиву:
-            </p>
-            <pre>
-        <code>
-          {`
-const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce(function (accumulator, currentValue) {
-  return accumulator + currentValue;
-}, 0);
-// sum буде рівним 15
-          `}
-        </code>
-      </pre>
+function upperCaseName(name) {
+  return name.toUpperCase();
+}
 
-            <h3>4. forEach()</h3>
-            <p>
-                Цей метод виконує задану функцію для кожного елемента масиву, але не створює нового масиву. Він використовується для виконання певних дій для кожного елемента масиву.
-            </p>
-            <pre>
-        <code>
-          {`
-const numbers = [1, 2, 3, 4, 5];
-numbers.forEach(function (number) {
-  console.log(number);
-});
-// Виведе числа в консоль
-          `}
-        </code>
-      </pre>
+console.log(greet('John', upperCaseName)); // "JOHN"`}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Заключення</h2>
-                <p>
-                    Функції вищого порядку роблять обробку даних більш зручною, читабельною та ефективною, дозволяючи
-                    виконувати операції над масивами без необхідності писати довгий та складний код. Вони є потужним
-                    інструментом для роботи з даними в JavaScript і допомагають підвищити продуктивність та якість коду.
-                </p>
-            </div>
-        </div>
+            <SubHeader>Функції вищого порядку для роботи з масивами</SubHeader>
+            <Paragraph>
+                JavaScript має вбудовані функції вищого порядку для роботи з масивами:
+            </Paragraph>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    1. Метод map()
+                </Typography>
+                <Paragraph>
+                    Створює новий масив, трансформуючи кожен елемент:
+                </Paragraph>
+                <CodeBlock>
+                    {`const numbers = [1, 2, 3];
+const squares = numbers.map(x => x * x);
+console.log(squares); // [1, 4, 9]`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    2. Метод filter()
+                </Typography>
+                <Paragraph>
+                    Фільтрує елементи масиву за певною умовою:
+                </Paragraph>
+                <CodeBlock>
+                    {`const numbers = [1, 2, 3, 4, 5];
+const evens = numbers.filter(x => x % 2 === 0);
+console.log(evens); // [2, 4]`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    3. Метод reduce()
+                </Typography>
+                <Paragraph>
+                    Зводить масив до одного значення:
+                </Paragraph>
+                <CodeBlock>
+                    {`const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((acc, x) => acc + x, 0);
+console.log(sum); // 10`}
+                </CodeBlock>
+            </Box>
+
+            <Box component="section" mb={4}>
+                <Typography variant="h5" component="h3" gutterBottom>
+                    4. Метод sort()
+                </Typography>
+                <Paragraph>
+                    Сортує масив за допомогою функції порівняння:
+                </Paragraph>
+                <CodeBlock>
+                    {`const users = [
+  { name: 'John', age: 30 },
+  { name: 'Jane', age: 25 }
+];
+
+users.sort((a, b) => a.age - b.age);
+console.log(users); // Сортовано за віком`}
+                </CodeBlock>
+            </Box>
+
+            <SubHeader>Створення власних функцій вищого порядку</SubHeader>
+            <Paragraph>
+                Ви можете створювати свої власні функції вищого порядку:
+            </Paragraph>
+            <CodeBlock>
+                {`function createMultiplier(multiplier) {
+  return function(x) {
+    return x * multiplier;
+  };
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5)); // 10
+console.log(triple(5)); // 15`}
+            </CodeBlock>
+
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }} className='conclusion'>
+                <SubHeader>Висновок</SubHeader>
+                <Paragraph>
+                    Функції вищого порядку є потужним інструментом у JavaScript, який дозволяє:
+                </Paragraph>
+                <List>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Писати більш абстрактний та універсальний код
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Ефективно працювати з масивами та колекціями даних
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Реалізовувати патерни функціонального програмування
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    Використання функцій вищого порядку є основою сучасного JavaScript та таких бібліотек як React, Redux та Lodash.
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

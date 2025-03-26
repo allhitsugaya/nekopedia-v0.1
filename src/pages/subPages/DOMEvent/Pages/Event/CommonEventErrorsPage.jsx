@@ -1,37 +1,43 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import BookHeader from '../../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import Code from '../../../../../features/Code/Code.jsx';
 
 const CommonEventErrorsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Часті Помилки під час Роботи з Подіями</h1>
-            <p>
-                При роботі з подіями в JavaScript, існують певні загальні помилки, на які варто звертати увагу, щоб забезпечити стабільну та надійну роботу вашого додатку. Ось декілька з них:
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Часті Помилки під час Роботи з Подіями</BookHeader>
 
-            <h2>1. Не перевіряти наявність елементів перед додаванням обробника подій</h2>
-            <p>
+            <Paragraph>
+                При роботі з подіями в JavaScript, існують певні загальні помилки, на які варто звертати увагу, щоб забезпечити стабільну та надійну роботу вашого додатку. Ось декілька з них:
+            </Paragraph>
+
+            <SubHeader>1. Не перевіряти наявність елементів перед додаванням обробника подій</SubHeader>
+            <Paragraph>
                 Якщо ви намагаєтеся додати обробник події до неіснуючого елемента, це призведе до помилки. Щоб уникнути цього, завжди перевіряйте наявність елемента перед додаванням обробника подій. Проте це не завжди доречно:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 const button = document.querySelector('#myButton');
 if (button) {
   button.addEventListener('click', function() {
     alert('Кнопку натиснули!');
   });
 }
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>2. Використання неправильного синтаксису обробника</h2>
-            <p>
+            <SubHeader>2. Використання неправильного синтаксису обробника</SubHeader>
+            <Paragraph>
                 Помилки в синтаксисі обробника можуть призвести до того, що подія не буде оброблена. Всі обробники повинні бути функціями.
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 // Помилково
 button.addEventListener('click', 'некоректний обробник');
 
@@ -39,17 +45,16 @@ button.addEventListener('click', 'некоректний обробник');
 button.addEventListener('click', function() {
   alert('Кнопку натиснули!');
 });
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>3. Незвільнення ресурсів</h2>
-            <p>
+            <SubHeader>3. Незвільнення ресурсів</SubHeader>
+            <Paragraph>
                 Якщо ви додаєте багато обробників подій до одного елемента і не звільняєте їх, це може спричинити витоки пам'яті. Переконайтесь, що ви видаляєте обробники, коли вони більше не потрібні.
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 function handleClick() {
   alert('Кнопку натиснули!');
 }
@@ -58,35 +63,35 @@ button.addEventListener('click', handleClick);
 
 // Потрібно видалити обробник, коли він більше не потрібен
 button.removeEventListener('click', handleClick);
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>4. Запобігання спливанню подій</h2>
-            <p>
-                Події в JavaScript можуть спливати вгору по DOM-дереву, викликаючи обробники на батьківських елементах. Іноді це може призвести до несподіваних результатів. Використовуйте метод <code>stopPropagation</code>, щоб зупинити спливання подій, якщо це необхідно.
-            </p>
-            <pre>
-        <code>
-          {`
+            <SubHeader>4. Запобігання спливанню подій</SubHeader>
+            <Paragraph>
+                Події в JavaScript можуть спливати вгору по DOM-дереву, викликаючи обробники на батьківських елементах. Іноді це може призвести до несподіваних результатів. Використовуйте метод <Code>stopPropagation</Code>, щоб зупинити спливання подій, якщо це необхідно.
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 button.addEventListener('click', function(event) {
   event.stopPropagation();
   alert('Кнопку натиснули!');
 });
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Висновок</h2>
-                <p>
+            <Box sx={{ mt: 4 }}>
+                <Typography variant="h5" component="h2" gutterBottom>
+                    Висновок
+                </Typography>
+                <Paragraph>
                     Робота з подіями - це важливий аспект розробки веб-додатків. Правильна обробка різних типів подій і
                     уникнення поширених помилок допомагає забезпечити стабільну та функціональну роботу вашого додатку.
                     Знання різних типів подій і їх обробки допомагає створювати веб-додатки, які взаємодіють з
                     користувачем ефективно та інтуїтивно.
-                </p>
-            </div>
-        </div>
+                </Paragraph>
+            </Box>
+        </Box>
     );
 };
 

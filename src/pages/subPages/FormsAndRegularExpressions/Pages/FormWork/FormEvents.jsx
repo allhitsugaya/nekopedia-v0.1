@@ -1,39 +1,45 @@
 import React from 'react';
+import { Box, Typography, List, ListItem } from '@mui/material';
+import BookHeader from '../../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
 
 const FormEvents = () => {
     return (
-        <div className="page-container">
-            <h1>Події елементів форми</h1>
-            <p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Події елементів форми</BookHeader>
+
+            <Paragraph>
                 JavaScript дозволяє створювати інтерактивні форми, які реагують на події, такі як натискання кнопки, введення тексту або відправка даних. Один з найпоширеніших способів використання подій на елементах форми - це валідація даних, які користувач вводить. Наприклад, ми можемо перевіряти, чи правильно користувач ввів свою адресу електронної пошти.
-            </p>
+            </Paragraph>
 
-            <h2>Типи подій форми</h2>
-            <ul>
-                <li>
-                    <strong>click:</strong> Спрацьовує при натисканні на елемент.
-                </li>
-                <li>
-                    <strong>submit:</strong> Спрацьовує при відправці форми. Це дозволяє валідувати введені дані перед їх відправкою.
-                </li>
-                <li>
-                    <strong>input:</strong> Спрацьовує при введенні даних в текстове поле або інший елемент.
-                </li>
-                <li>
-                    <strong>change:</strong> Спрацьовує при зміні значення елемента, такого як <code>&lt;select&gt;</code>.
-                </li>
-                <li>
-                    <strong>focus:</strong> Спрацьовує при фокусуванні на елементі, наприклад, коли користувач клікає на текстовому полі.
-                </li>
-            </ul>
+            <SubHeader>Типи подій форми</SubHeader>
+            <List sx={{ mb: 2 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">click:</Typography> Спрацьовує при натисканні на елемент.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">submit:</Typography> Спрацьовує при відправці форми. Це дозволяє валідувати введені дані перед їх відправкою.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">input:</Typography> Спрацьовує при введенні даних в текстове поле або інший елемент.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">change:</Typography> Спрацьовує при зміні значення елемента, такого як <Code>&lt;select&gt;</Code>.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">focus:</Typography> Спрацьовує при фокусуванні на елементі, наприклад, коли користувач клікає на текстовому полі.
+                </ListItem>
+            </List>
 
-            <h2>Приклад №1</h2>
-            <p>
-                Для навішування обробників подій на елементи форми ми використовуємо <code>addEventListener</code>. Ось приклад додавання обробника події до значення яке вводить користувач:
-            </p>
-            <pre>
-                <code>
-                    {`
+            <SubHeader>Приклад №1</SubHeader>
+            <Paragraph>
+                Для навішування обробників подій на елементи форми ми використовуємо <Code>addEventListener</Code>. Ось приклад додавання обробника події до значення яке вводить користувач:
+            </Paragraph>
+            <CodeBlock>
+                {`
 <!doctype html>
 <html lang="en">
 <head>
@@ -66,43 +72,41 @@ const FormEvents = () => {
 </script>
 </body>
 </html>
-                    `}
-                </code>
-            </pre>
-            <p>
+                `}
+            </CodeBlock>
+            <Paragraph>
                 Отже, цей код дозволяє валідувати введену адресу електронної пошти на наявність символу '@' і надавати відповідне повідомлення користувачу. Давайте подивимося детально на кроки:
-            </p>
-            <ul>
-                <li>
+            </Paragraph>
+            <List sx={{ mb: 2 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
                     HTML-форма містить одне текстове поле для введення адреси електронної пошти (email) і мітку до нього.
-                </li>
-                <li>
-                    У веб-сторінці є також <code>&lt;span&gt;</code> з ідентифікатором <code>message</code>, який поки що є порожнім.
-                </li>
-                <li>
-                    Вставлений JavaScript код визначає змінні <code>emailInput</code> та <code>messageSpan</code>, які посилаються на текстове поле та <code>&lt;span&gt;</code> відповідно.
-                </li>
-                <li>
-                    Відбувається реєстрація обробника події <code>input</code> для текстового поля з ідентифікатором <code>email</code>. Це означає, що коли користувач вводить текст в поле, буде викликана функція-обробник, що визначена всередині слухача.
-                </li>
-                <li>
-                    В обробнику події отримується значення введеного тексту (email) за допомогою <code>event.target.value</code>.
-                </li>
-                <li>
-                    Перевіряється, чи містить введений текст символ '@'. Якщо так, то <code>&lt;span id="message"&gt;</code> очищається, і повідомлення про помилку (якщо воно вже було відображене) прибирається.
-                </li>
-                <li>
-                    Якщо в тексті немає символу '@', то в <code>&lt;span&gt;</code> із ідентифікатором <code>message</code> встановлюється текст "Email повинен мати символ '@'".
-                </li>
-            </ul>
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    У веб-сторінці є також <Code>&lt;span&gt;</Code> з ідентифікатором <Code>message</Code>, який поки що є порожнім.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Вставлений JavaScript код визначає змінні <Code>emailInput</Code> та <Code>messageSpan</Code>, які посилаються на текстове поле та <Code>&lt;span&gt;</Code> відповідно.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Відбувається реєстрація обробника події <Code>input</Code> для текстового поля з ідентифікатором <Code>email</Code>. Це означає, що коли користувач вводить текст в поле, буде викликана функція-обробник, що визначена всередині слухача.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    В обробнику події отримується значення введеного тексту (email) за допомогою <Code>event.target.value</Code>.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Перевіряється, чи містить введений текст символ '@'. Якщо так, то <Code>&lt;span id="message"&gt;</Code> очищається, і повідомлення про помилку (якщо воно вже було відображене) прибирається.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Якщо в тексті немає символу '@', то в <Code>&lt;span&gt;</Code> із ідентифікатором <Code>message</Code> встановлюється текст "Email повинен мати символ '@'".
+                </ListItem>
+            </List>
 
-            <h2>Приклад №2</h2>
-            <p>
+            <SubHeader>Приклад №2</SubHeader>
+            <Paragraph>
                 Цей код демонструє, як додавати обробники подій до текстового поля та форми для відслідковування подій вводу та відправки форми, а також виведення повідомлень в консоль для відстеження цих подій.
-            </p>
-            <pre>
-                <code>
-                    {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 // Отримуємо посилання на текстове поле за ідентифікатором
 const myInput = document.getElementById('myInput');
 
@@ -119,35 +123,34 @@ myForm.addEventListener('submit', function(event) {
     event.preventDefault(); // Зупиняємо стандартну відправку форми
     console.log('Дані відправлено:', myInput.value);
 });
-                    `}
-                </code>
-            </pre>
-            <p>
+                `}
+            </CodeBlock>
+            <Paragraph>
                 Цей код виконує наступні дії:
-            </p>
-            <ul>
-                <li>
+            </Paragraph>
+            <List sx={{ mb: 2 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
                     Пошук елемента за ідентифікатором "myInput" у структурі DOM (Document Object Model) і отримання посилання на цей елемент.
-                </li>
-                <li>
-                    Додавання обробника події для текстового поля "myInput" для події <code>input</code>. Обробник буде виконуватися, коли користувач буде вводити дані у текстове поле. В обробнику відбувається виведення в консоль повідомлення "Користувач ввів дані:" разом зі значенням, яке ввів користувач у поле <code>myInput</code>.
-                </li>
-                <li>
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Додавання обробника події для текстового поля "myInput" для події <Code>input</Code>. Обробник буде виконуватися, коли користувач буде вводити дані у текстове поле. В обробнику відбувається виведення в консоль повідомлення "Користувач ввів дані:" разом зі значенням, яке ввів користувач у поле <Code>myInput</Code>.
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
                     Пошук форми за ідентифікатором "myForm" у структурі DOM і отримання посилання на цей елемент.
-                </li>
-                <li>
-                    Додавання обробника події для форми "myForm" для події <code>submit</code>. Обробник буде виконуватися, коли користувач намагається відправити форму, наприклад, натискаючи кнопку "Submit". В обробнику події виконується така дія:
-                    <ul>
-                        <li>
-                            <code>event.preventDefault();</code> зупиняє стандартну відправку форми, тобто перехоплює стандартну поведінку браузера при натисканні на кнопку "Submit", щоб заборонити перезавантаження сторінки або відправку даних на сервер.
-                        </li>
-                        <li>
-                            <code>console.log('Дані відправлено:', myInput.value);</code> виводить в консоль повідомлення "Дані відправлено:", разом із значенням, яке користувач ввів у текстове поле.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    Додавання обробника події для форми "myForm" для події <Code>submit</Code>. Обробник буде виконуватися, коли користувач намагається відправити форму, наприклад, натискаючи кнопку "Submit". В обробнику події виконується така дія:
+                    <List sx={{ mb: 2 }}>
+                        <ListItem sx={{ display: 'list-item', listStyleType: 'circle', pl: 1, ml: 4 }}>
+                            <Code>event.preventDefault();</Code> зупиняє стандартну відправку форми, тобто перехоплює стандартну поведінку браузера при натисканні на кнопку "Submit", щоб заборонити перезавантаження сторінки або відправку даних на сервер.
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item', listStyleType: 'circle', pl: 1, ml: 4 }}>
+                            <Code>console.log('Дані відправлено:', myInput.value);</Code> виводить в консоль повідомлення "Дані відправлено:", разом із значенням, яке користувач ввів у текстове поле.
+                        </ListItem>
+                    </List>
+                </ListItem>
+            </List>
+        </Box>
     );
 };
 

@@ -7,20 +7,27 @@ import TypeConversionPage from "./Pages/TypeConversionPage.jsx";
 import ComparisonOperatorsPage from "./Pages/ComparisonOperatorsPage.jsx";
 import TemplateStringsPage from "./Pages/TemplateStringsPage.jsx";
 import {Paper} from "@mui/material";
-
+import './FirstTheme.css'
 
 const FirstTheme = () => {
     return (
         <>
             <Paper>
-            <DataTypesPage/>
-            <VariableDeclarationPage/>
-            <DataTypesCategoriesPage/>
-            <EverythingIsAnObjectPage/>
-            <UnaryOperatorsPage/>
-            <TypeConversionPage/>
-            <ComparisonOperatorsPage/>
-            <TemplateStringsPage/>
+                <DataTypesPage className="theme-section"/>
+                <hr/>
+                <VariableDeclarationPage className="theme-section"/>
+                <hr/>
+                <DataTypesCategoriesPage className="theme-section"/>
+                <hr/>
+                <EverythingIsAnObjectPage className="theme-section"/>
+                <hr/>
+                <UnaryOperatorsPage className="theme-section"/>
+                <hr/>
+                <TypeConversionPage className="theme-section"/>
+                <hr/>
+                <ComparisonOperatorsPage className="theme-section"/>
+                <hr/>
+                <TemplateStringsPage className="theme-section"/>
             </Paper>
         </>
     )

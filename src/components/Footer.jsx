@@ -20,8 +20,8 @@ function Footer() {
             sx={{
                 py: 3,
                 boxShadow: '0px -2px 4px -1px rgba(0,0,0,0.2)',
-                position: 'relative',
-                width: '100%'
+                width: '100%',
+                mt: 'auto',
             }}
         >
             <Container maxWidth="xl">

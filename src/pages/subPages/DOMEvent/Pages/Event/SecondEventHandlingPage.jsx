@@ -1,19 +1,25 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import BookHeader from '../../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import Code from '../../../../../features/Code/Code.jsx';
 
 const SecondEventHandlingPage = () => {
     return (
-        <div className="page-container">
-            <h1>Приклад роботи з об'єктом події та типи подій</h1>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Приклад роботи з об'єктом події та типи подій</BookHeader>
 
-            <h2>Приклад роботи з об'єктом події</h2>
-            <p>
+            <SubHeader>Приклад роботи з об'єктом події</SubHeader>
+            <Paragraph>
                 Розглянемо приклад роботи з об'єктом Події при кліку на кнопку:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
   <title>Приклад Об'єкта Події</title>
 </head>
@@ -34,70 +40,71 @@ const SecondEventHandlingPage = () => {
   </script>
 </body>
 </html>
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі ми створили кнопку і прикріпили до неї обробник події на клік. При кліку на кнопку в консолі будуть виведені різні властивості об'єкта Події, такі як тип події, ціль події та фаза події. Ми також використали метод <code>stopPropagation()</code>, щоб зупинити подальше поширення події.
-            </p>
+                `}
+            </CodeBlock>
 
-            <h2>Типи подій</h2>
-            <p>
-                DOM підтримує багато різних типів подій, таких як клік, наведення, зміна, введення тексту та багато інших. Кожен тип події відповідає певній події взаємодії користувача зі сторінкою. Наприклад, подія <code>click</code> спрацьовує при кліку на елемент:
-            </p>
+            <Paragraph>
+                У цьому прикладі ми створили кнопку і прикріпили до неї обробник події на клік. При кліку на кнопку в консолі будуть виведені різні властивості об'єкта Події, такі як тип події, ціль події та фаза події. Ми також використали метод <Code>stopPropagation()</Code>, щоб зупинити подальше поширення події.
+            </Paragraph>
 
-            <h3>1. Клік (click)</h3>
-            <p>
-                Подія <code>click</code> спрацьовує, коли користувач клікає на елементі сторінки. Це може бути корисно для обробки подій, пов'язаних з кліками кнопок, посилань тощо. Приклад:
-            </p>
-            <pre>
-        <code>
-          {`
+            <SubHeader>Типи подій</SubHeader>
+            <Paragraph>
+                DOM підтримує багато різних типів подій, таких як клік, наведення, зміна, введення тексту та багато інших. Кожен тип події відповідає певній події взаємодії користувача зі сторінкою. Наприклад, подія <Code>click</Code> спрацьовує при кліку на елемент:
+            </Paragraph>
+
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 600, mt: 3, mb: 2 }}>
+                1. Клік (click)
+            </Typography>
+            <Paragraph>
+                Подія <Code>click</Code> спрацьовує, коли користувач клікає на елементі сторінки. Це може бути корисно для обробки подій, пов'язаних з кліками кнопок, посилань тощо. Приклад:
+            </Paragraph>
+            <CodeBlock>
+                {`
 const button = document.querySelector('#myButton');
 button.addEventListener('click', function() {
   alert('Кнопку натиснули!');
 });
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>2. Клавіша натиснута (keydown)</h3>
-            <p>
-                Подія <code>keydown</code> спрацьовує, коли користувач натискає клавішу на клавіатурі. Вона може використовуватися для обробки натискання певних клавіш. Приклад:
-            </p>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 600, mt: 3, mb: 2 }}>
+                2. Клавіша натиснута (keydown)
+            </Typography>
+            <Paragraph>
+                Подія <Code>keydown</Code> спрацьовує, коли користувач натискає клавішу на клавіатурі. Вона може використовуватися для обробки натискання певних клавіш. Приклад:
+            </Paragraph>
+            <CodeBlock>
+                {`
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     console.log('Enter була натиснута');
   }
 });
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>3. Зміна розміру вікна (resize)</h3>
-            <p>
-                Подія <code>resize</code> спрацьовує, коли розмір вікна браузера змінюється. Це може бути корисно для адаптивного дизайну та підлаштування інтерфейсу до різних розмірів вікон. Приклад:
-            </p>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 600, mt: 3, mb: 2 }}>
+                3. Зміна розміру вікна (resize)
+            </Typography>
+            <Paragraph>
+                Подія <Code>resize</Code> спрацьовує, коли розмір вікна браузера змінюється. Це може бути корисно для адаптивного дизайну та підлаштування інтерфейсу до різних розмірів вікон. Приклад:
+            </Paragraph>
+            <CodeBlock>
+                {`
 window.addEventListener('resize', function() {
   console.log('Розмір вікна було змінено');
 });
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>4. Втрата фокусу (blur) і отримання фокусу (focus)</h3>
-            <p>
-                Події <code>blur</code> і <code>focus</code> спрацьовують, коли елемент втрачає або отримує фокус. Це може бути корисно при валідації введених даних у формах. Приклад:
-            </p>
-            <pre>
-        <code>
-          {`
+            <Typography variant="h4" component="h3" sx={{ fontWeight: 600, mt: 3, mb: 2 }}>
+                4. Втрата фокусу (blur) і отримання фокусу (focus)
+            </Typography>
+            <Paragraph>
+                Події <Code>blur</Code> і <Code>focus</Code> спрацьовують, коли елемент втрачає або отримує фокус. Це може бути корисно при валідації введених даних у формах. Приклад:
+            </Paragraph>
+            <CodeBlock>
+                {`
 const inputElement = document.querySelector('#myInput');
 inputElement.addEventListener('blur', function() {
   console.log('Елемент втратив фокус');
@@ -106,10 +113,9 @@ inputElement.addEventListener('blur', function() {
 inputElement.addEventListener('focus', function() {
   console.log('Елемент отримав фокус');
 });
-          `}
-        </code>
-      </pre>
-        </div>
+                `}
+            </CodeBlock>
+        </Box>
     );
 };
 

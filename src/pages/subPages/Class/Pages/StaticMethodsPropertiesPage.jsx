@@ -1,86 +1,157 @@
 import React from 'react';
+import { Box, Typography, Paper, List, ListItem } from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../features/Code/Code.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 
 const StaticMethodsPropertiesPage = () => {
     return (
-        <div className="page-container">
-            <h1>Статичні методи та властивості</h1>
-            <p>
-                Статичні методи та властивості в класах JavaScript дозволяють створювати функціональність, яка відноситься до класу в цілому, а не до конкретних екземплярів. Це корисний інструмент для реалізації загальної логіки, яка не пов'язана з конкретним об'єктом. Розглянемо, як створювати та використовувати статичні методи та властивості в JavaScript.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Статичні методи та властивості в класах JavaScript</BookHeader>
 
-            <h2>Переваги використання статичних членів класу</h2>
-            <ul>
-                <li>
-                    <strong>Загальні функції:</strong> Статичні методи та властивості можна використовувати для реалізації загальних функцій, які не залежать від конкретного об'єкта класу.
-                </li>
-                <li>
-                    <strong>Легка доступність:</strong> Статичні члени класу доступні без створення екземпляру класу, що робить їх легко використовуваними в програмі.
-                </li>
-                <li>
-                    <strong>Збереження загальних даних:</strong> Статичні властивості можна використовувати для збереження загальних даних, які відносяться до всього класу.
-                </li>
-            </ul>
+            <Paragraph>
+                Статичні методи та властивості належать самому класу, а не його екземплярам. Вони корисні для реалізації функціональності, яка є спільною для всіх екземплярів класу або не потребує створення об'єкта.
+            </Paragraph>
 
-            <h2>1. Створення статичних методів та властивостей</h2>
-            <p>
-                Для створення статичного методу чи властивості в класі, ми використовуємо ключове слово <code>static</code>. Це робить метод чи властивість доступними не для екземплярів класу, а для самого класу.
-            </p>
-            <pre>
-        <code>
-          {`
-class MathOperations {
-  static square(number) {
-    return number * number;
-  }
+            <SubHeader>Основні переваги статичних членів класу</SubHeader>
+            <List sx={{ mb: 3 }}>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Утилітарні функції:</Typography> Методи, які не потребують доступу до стану об'єкта
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Зберігання спільних даних:</Typography> Налаштування або константи, пов'язані з класом
+                </ListItem>
+                <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                    <Typography component="span" fontWeight="bold">Фабричні методи:</Typography> Альтернативні способи створення екземплярів
+                </ListItem>
+            </List>
 
-  static PI = 3.14159;
-}
+            <SubHeader>1. Базовий синтаксис</SubHeader>
+            <Paragraph>
+                Статичні методи та властивості оголошуються за допомогою ключового слова <Code>static</Code>:
+            </Paragraph>
+            <CodeBlock>
+                {`class MathUtils {
+  static PI = 3.14159; // Статична властивість
 
-const result = MathOperations.square(5); // Виклик статичного методу
-console.log(result); // Виведе 25
-
-console.log(MathOperations.PI); // Виведе 3.14159
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі, метод <code>square</code> та властивість <code>PI</code> є статичними та доступними без створення екземпляру класу.
-            </p>
-
-            <h2>2. Використання статичних членів класу</h2>
-            <p>
-                Статичні методи та властивості дозволяють реалізувати загальні функції, що не пов'язані з конкретним екземпляром класу. Наприклад, в класі для роботи з файлами можна використовувати статичний метод для перевірки наявності файлу.
-            </p>
-            <pre>
-        <code>
-          {`
-class FileManager {
-  static fileExists(filePath) {
-    // Логіка перевірки наявності файлу
-    return true; // Зараз тимчасовий результат
+  static square(x) {   // Статичний метод
+    return x * x;
   }
 }
 
-const filePath = '/path/to/file.txt';
-const fileExists = FileManager.fileExists(filePath); // Виклик статичного методу
-console.log(\`File \${filePath} exists: \${fileExists}\`); // Виведе "File /path/to/file.txt exists: true"
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі, <code>fileExists</code> - статичний метод, який може бути викликаний без створення екземпляру класу.
-            </p>
+// Використання без створення екземпляру
+console.log(MathUtils.PI);      // 3.14159
+console.log(MathUtils.square(5)); // 25`}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Заключення</h2>
-                <p>
-                    Статичні методи та властивості є потужним інструментом у JavaScript, який дозволяє реалізовувати
-                    загальну логіку, що відноситься до класу в цілому. Вони спрощують доступ до функціональності, яка не
-                    залежить від конкретних екземплярів класу, і дозволяють зберігати загальні дані. Використання
-                    статичних членів класу робить код більш організованим та зручним для використання.
-                </p>
-            </div>
-        </div>
+            <SubHeader>2. Фабричні методи</SubHeader>
+            <Paragraph>
+                Статичні методи часто використовуються як фабрики для створення екземплярів:
+            </Paragraph>
+            <CodeBlock>
+                {`class User {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  static createAdmin() {
+    const admin = new User('Admin', 30);
+    admin.isAdmin = true;
+    return admin;
+  }
+}
+
+const admin = User.createAdmin(); // Використання фабричного методу
+console.log(admin);`}
+            </CodeBlock>
+
+            <SubHeader>3. Статичні приватні члени</SubHeader>
+            <Paragraph>
+                Статичні властивості та методи можуть бути приватними:
+            </Paragraph>
+            <CodeBlock>
+                {`class Configuration {
+  static #defaultTheme = 'light'; // Приватна статична властивість
+
+  static #validateConfig(config) { // Приватний статичний метод
+    return typeof config === 'object';
+  }
+
+  static setTheme(theme) {
+    if (this.#validateConfig(theme)) {
+      this.#defaultTheme = theme;
+    }
+  }
+}
+
+Configuration.setTheme('dark');
+// Configuration.#defaultTheme - недоступний ззовні`}
+            </CodeBlock>
+
+            <SubHeader>4. Використання в утилітарних класах</SubHeader>
+            <Paragraph>
+                Статичні методи ідеально підходять для створення утилітарних класів:
+            </Paragraph>
+            <CodeBlock>
+                {`class StringUtils {
+  static capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  static truncate(str, length) {
+    return str.length > length ? str.slice(0, length) + '...' : str;
+  }
+}
+
+console.log(StringUtils.capitalize('hello')); // "Hello"
+console.log(StringUtils.truncate('Long text', 4)); // "Long..."`}
+            </CodeBlock>
+
+            <SubHeader>5. Наслідування статичних членів</SubHeader>
+            <Paragraph>
+                Статичні методи та властивості також успадковуються:
+            </Paragraph>
+            <CodeBlock>
+                {`class Base {
+  static baseMethod() {
+    return 'Base method';
+  }
+}
+
+class Derived extends Base {
+  static derivedMethod() {
+    return 'Derived method';
+  }
+}
+
+console.log(Derived.baseMethod()); // "Base method"
+console.log(Derived.derivedMethod()); // "Derived method"`}
+            </CodeBlock>
+
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }} className='conclusion'>
+                <SubHeader>Висновок</SubHeader>
+                <Paragraph>
+                    Статичні методи та властивості є потужним інструментом для:
+                </Paragraph>
+                <List>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Створення утилітарних функцій, пов'язаних з класом
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Реалізації фабричних методів для створення екземплярів
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        Зберігання спільних даних або конфігурацій
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    Вони особливо корисні при створенні бібліотек та утиліт, де потрібен легкий доступ до функціональності без необхідності створювати екземпляри класу.
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

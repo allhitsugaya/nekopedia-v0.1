@@ -10,23 +10,33 @@ import NavigatorObjectPage from "./Pages/BOM/NavigatorObjectPage.jsx";
 import HistoryObjectPage from "./Pages/BOM/HistoryObjectPage.jsx";
 import ScreenObjectPage from "./Pages/BOM/ScreenObjectPage.jsx";
 import {Paper} from "@mui/material";
-
+import './TenthTheme.css'
 
 const TenthTheme = () => {
     return (
         <>
             <Paper>
-            <IntroductionPage/>
-            <EventBubblingPage/>
-            <SecondEventBubblingPage/>
-            <EventBubblingExamplePage/>
-            <EventDelegationPage/>
-            <EventDelegationExamples/>
-            <BOMAndWindowPage/>
-            <URLAndLocationPage/>
-            <NavigatorObjectPage/>
-            <HistoryObjectPage/>
-            <ScreenObjectPage/>
+                    <IntroductionPage className='theme-section'/>
+                    <hr/>
+                    <EventBubblingPage className='theme-section'/>
+                    <hr/>
+                    <SecondEventBubblingPage className='theme-section'/>
+                    <hr/>
+                    <EventBubblingExamplePage className='theme-section'/>
+                    <hr/>
+                    <EventDelegationPage className='theme-section'/>
+                    <hr/>
+                    <EventDelegationExamples className='theme-section'/>
+                    <hr/>
+                    <BOMAndWindowPage className='theme-section'/>
+                    <hr/>
+                    <URLAndLocationPage className='theme-section'/>
+                    <hr/>
+                    <NavigatorObjectPage className='theme-section'/>
+                    <hr/>
+                    <HistoryObjectPage className='theme-section'/>
+                    <hr/>
+                    <ScreenObjectPage className='theme-section'/>
             </Paper>
         </>
     )

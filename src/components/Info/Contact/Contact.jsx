@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container, Link, List, ListItem, Paper, Typography, Avatar, Box, Divider } from "@mui/material";
+import { Container, Link, List, ListItem, Paper, Typography, Avatar, Box, Divider, useTheme } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const ContactsPage = () => {
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === 'dark';
+
     const contacts = [
         {
             name: "Sergey Zhitnik",
@@ -33,9 +36,9 @@ const ContactsPage = () => {
         <Paper
             sx={{
                 minHeight: '100vh',
-                backgroundColor: '#000',
+                backgroundColor: isDarkMode ? '#000' : '#f5f5f5',
                 py: 6,
-                color: '#A2D9CE'
+                color: isDarkMode ? '#A2D9CE' : '#2d3748'
             }}
         >
             <Container maxWidth="md">
@@ -50,8 +53,8 @@ const ContactsPage = () => {
                         sx={{
                             fontWeight: 700,
                             mb: 2,
-                            color: '#A2D9CE',
-                            textShadow: '0 0 8px rgba(162, 217, 206, 0.5)'
+                            color: isDarkMode ? '#A2D9CE' : '#2d3748',
+                            textShadow: isDarkMode ? '0 0 8px rgba(162, 217, 206, 0.5)' : 'none'
                         }}
                     >
                         Контакти авторів проекту
@@ -61,7 +64,8 @@ const ContactsPage = () => {
                         sx={{
                             maxWidth: '600px',
                             mx: 'auto',
-                            opacity: 0.9
+                            opacity: 0.9,
+                            color: isDarkMode ? '#A2D9CE' : '#4a5568'
                         }}
                     >
                         Якщо у вас є питання, пропозиції або бажання зв'язатися з авторами проекту, ви можете зробити це через наступні контакти:
@@ -83,11 +87,13 @@ const ContactsPage = () => {
                                 p: 3,
                                 borderRadius: 2,
                                 transition: 'all 0.3s ease',
-                                backgroundColor: '#121212',
-                                border: '1px solid #1E1E1E',
+                                backgroundColor: isDarkMode ? '#121212' : '#ffffff',
+                                border: isDarkMode ? '1px solid #1E1E1E' : '1px solid #e0e0e0',
                                 '&:hover': {
                                     transform: 'translateY(-5px)',
-                                    boxShadow: '0 0 15px rgba(162, 217, 206, 0.3)',
+                                    boxShadow: isDarkMode
+                                        ? '0 0 15px rgba(162, 217, 206, 0.3)'
+                                        : '0 0 15px rgba(0, 0, 0, 0.1)',
                                     borderColor: '#A2D9CE'
                                 }
                             }}
@@ -111,6 +117,7 @@ const ContactsPage = () => {
                                     sx={{
                                         fontWeight: 600,
                                         textAlign: 'center',
+                                        color: isDarkMode ? '#A2D9CE' : '#2d3748'
                                     }}
                                 >
                                     {contact.name}
@@ -119,7 +126,9 @@ const ContactsPage = () => {
 
                             <Divider sx={{
                                 my: 2,
-                                backgroundColor: 'rgba(162, 217, 206, 0.2)'
+                                backgroundColor: isDarkMode
+                                    ? 'rgba(162, 217, 206, 0.2)'
+                                    : 'rgba(0, 0, 0, 0.12)'
                             }} />
 
                             <List dense>
@@ -133,9 +142,9 @@ const ContactsPage = () => {
                                         href={`mailto:${contact.email}`}
                                         underline="hover"
                                         sx={{
-                                            color: '#A2D9CE',
+                                            color: isDarkMode ? '#A2D9CE' : '#2d3748',
                                             '&:hover': {
-                                                color: '#fff'
+                                                color: isDarkMode ? '#fff' : '#000'
                                             }
                                         }}
                                     >
@@ -155,9 +164,9 @@ const ContactsPage = () => {
                                         rel="noopener noreferrer"
                                         underline="hover"
                                         sx={{
-                                            color: '#A2D9CE',
+                                            color: isDarkMode ? '#A2D9CE' : '#2d3748',
                                             '&:hover': {
-                                                color: '#fff'
+                                                color: isDarkMode ? '#fff' : '#000'
                                             }
                                         }}
                                     >
@@ -177,9 +186,9 @@ const ContactsPage = () => {
                                         rel="noopener noreferrer"
                                         underline="hover"
                                         sx={{
-                                            color: '#A2D9CE',
+                                            color: isDarkMode ? '#A2D9CE' : '#2d3748',
                                             '&:hover': {
-                                                color: '#fff'
+                                                color: isDarkMode ? '#fff' : '#000'
                                             }
                                         }}
                                     >

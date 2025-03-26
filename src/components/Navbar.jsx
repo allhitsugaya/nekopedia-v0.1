@@ -48,7 +48,7 @@ const StyledNavLink = ({ children, to }) => {
     );
 };
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ toggleColorMode }) {
     const theme = useTheme();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -60,6 +60,8 @@ function ResponsiveAppBar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+
 
     return (
         <AppBar
@@ -86,7 +88,6 @@ function ResponsiveAppBar() {
                         }
                     }}
                 >
-                    {/* Desktop Logo */}
                     <Box
                         component={NavLink}
                         to="/"
@@ -113,7 +114,6 @@ function ResponsiveAppBar() {
                         <IoLogoOctocat style={{ fontSize: '2rem', color: '#A2D9CE' }} />
                     </Box>
 
-                    {/* Mobile Menu */}
                     {isMobile && (
                         <>
                             <IconButton
@@ -162,7 +162,6 @@ function ResponsiveAppBar() {
                         </>
                     )}
 
-                    {/* Mobile Logo */}
                     <Box
                         component={NavLink}
                         to="/"
@@ -189,7 +188,6 @@ function ResponsiveAppBar() {
                         </Typography>
                     </Box>
 
-                    {/* Desktop Navigation */}
                     {!isMobile && (
                         <Box component="div" sx={{ mx: 4 }}>
                             <Breadcrumbs
@@ -223,11 +221,10 @@ function ResponsiveAppBar() {
                         </Box>
                     )}
 
-                    {/* Theme Toggle */}
                     <FormControlLabel
                         control={
                             <Switch
-                                onChange={theme.toggleColorMode}
+                                onChange={toggleColorMode} // Используем переданную функцию
                                 checked={theme.palette.mode === 'dark'}
                                 sx={{
                                     '& .MuiSwitch-thumb': {

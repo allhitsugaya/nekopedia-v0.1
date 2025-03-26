@@ -8,6 +8,7 @@ import ArrayCopyAndSavePage from "./Pages/Arrey/ArrayCopyAndSavePage.jsx";
 import ArrayOfObjectsPage from "./Pages/Arrey/ArrayOfObjectsPage.jsx";
 import ArraysVsObjectsPage from "./Pages/ArraysVsObjectsPage.jsx";
 import {Paper} from "@mui/material";
+import "./EightTheme.css"
 
 
 
@@ -15,15 +16,23 @@ const EightTheme = () => {
     return (
         <>
             <Paper>
-            <IntroductionPage/>
-            <ArrayAndObjectPage/>
-            <ObjectMethodsPage/>
-            <DestructuringAndObjectIterationPage/>
-            <ArraysPage/>
-            <ArrayMethodsPage/>
-            <ArrayCopyAndSavePage/>
-            <ArrayOfObjectsPage/>
-            <ArraysVsObjectsPage/>
+                <IntroductionPage className='theme-section'/>
+                <hr/>
+                <ArrayAndObjectPage className='theme-section'/>
+                <hr/>
+                <ObjectMethodsPage className='theme-section'/>
+                <hr/>
+                <DestructuringAndObjectIterationPage className='theme-section'/>
+                <hr/>
+                <ArraysPage className='theme-section'/>
+                <hr/>
+                <ArrayMethodsPage className='theme-section'/>
+                <hr/>
+                <ArrayCopyAndSavePage className='theme-section'/>
+                <hr/>
+                <ArrayOfObjectsPage className='theme-section'/>
+                <hr/>
+                <ArraysVsObjectsPage className='theme-section'/>
             </Paper>
         </>
     )

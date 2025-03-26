@@ -1,34 +1,37 @@
 import React from 'react';
+import { Box, Paper } from '@mui/material';
+import BookHeader from '../../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
 
 const CleanCodePrinciples = () => {
     return (
-        <div className="page-container">
-            <h1>Частина 1: Загальні принципи</h1>
-            <p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Частина 1: Загальні принципи</BookHeader>
+
+            <Paragraph>
                 У світі розробки програмного забезпечення чистий код вважається справжньою скарбницею. Це поняття охоплює низку принципів та практик, які роблять ваш код більш зрозумілим, читабельним та підтримуваним. Чистий код допомагає вам та вашій команді працювати більш продуктивно, робить процес розробки більш ефективним і зменшує кількість помилок. У цьому розділі ми розглянемо, чому чистий код важливий, і подамо приклади його впливу на розробку на JavaScript.
-            </p>
+            </Paragraph>
 
-            <h2>1. Читабельність та зрозумілість коду</h2>
-            <p>
+            <SubHeader>1. Читабельність та зрозумілість коду</SubHeader>
+            <Paragraph>
                 Однією з ключових переваг чистого коду є його читабельність і зрозумілість. Чим легше читати та розуміти код, тим менше часу витрачається на розбір і аналіз, і тим більше часу залишається для розв'язання реальних завдань.
-            </p>
+            </Paragraph>
 
-            <h3>Приклад 1: Погано читабельний код</h3>
-            <pre>
-                <code>
-                    {`
+            <SubHeader level={3}>Приклад 1: Погано читабельний код</SubHeader>
+            <CodeBlock>
+                {`
 function ct(x){
 if(x<10){return 10+x}
 else{return x-10}
 }
-                    `}
-                </code>
-            </pre>
+                `}
+            </CodeBlock>
 
-            <h3>Приклад 2: Чистий код</h3>
-            <pre>
-                <code>
-                    {`
+            <SubHeader level={3}>Приклад 2: Чистий код</SubHeader>
+            <CodeBlock>
+                {`
 function calculateTotalPrice(quantity) {
   if (quantity < 10) {
     return 10 + quantity;
@@ -36,19 +39,17 @@ function calculateTotalPrice(quantity) {
     return quantity - 10;
   }
 }
-                    `}
-                </code>
-            </pre>
+                `}
+            </CodeBlock>
 
-            <h2>2. Підтримуваність та розширюваність проекту</h2>
-            <p>
+            <SubHeader>2. Підтримуваність та розширюваність проекту</SubHeader>
+            <Paragraph>
                 Чистий код полегшує підтримку та розширення проекту. Якщо ваш код читабельний і добре структурований, інші розробники можуть легко зрозуміти його і вносити необхідні зміни без значного ризику введення помилок.
-            </p>
+            </Paragraph>
 
-            <h3>Приклад 3: Розширення функціональності</h3>
-            <pre>
-                <code>
-                    {`
+            <SubHeader level={3}>Приклад 3: Розширення функціональності</SubHeader>
+            <CodeBlock>
+                {`
 // Початковий код
 function calculateTotalPrice(quantity, discount) {
   if (quantity < 10) {
@@ -57,30 +58,26 @@ function calculateTotalPrice(quantity, discount) {
     return (quantity - 10) * (1 - discount);
   }
 }
-                    `}
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    {`
+                `}
+            </CodeBlock>
+            <CodeBlock>
+                {`
 // Розширений та чистий код
 function calculateTotalPrice(quantity, discount) {
   const basePrice = quantity < 10 ? 10 + quantity : quantity - 10;
   return basePrice * (1 - discount);
 }
-                    `}
-                </code>
-            </pre>
+                `}
+            </CodeBlock>
 
-            <h2>3. Відсутність зайвих помилок та багів</h2>
-            <p>
+            <SubHeader>3. Відсутність зайвих помилок та багів</SubHeader>
+            <Paragraph>
                 Чистий код допомагає уникнути зайвих помилок та багів. Коли код читабельний і легко зрозуміти, розробники можуть легше виявити помилки та виправити їх перед тим, як вони стануть серйозними проблемами.
-            </p>
+            </Paragraph>
 
-            <h3>Приклад 4: Виявлення помилки</h3>
-            <pre>
-                <code>
-                    {`
+            <SubHeader level={3}>Приклад 4: Виявлення помилки</SubHeader>
+            <CodeBlock>
+                {`
 // Нечистий код
 function calculateDiscountedPrice(quantity, discount) {
   const price = quantity * (1 - discount);
@@ -90,30 +87,27 @@ function calculateDiscountedPrice(quantity, discount) {
     return price;
   }
 }
-                    `}
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    {`
+                `}
+            </CodeBlock>
+            <CodeBlock>
+                {`
 // Чистий код
 function calculateDiscountedPrice(quantity, discount) {
   const price = quantity * (1 - discount);
   return discount > 0.5 ? price + 5 : price // Нема if, менше вірогідність опечатки
 }
-                    `}
-                </code>
-            </pre>
+                `}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Висновок</h2>
-                <p>
+            <Paper sx={{ p: 3, mt: 3, backgroundColor: 'background.paper' }} className='conclusion'>
+                <SubHeader>Висновок</SubHeader>
+                <Paragraph>
                     Чистий код важливий, оскільки він полегшує читабельність, підтримку, розширення і допомагає уникнути
                     помилок. Розробники, які дотримуються принципів чистого коду, стають більш продуктивними та
                     забезпечують більшу якість свого програмного забезпечення.
-                </p>
-            </div>
-        </div>
+                </Paragraph>
+            </Paper>
+        </Box>
     );
 };
 

@@ -1,61 +1,67 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import BookHeader from '../../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import Code from '../../../../../features/Code/Code.jsx';
 
 const DomManipulationPage = () => {
     return (
-        <div className="page-container">
-            <h1>Зміна властивостей та атрибутів</h1>
-            <p>
-                Один з ключових аспектів роботи з DOM (Document Object Model) - це зміна властивостей та атрибутів DOM-елементів, які дозволяють нам динамічно змінювати вміст і стиль сторінки.
-            </p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Зміна властивостей та атрибутів</BookHeader>
 
-            <h2>Зміна тексту елемента</h2>
-            <p>
-                Для зміни тексту елемента використовуємо властивість <code>textContent</code>. Наприклад, давайте змінимо текст кнопки:
-            </p>
-            <pre>
-        <code>
-          {`
+            <Paragraph>
+                Один з ключових аспектів роботи з DOM (Document Object Model) - це зміна властивостей та атрибутів DOM-елементів, які дозволяють нам динамічно змінювати вміст і стиль сторінки.
+            </Paragraph>
+
+            <SubHeader>Зміна тексту елемента</SubHeader>
+            <Paragraph>
+                Для зміни тексту елемента використовуємо властивість <Code>textContent</Code>. Наприклад, давайте змінимо текст кнопки:
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 const button = document.getElementById("myButton");
 button.textContent = "Новий текст кнопки";
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Зміна стилів</h2>
-            <p>
-                Зміна стилів елемента виконується з використанням властивості <code>style</code>. Для прикладу, змінимо колір та розмір шрифту тексту:
-            </p>
-            <pre>
-        <code>
-          {`
+            <SubHeader>Зміна стилів</SubHeader>
+            <Paragraph>
+                Зміна стилів елемента виконується з використанням властивості <Code>style</Code>. Для прикладу, змінимо колір та розмір шрифту тексту:
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 const textElement = document.getElementById("myText");
 textElement.style.color = "blue";
 textElement.style.fontSize = "18px";
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Зміна атрибутів</h2>
-            <p>
-                Для зміни атрибутів, таких як <code>src</code> для зображень або <code>href</code> для посилань, використовуємо метод <code>setAttribute</code>. Розглянемо приклад зміни атрибута <code>src</code> для зображення:
-            </p>
-            <pre>
-        <code>
-          {`
+            <SubHeader>Зміна атрибутів</SubHeader>
+            <Paragraph>
+                Для зміни атрибутів, таких як <Code>src</Code> для зображень або <Code>href</Code> для посилань, використовуємо метод <Code>setAttribute</Code>. Розглянемо приклад зміни атрибута <Code>src</Code> для зображення:
+            </Paragraph>
+
+            <CodeBlock>
+                {`
 const image = document.getElementById("myImage");
 image.setAttribute("src", "новий_шлях_до_зображення.jpg");
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <div className='conclusion'>
-                <h2>Заключення</h2>
-                <p>
+            <Box sx={{ mt: 4 }} className='conclusion'>
+                <Typography variant="h5" component="h2" gutterBottom>
+                    Заключення
+                </Typography>
+                <Paragraph>
                     Зміна властивостей та атрибутів в DOM дозволяє змінювати вміст та вигляд сторінки на льоту, що є
                     корисним при створенні динамічних веб-сторінок.
-                </p>
-            </div>
-        </div>
+                </Paragraph>
+            </Box>
+        </Box>
     );
 };
 

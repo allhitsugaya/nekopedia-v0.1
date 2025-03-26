@@ -1,116 +1,107 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import BookHeader from '../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../features/SubHeader/SubHeader.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const FunctionsBasicsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Основи роботи з функціями</h1>
-            <p>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Основи роботи з функціями</BookHeader>
+
+            <Paragraph>
                 Функції також є однією з найважливіших концепцій в JavaScript. Вони дозволяють організовувати код, забезпечують його повторне використання та сприяють створенню більш структурованих програм. У цій доповіді ми розглянемо основи роботи з функціями в JavaScript, включаючи їх визначення, виклик, повернення значень та область видимості змінних.
-            </p>
+            </Paragraph>
 
-            <h2>Визначення функцій через Function Expression та Function Declaration</h2>
-            <p>
+            <SubHeader>Визначення функцій через Function Expression та Function Declaration</SubHeader>
+            <Paragraph>
                 В JavaScript функції можна визначити двома основними способами: за допомогою виразів функцій (Function Expression) та оголошень функцій (Function Declaration).
-            </p>
+            </Paragraph>
 
-            <h3>Function Declaration:</h3>
-            <p>
-                В оголошенні функції ім'я функції вказується після ключового слова <code>function</code>. Цей спосіб визначення функцій дозволяє використовувати функцію перед тим, як вона визначена у коді.
-            </p>
-            <pre>
-        <code>
-          {`
-greet("Alice"); // Виклик функції перед її визначенням
+            <Typography variant="h3" component="h3" sx={{ fontWeight: 600 }}>
+                Function Declaration:
+            </Typography>
+            <Paragraph>
+                В оголошенні функції ім'я функції вказується після ключового слова <Code>function</Code>. Цей спосіб визначення функцій дозволяє використовувати функцію перед тим, як вона визначена у коді.
+            </Paragraph>
+            <CodeBlock>
+                {`greet("Alice"); // Виклик функції перед її визначенням
 function greet(name) {
     console.log(\`Hello, \${name}!\`);
-}
-          `}
-        </code>
-      </pre>
-            <p>
+}`}
+            </CodeBlock>
+            <Paragraph>
                 Тут дуже важливою особливістю оголошення функцій є "підняття" (hoisting), що означає, що JavaScript автоматично переміщує оголошення функції вгору до початку області видимості.
-            </p>
+            </Paragraph>
 
-            <h3>Function Expression:</h3>
-            <p>
+            <Typography variant="h3" component="h3" sx={{ fontWeight: 600 }}>
+                Function Expression:
+            </Typography>
+            <Paragraph>
                 У виразі функції функція присвоюється змінній. Ім'я функції може бути пустим (анонімна функція) або вказаним. Така функція може бути використана лише після її визначення.
-            </p>
-            <pre>
-        <code>
-          {`
-const greet = function(name) {
+            </Paragraph>
+            <CodeBlock>
+                {`const greet = function(name) {
     console.log(\`Hello, \${name}!\`);
 };
 
-greet("Bob"); // Виклик функції після її визначення
-          `}
-        </code>
-      </pre>
-            <p>
+greet("Bob"); // Виклик функції після її визначення`}
+            </CodeBlock>
+            <Paragraph>
                 Function Expression корисні, коли потрібно передати функцію як аргумент в іншу функцію (наприклад, функції вищого порядку).
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
                 Основна різниця полягає в часі і доступності функцій. Function Declaration дозволяє використовувати функцію перед її визначенням завдяки підняттю. Function Expression вимагають визначення перед використанням і можуть бути прив'язані до областей видимості більш точно за допомогою змінних.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
                 Обираючи між ними, варто враховувати вимоги вашого проекту та особливості областей видимості в коді.
-            </p>
+            </Paragraph>
 
-            <h2>Виклик функцій</h2>
-            <p>
+            <SubHeader>Виклик функцій</SubHeader>
+            <Paragraph>
                 Після визначення функції, її можна викликати для виконання коду, який вона містить. Для виклику функції використовується її ім'я, а також круглі дужки. Наприклад:
-            </p>
-            <pre>
-        <code>
-          {`
-helloWorld(); // Виклик функції
-          `}
-        </code>
-      </pre>
-            <p>
+            </Paragraph>
+            <CodeBlock>
+                {`helloWorld(); // Виклик функції`}
+            </CodeBlock>
+            <Paragraph>
                 При виклику функції вона виконується, і в результаті може виконати певні дії або повернути значення.
-            </p>
+            </Paragraph>
 
-            <h2>Повернення значень з функцій</h2>
-            <p>
-                Функції можуть повертати значення за допомогою ключового слова <code>return</code>. Це значення може бути використане в інших частинах програми. Приклад:
-            </p>
-            <pre>
-        <code>
-          {`
-function mathPlus(a, b) {
+            <SubHeader>Повернення значень з функцій</SubHeader>
+            <Paragraph>
+                Функції можуть повертати значення за допомогою ключового слова <Code>return</Code>. Це значення може бути використане в інших частинах програми. Приклад:
+            </Paragraph>
+            <CodeBlock>
+                {`function mathPlus(a, b) {
     return a + b;
 }
 
-let sum = mathPlus(3, 5); // сума отримає значення 8
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі функція <code>mathPlus</code> приймає два аргументи, додає їх і повертає результат. Про аргументи ми ще поговоримо, не хвилюйтесь.
-            </p>
+let sum = mathPlus(3, 5); // сума отримає значення 8`}
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі функція <Code>mathPlus</Code> приймає два аргументи, додає їх і повертає результат. Про аргументи ми ще поговоримо, не хвилюйтесь.
+            </Paragraph>
 
-            <h2>Область видимості змінних в функціях</h2>
-            <p>
+            <SubHeader>Область видимості змінних в функціях</SubHeader>
+            <Paragraph>
                 Змінні, які визначені в межах функції, мають локальну область видимості. Це означає, що вони доступні лише всередині функції і не бачимі ззовні. Наприклад:
-            </p>
-            <pre>
-        <code>
-          {`
-function localFunction() {
+            </Paragraph>
+            <CodeBlock>
+                {`function localFunction() {
     let x = 10;
     console.log(x); // x видима тільки всередині функції
 }
 
 localFunction();
-console.log(x); // Помилка: x не визначено
-          `}
-        </code>
-      </pre>
-            <p>
+console.log(x); // Помилка: x не визначено`}
+            </CodeBlock>
+            <Paragraph>
                 Це робить функції самостійними та ізольованими блоками коду, які не конфліктують з іншим кодом програми.
-            </p>
-        </div>
+            </Paragraph>
+        </Box>
     );
 };
 

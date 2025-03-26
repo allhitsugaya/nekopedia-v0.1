@@ -1,70 +1,93 @@
 import React from 'react';
+import { Box, List, ListItem, Typography } from "@mui/material";
+import BookHeader from '../../../../features/BookHeader/BookHeader.jsx';
+import SubHeader from '../../../../features/SubHeader/SubHeader.jsx';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const PromisePage = () => {
     return (
-        <div className="page-container">
-            <h1>Promise</h1>
+        <Box sx={{ padding: 2 }}>
+            <BookHeader>Promise</BookHeader>
 
-            <p>
-                Асинхронне програмування в JavaScript може бути більш керованим та зручним завдяки об'єкту <code>Promise</code>. У цьому розділі ми розглянемо визначення та призначення <code>Promise</code>, його структуру, методи та переваги порівняно з Callback Hell.
-            </p>
+            <Paragraph>
+                Асинхронне програмування в JavaScript може бути більш керованим та зручним завдяки об'єкту <Code>Promise</Code>. У цьому розділі ми розглянемо визначення та призначення <Code>Promise</Code>, його структуру, методи та переваги порівняно з Callback Hell.
+            </Paragraph>
 
-            <p>
-                <code>Promise</code> - це об'єкт, який представляє результат або помилку асинхронної операції та дозволяє вам працювати з результатом асинхронного запиту в подальший час. Використовуючи <code>Promise</code>, можна зробити код більш читабельним та керованим, особливо коли маємо декілька асинхронних операцій.
-            </p>
+            <Paragraph>
+                <Code>Promise</Code> - це об'єкт, який представляє результат або помилку асинхронної операції та дозволяє вам працювати з результатом асинхронного запиту в подальший час. Використовуючи <Code>Promise</Code>, можна зробити код більш читабельним та керованим, особливо коли маємо декілька асинхронних операцій.
+            </Paragraph>
 
-            <h2>Структура та методи Promise</h2>
-            <h3>1. Створення промісу:</h3>
-            <pre>
-                <code>
-{`const promise = new Promise((resolve, reject) => {
+            <SubHeader>Структура та методи Promise</SubHeader>
+
+            <Box component="section" mb={3}>
+                <Typography variant="h6" component="h3" gutterBottom>
+                    1. Створення промісу:
+                </Typography>
+                <CodeBlock>
+                    {`const promise = new Promise((resolve, reject) => {
   // Асинхронний код, який вирішує (resolve) або відхиляє (reject) проміс
 });`}
-                </code>
-            </pre>
+                </CodeBlock>
+            </Box>
 
-            <h3>2. Методи Promise:</h3>
-            <ul>
-                <li>
-                    <code>then()</code> - викликається, коли проміс вирішується успішно.
-                </li>
-                <li>
-                    <code>catch()</code> - викликається, коли проміс відхиляється.
-                </li>
-                <li>
-                    <code>finally()</code> - викликається незалежно від того, чи вирішується, чи відхиляється проміс.
-                </li>
-            </ul>
+            <Box component="section" mb={4}>
+                <Typography variant="h6" component="h3" gutterBottom>
+                    2. Методи Promise:
+                </Typography>
+                <List sx={{ mb: 2 }}>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        <Code>then()</Code> - Викликається, коли проміс вирішується успішно
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        <Code>catch()</Code> - Викликається, коли проміс відхиляється
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item', listStyleType: 'disc', pl: 1, ml: 2 }}>
+                        <Code>finally()</Code> - Викликається незалежно від того, чи вирішується, чи відхиляється проміс
+                    </ListItem>
+                </List>
+            </Box>
 
-            <h2>Переваги в порівнянні з Callback Hell</h2>
-            <h3>1. Читабельність коду:</h3>
-            <pre>
-                <code>
-{`loadData()
+            <SubHeader>Переваги в порівнянні з Callback Hell</SubHeader>
+
+            <Box component="section" mb={3}>
+                <Typography variant="h6" component="h3" gutterBottom>
+                    1. Читабельність коду:
+                </Typography>
+                <CodeBlock>
+                    {`loadData()
   .then(processData)
   .then(updateUI)
   .catch(handleError)
   .finally(() => console.log('Операції завершено'));`}
-                </code>
-            </pre>
-            <p>
-                В порівнянні з Callback Hell, <code>Promise</code> надає можливість ланцюга промісів, що полегшує читання та розуміння коду.
-            </p>
+                </CodeBlock>
+                <Paragraph>
+                    В порівнянні з Callback Hell, <Code>Promise</Code> надає можливість ланцюга промісів, що полегшує читання та розуміння коду.
+                </Paragraph>
+            </Box>
 
-            <h3>2. Управління помилками:</h3>
-            <p>
-                Використовуючи <code>.catch()</code>, можна централізовано обробляти помилки для всіх промісів у ланцюжку, що робить код менш вразливим до помилок.
-            </p>
+            <Box component="section" mb={3}>
+                <Typography variant="h6" component="h3" gutterBottom>
+                    2. Управління помилками:
+                </Typography>
+                <Paragraph>
+                    Використовуючи <Code>.catch()</Code>, можна централізовано обробляти помилки для всіх промісів у ланцюжку, що робить код менш вразливим до помилок.
+                </Paragraph>
+            </Box>
 
-            <h3>3. Зручність роботи з асинхронним кодом:</h3>
-            <p>
-                <code>Promise</code> дозволяє елегантно працювати з асинхронним кодом, відокремлюючи логіку роботи з результатами асинхронних операцій.
-            </p>
+            <Box component="section" mb={4}>
+                <Typography variant="h6" component="h3" gutterBottom>
+                    3. Зручність роботи з асинхронним кодом:
+                </Typography>
+                <Paragraph>
+                    <Code>Promise</Code> дозволяє елегантно працювати з асинхронним кодом, відокремлюючи логіку роботи з результатами асинхронних операцій.
+                </Paragraph>
+            </Box>
 
-            <h2>Приклад коду з використанням Promise:</h2>
-            <pre>
-                <code>
-{`function loadData() {
+            <SubHeader>Приклад коду з використанням Promise:</SubHeader>
+            <CodeBlock>
+                {`function loadData() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const data = 'Дані завантажено';
@@ -99,12 +122,11 @@ loadData()
   .then(updateUI)
   .catch((error) => console.error(\`Помилка: \${error}\`))
   .finally(() => console.log('Операції завершено'));`}
-                </code>
-            </pre>
-            <p>
-                У цьому прикладі ми використали <code>Promise</code> для кращого організації асинхронних операцій та легкості читання коду. За допомогою <code>then</code>, <code>catch</code> та <code>finally</code> керуємо логікою вирішення та обробкою помилок.
-            </p>
-        </div>
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми використали <Code>Promise</Code> для кращого організації асинхронних операцій та легкості читання коду. За допомогою <Code>then</Code>, <Code>catch</Code> та <Code>finally</Code> керуємо логікою вирішення та обробкою помилок.
+            </Paragraph>
+        </Box>
     );
 };
 

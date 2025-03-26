@@ -1,4 +1,198 @@
+:root {
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-teal: #64ffda;
+    --accent-blue: #4fc3f7;
+    --accent-purple: #bb86fc;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --highlight-bg: #252525;
+}
+
 body {
-    background-color: #000;
-    color: #A2D9CE;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-teal);
+    margin: 1.5em 0 0.8em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2.2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+h2 {
+    font-size: 1.8rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+    height: 0.8em;
+    width: 4px;
+    background: var(--accent-purple);
+    border-radius: 2px;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-teal);
+    text-decoration: underline;
+}
+
+.theme-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+hr {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    opacity: 0.5;
+}
+
+pre {
+    background-color: var(--highlight-bg);
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+code {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95rem;
+    color: var(--accent-purple);
+    background-color: rgba(187, 134, 252, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.keyword { color: #569cd6; }
+.string { color: #ce9178; }
+.comment { color: #6a9955; font-style: italic; }
+.number { color: #b5cea8; }
+.function { color: #dcdcaa; }
+.operator { color: #d4d4d4; }
+.variable { color: #9cdcfe; }
+
+.theme-section ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.theme-section ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    list-style-type: none;
+}
+
+.theme-section ul li::before {
+    content: '•';
+    color: var(--accent-blue);
+    font-weight: bold;
+    position: absolute;
+    left: -1.2rem;
+}
+
+.conclusion {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: linear-gradient(145deg, #1a1a1a, #252525);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.conclusion h2 {
+    color: var(--accent-teal);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.conclusion p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+hr.conclusion-divider {
+    border-top: 2px solid var(--accent-purple);
+    opacity: 0.3;
+    margin: 3rem 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.theme-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .theme-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }
