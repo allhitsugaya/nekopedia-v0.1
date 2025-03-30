@@ -1,17 +1,13 @@
 import React from 'react';
-import {Container, Typography} from "@mui/material";
 import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
 import Code from "../../../../features/Code/Code.jsx";
 import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
-
-
-
-
-
+import {Box, Container} from "@mui/material";
 
 const DataTypesPage = () => {
     return (
-      <>
+          <Container>
+              <Box sx={{ mb: 3 }}>
             <BookHeader>Вступ</BookHeader>
             <Paragraph>
                 Ви дізнаєтеся про різні типи даних, які використовуються в мові програмування JavaScript, та їхню роль у вашому коді.
@@ -22,7 +18,8 @@ const DataTypesPage = () => {
             <Paragraph>
                 Ця тема також включає важливі поняття, такі як приведення типів, динамічна типізація та операції порівняння типів даних у JavaScript. Ви будете готові до вирішення різних завдань, де важливо правильно керувати типами даних у вашому коді.
             </Paragraph>
-      </>
+              </Box>
+          </Container>
     );
 };
 

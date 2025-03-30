@@ -1,19 +1,24 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../../features/Paragraph/Paragraph.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
 
 const RegularExpressions = () => {
     return (
-        <div className="page-container">
-            <h1>Що таке регулярні вирази?</h1>
-            <p>
+        <Container className="page-container">
+            <BookHeader>Що таке регулярні вирази?</BookHeader>
+            <Paragraph>
                 Регулярні вирази - це шаблони, які використовуються для пошуку, визначення і вилучення текстових даних, які відповідають певним правилам. Вони дозволяють виразити складні умови для пошуку текстових відповідностей. Наприклад, ви можете використовувати регулярні вирази для пошуку адрес електронної пошти, номерів телефонів, URL-адрес або будь-якого іншого тексту.
-            </p>
+            </Paragraph>
 
-            <h2>Створення регулярних виразів у JavaScript</h2>
-            <p>
-                В JavaScript, ви можете створити регулярний вираз, використовуючи об'єкт <code>RegExp</code> або літеральний запис. Ось приклад створення простого регулярного виразу для пошуку слова "Hello" у тексті:
-            </p>
-            <pre>
-                <code>
+            <SubHeader>Створення регулярних виразів у JavaScript</SubHeader>
+            <Paragraph>
+                В JavaScript, ви можете створити регулярний вираз, використовуючи об'єкт <Code>RegExp</Code> або літеральний запис. Ось приклад створення простого регулярного виразу для пошуку слова "Hello" у тексті:
+            </Paragraph>
+            <CodeBlock>
                     {`
 // За допомогою літерального запису
 const regex = /Hello/;
@@ -21,24 +26,21 @@ const regex = /Hello/;
 // Або за допомогою конструктора RegExp
 const regex = new RegExp("Hello");
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Використання регулярних виразів</h2>
-            <p>
-                Після створення регулярного виразу, ви можете використовувати його для пошуку в тексті за допомогою методу <code>.test()</code>. Наприклад:
-            </p>
-            <pre>
-                <code>
+            <SubHeader>Використання регулярних виразів</SubHeader>
+            <Paragraph>
+                Після створення регулярного виразу, ви можете використовувати його для пошуку в тексті за допомогою методу <Code>.test()</Code>. Наприклад:
+            </Paragraph>
+            <CodeBlock>
                     {`
 const regex = /Hello/;
 const text = "Hello, World!";
 const result = regex.test(text);
 console.log(result); // Виведе true, так як "Hello" знайдено у тексті.
                     `}
-                </code>
-            </pre>
-        </div>
+            </CodeBlock>
+        </Container>
     );
 };
 

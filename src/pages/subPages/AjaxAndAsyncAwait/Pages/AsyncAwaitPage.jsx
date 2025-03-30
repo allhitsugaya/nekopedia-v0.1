@@ -1,35 +1,39 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import Code from "../../../../features/Code/Code.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Chapter from "../../../../features/Chapter/Chapter.jsx";
 
 const AsyncAwaitPage = () => {
     return (
-        <div className="page-container">
-            <h1>async...await</h1>
+        <Container   className="page-container">
+            <BookHeader>async...await</BookHeader>
 
-            <p>
-                <code>async...await</code> є синтаксичним цукром над <code>Promise</code>, що робить код асинхронного JavaScript більш зрозумілим та зручним для написання. Ключове слово <code>async</code> вказує, що функція повертає <code>Promise</code>, а <code>await</code> використовується для очікування виконання <code>Promise</code> та отримання його результату.
-            </p>
+            <Paragraph>
+                <Code>async...await</Code> є синтаксичним цукром над <Code>Promise</Code>, що робить код асинхронного JavaScript більш зрозумілим та зручним для написання. Ключове слово <Code>async</Code> вказує, що функція повертає <Code>Promise</Code>, а <Code>await</Code> використовується для очікування виконання <Code>Promise</Code> та отримання його результату.
+            </Paragraph>
 
-            <h2>async Функції:</h2>
-            <p>
-                Ключове слово <code>async</code> використовується для визначення функції, яка повертає обіцянку (<code>Promise</code>). Функція, яка має <code>async</code> перед своєю декларацією, автоматично повертає <code>Promise</code>.
-            </p>
-            <pre>
-                <code>
+            <SubHeader>async Функції:</SubHeader>
+            <Paragraph>
+                Ключове слово <Code>async</Code> використовується для визначення функції, яка повертає обіцянку (<Code>Promise</Code>). Функція, яка має <Code>async</Code> перед своєю декларацією, автоматично повертає <Code>Promise</Code>.
+            </Paragraph>
+            <CodeBlock>
 {`async function fetchData() {
     return 'Data fetched!';
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>await Оператор:</h2>
-            <p>
-                Оператор <code>await</code> працює тільки в межах <code>async</code> функцій. Він призупиняє виконання функції до тих пір, поки передана обіцянка не буде виконана або відхилена, та повертає його результат.
-            </p>
-            <p>
+            <SubHeader>await Оператор:</SubHeader>
+            <Paragraph>
+                Оператор <Code>await</Code> працює тільки в межах <Code>async</Code> функцій. Він призупиняє виконання функції до тих пір, поки передана обіцянка не буде виконана або відхилена, та повертає його результат.
+            </Paragraph>
+            <Paragraph>
                 Ось приклад з промісом, який виконується за 1 секунду:
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
 {`async function testPromise() {
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => resolve("готово!"), 1000)
@@ -41,25 +45,24 @@ const AsyncAwaitPage = () => {
 }
 
 testPromise();`}
-                </code>
-            </pre>
-            <p>
-                Виконання функції “призупиняється” у рядку (*) і відновлюється, коли проміс виконається, а результатом стає <code>result</code>. Отже, код вище показує “готово!” через одну секунду.
-            </p>
-            <p>
-                Підкреслимо: <code>await</code> буквально призупиняє виконання функції до тих пір, поки проміс не виконається, а потім відновлює її з результатом проміса. Це не вимагає жодних ресурсів ЦП, тому що рушій JavaScript може тим часом робити інші завдання: виконувати інші скрипти, обробляти події тощо.
-            </p>
-            <p>
-                Це просто більш елегантний синтаксис отримання результату проміса, ніж <code>promise.then</code>. Зокрема, так це легше читати й писати.
-            </p>
+            </CodeBlock>
 
-            <h2>Використання</h2>
-            <h3>1. Використання в Контексті Функцій:</h3>
-            <p>
-                Використання <code>async</code> та <code>await</code> зроблює асинхронний код схожим на синхронний, що полегшує його розуміння та обслуговування.
-            </p>
-            <pre>
-                <code>
+            <Paragraph>
+                Виконання функції “призупиняється” у рядку (*) і відновлюється, коли проміс виконається, а результатом стає <Code>result</Code>. Отже, код вище показує “готово!” через одну секунду.
+            </Paragraph>
+            <Paragraph>
+                Підкреслимо: <Code>await</Code> буквально призупиняє виконання функції до тих пір, поки проміс не виконається, а потім відновлює її з результатом проміса. Це не вимагає жодних ресурсів ЦП, тому що рушій JavaScript може тим часом робити інші завдання: виконувати інші скрипти, обробляти події тощо.
+            </Paragraph>
+            <Paragraph>
+                Це просто більш елегантний синтаксис отримання результату проміса, ніж <Code>promise.then</Code>. Зокрема, так це легше читати й писати.
+            </Paragraph>
+
+            <SubHeader>Використання</SubHeader>
+            <Chapter>1. Використання в Контексті Функцій:</Chapter>
+            <Paragraph>
+                Використання <Code>async</Code> та <Code>await</Code> зроблює асинхронний код схожим на синхронний, що полегшує його розуміння та обслуговування.
+            </Paragraph>
+            <CodeBlock>
 {`async function fetchData() {
     try {
         let result1 = await fetch('https://example.com/data1');
@@ -69,15 +72,13 @@ testPromise();`}
         console.error('Error:', error);
     }
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h3>2. Використання в Контексті Обіцянок:</h3>
-            <p>
-                <code>async</code> та <code>await</code> можна використовувати в контексті обіцянок для кращого керування асинхронним кодом.
-            </p>
-            <pre>
-                <code>
+            <Chapter>2. Використання в Контексті Обіцянок:</Chapter>
+            <Paragraph>
+                <Code>async</Code> та <Code>await</Code> можна використовувати в контексті обіцянок для кращого керування асинхронним кодом.
+            </Paragraph>
+            <CodeBlock>
 {`const fetchData = async () => {
     const result = await new Promise((resolve) => {
         setTimeout(() => {
@@ -89,22 +90,19 @@ testPromise();`}
 };
 
 fetchData();`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h3>Не можна використовувати await у звичайних функціях:</h3>
-            <p>
-                Якщо ми спробуємо використати <code>await</code> у не-асинхронній функції, виникне синтаксична помилка:
-            </p>
-            <pre>
-                <code>
+            <Chapter>Не можна використовувати await у звичайних функціях:</Chapter>
+            <Paragraph>
+                Якщо ми спробуємо використати <Code>await</Code> у не-асинхронній функції, виникне синтаксична помилка:
+            </Paragraph>
+            <CodeBlock>
 {`function f() {
   let promise = Promise.resolve(1);
   let result = await promise; // Syntax error
 }`}
-                </code>
-            </pre>
-        </div>
+            </CodeBlock>
+        </Container>
     );
 };
 

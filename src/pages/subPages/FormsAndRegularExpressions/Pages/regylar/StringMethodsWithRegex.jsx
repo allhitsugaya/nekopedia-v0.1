@@ -1,70 +1,68 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import Paragraph from "../../../../../features/Paragraph/Paragraph.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
+import CodeBlock from "../../../../../features/CodeBlock/CodeBlock.jsx";
 
 const StringMethodsWithRegex = () => {
     return (
-        <div className="page-container">
-            <h1>Використання методів рядків з регулярними виразами</h1>
+        <Container className="page-container">
+            <BookHeader>Використання методів рядків з регулярними виразами</BookHeader>
 
-            <h2>1. Метод match</h2>
-            <p>
-                Метод <code>match</code> дозволяє знаходити всі відповідності регулярному виразу в рядку. Він повертає масив, що містить всі відповідності.
-            </p>
-            <pre>
-                <code>
+            <SubHeader>1. Метод match</SubHeader>
+            <Paragraph>
+                Метод <Code>match</Code> дозволяє знаходити всі відповідності регулярному виразу в рядку. Він повертає масив, що містить всі відповідності.
+            </Paragraph>
+            <CodeBlock>
                     {`
 const text = "Hello, World! Hello, Universe!";
 const regex = /Hello/g;
 const matches = text.match(regex);
 console.log(matches); // Виведе ["Hello", "Hello"]
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>2. Метод test</h2>
-            <p>
-                Метод <code>test</code> перевіряє, чи відповідає рядок регулярному виразу. Він повертає <code>true</code>, якщо є відповідність, і <code>false</code>, якщо немає.
-            </p>
-            <pre>
-                <code>
+            <SubHeader>2. Метод test</SubHeader>
+            <Paragraph>
+                Метод <Code>test</Code> перевіряє, чи відповідає рядок регулярному виразу. Він повертає <Code>true</Code>, якщо є відповідність, і <Code>false</Code>, якщо немає.
+            </Paragraph>
+            <CodeBlock>
                     {`
 const regex = /Hello/;
 const text = "Hello, World!";
 const result = regex.test(text);
 console.log(result); // Виведе true
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>3. Метод search</h2>
-            <p>
-                Метод <code>search</code> шукає позицію першої відповідності регулярному виразу в рядку. Він повертає індекс першої відповідності або <code>-1</code>, якщо відповідності не знайдено.
-            </p>
-            <pre>
-                <code>
+            <SubHeader>3. Метод search</SubHeader>
+            <Paragraph>
+                Метод <Code>search</Code> шукає позицію першої відповідності регулярному виразу в рядку. Він повертає індекс першої відповідності або <Code>-1</Code>, якщо відповідності не знайдено.
+            </Paragraph>
+            <CodeBlock>
                     {`
 const regex = /World/;
 const text = "Hello, World!";
 const position = text.search(regex);
 console.log(position); // Виведе 7
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>4. Метод replace</h2>
-            <p>
-                Метод <code>replace</code> дозволяє замінювати всі відповідності регулярного виразу у рядку на новий текст.
-            </p>
-            <pre>
-                <code>
+            <SubHeader>4. Метод replace</SubHeader>
+            <Paragraph>
+                Метод <Code>replace</Code> дозволяє замінювати всі відповідності регулярного виразу у рядку на новий текст.
+            </Paragraph>
+            <CodeBlock>
                     {`
 const text = "Hello, World! Hello, Universe!";
 const regex = /Hello/g;
 const newText = text.replace(regex, "Hi");
 console.log(newText); // Виведе "Hi, World! Hi, Universe!"
                     `}
-                </code>
-            </pre>
-        </div>
+            </CodeBlock>
+        </Container>
     );
 };
 

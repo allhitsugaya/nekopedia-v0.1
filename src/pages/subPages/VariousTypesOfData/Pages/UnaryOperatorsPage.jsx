@@ -1,20 +1,35 @@
 import React from 'react';
+import { Box, Container } from '@mui/material';
+import { Typography } from '@mui/material';
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import Code from "../../../../features/Code/Code.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
+import Chapter from "../../../../features/Chapter/Chapter.jsx";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
 
 const UnaryOperatorsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Унарні оператори та їх роль</h1>
-            <p>
-                У JavaScript є два типи операторів: унарні та бінарні. Унарні оператори діють на один операнд, тоді як бінарні оператори діють на два операнди. Унарні оператори можуть бути передоператорами або постдекрементами.
-            </p>
+        <Container>
+            <Box sx={{ mb: 3 }}>
+                <BookHeader >
+                    Унарні оператори та їх роль
+                </BookHeader>
+            </Box>
 
-            <h2>Передоператори</h2>
-            <p>
+            <Paragraph>
+                У JavaScript є два типи операторів: унарні та бінарні. Унарні оператори діють на один операнд, тоді як бінарні оператори діють на два операнди. Унарні оператори можуть бути передоператорами або постдекрементами.
+            </Paragraph>
+
+            <SubHeader >
+                Передоператори
+            </SubHeader>
+            <Paragraph>
                 Передоператор - це унарний оператор, який змінює значення операнду перед тим, як виконається дія. Унарні передоператори включають в себе плюс, мінус, логічне заперечення та інші. Ось декілька прикладів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let x = 10;
 x = -x; // Переприсвоюємо x зі зміненим знаком
 console.log(x); // -10
@@ -22,77 +37,84 @@ console.log(x); // -10
 let z = true;
 let w = !z;
 console.log(w); // false
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Постдекременти</h2>
-            <p>
+            <SubHeader >
+                Постдекременти
+            </SubHeader>
+            <Paragraph>
                 Постдекремент - це унарний оператор, який зменшує значення операнду після того, як виконано дію. Постдекремент може використовуватися зі змінними, об'єктами та іншими типами даних. Ось декілька прикладів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let x = 10;
 x--;
 console.log(x); // 9
 
 let obj = { a: 1, b: 2 };
 let z = obj.a--; // z = 1, obj.a = 0
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Роль унарних операторів</h2>
-            <p>
+            <SubHeader >
+                Роль унарних операторів
+            </SubHeader>
+            <Paragraph>
                 Унарні оператори є важливими елементами JavaScript, оскільки вони допомагають здійснювати швидкі та ефективні операції з даними. Вони також дозволяють змінювати значення змінних та об'єктів за допомогою простих операцій.
-            </p>
+            </Paragraph>
 
-            <h3>Перетворення рядків у числа</h3>
-            <p>
+            <Chapter >
+                Перетворення рядків у числа
+            </Chapter>
+            <Paragraph>
                 Унарний плюс дозволяє перетворювати рядки у числа, що може бути корисним при обчисленнях:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let str = "10";
 let num = +str; // num = 10
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>Перевірка на існування</h3>
-            <p>
-                Унарні оператори корисні при перевірці на існування (<code>null</code> або <code>undefined</code>):
-            </p>
-            <pre>
-        <code>
-          {`
+            <Chapter  >
+                Перевірка на існування
+            </Chapter>
+            <Paragraph>
+                Унарні оператори корисні при перевірці на існування (<Code>null</Code> або <Code>undefined</Code>):
+            </Paragraph>
+            <CodeBlock>
+                {`
 let obj = null;
 let exists = !!obj; // exists = false
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h3>Інкремент та декремент</h3>
-            <p>
+            <Chapter >
+                Інкремент та декремент
+            </Chapter>
+            <Paragraph>
                 Унарні оператори дозволяють здійснювати швидкий інкремент або декремент змінної, що може пришвидшити виконання коду:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 let a = 0;
 let b = ++a;
 console.log(b); // 1
-          `}
-        </code>
-      </pre>
+                `}
+            </CodeBlock>
 
-            <h2>Висновок</h2>
-            <p>
-                Унарні оператори є потужним інструментом для роботи з даними в JavaScript, тому важливо розуміти їхню роль та використання.
-            </p>
-        </div>
+            <Box sx={{ mt: 4 }}>
+                <Conclusion >
+                    Висновок
+                </Conclusion>
+                <Paragraph>
+                    Розуміння явного та неявного перетворення типів даних є важливим для написання надійного та
+                    передбачуваного коду. Використання явного перетворення допомагає уникнути неочікуваних помилок, а
+                    строге порівняння <Code>===</Code> запобігає проблемам, пов'язаним із неявним перетворенням.
+                </Paragraph>
+            </Box>
+        </Container>
     );
 };
 

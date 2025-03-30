@@ -15,6 +15,7 @@ function CodeBlock({children}) {
                 fontFamily: "monospace",
                 whiteSpace: "pre-wrap",
                 overflowX: "auto",
+                mb:0
             }}
         >
             {children}

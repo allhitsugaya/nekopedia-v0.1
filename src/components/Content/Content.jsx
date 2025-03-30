@@ -1,34 +1,38 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {Box, Button, ButtonGroup, Container, Paper, Stack, Typography} from "@mui/material";
+import {Box, Button, Container, Paper, Stack, Typography} from "@mui/material";
+import {topics} from "../route/router.config.js";
 
 const TopicsListPage = () => {
-    const topics = [
-        { id: 1, title: "Змінні та типи данних", path: '/variables'  },
-        { id: 2, title: "Оператори", path: '/operators'  },
-        { id: 3, title: "Цикли",path: '/cycles'  },
-        { id: 4, title: "Введення в функції", path: '/introducing-fn'  },
-        { id: 5, title: "Замикання, коллбеки, функцій вищого порядку та IIFE", path: '/circuits-callbacks-fn'  },
-        { id: 6, title: "Стрілкові функції", path: '/arrow-fn'  },
-        { id: 7, title: "Рекурсія та вступ до теми функцій констркуторів", path: '/recursion'  },
-        { id: 8, title: "Array та Object", path: '/array' },
-        { id: 9, title: "DOM та Events", path: '/dom-events' },
-        { id: 10, title: "Об'єкт Event, Фази подій, Делегування. BOM", path: '/obj-events'  },
-        { id: 11, title: "Форми та регулярні вирази", path: '/forms'  },
-        { id: 12, title: "Coding Best Practices та чистий код", path: '/best-practice'  },
-        { id: 13, title: "WebStorage", path: '/web-storage'  },
-        { id: 14, title: "OOП JavaScript", path: '/oop-js'  },
-        { id: 15, title: "Class", path: '/class' },
-        { id: 16, title: "Ведення в Асинхронність, Event Loop та Promise", path: '/promise'  },
-        { id: 17, title: "Ajax та async…await", path: '/ajax'  },
-        { id: 18, title: "jQuery", path: '/jquery'  },
-        { id: 19, title: "TypeScript", path: '/typescript'  },
-    ];
-
     return (
-        <Paper className="page-container" >
+        <Paper   sx={{
+            minHeight: '100vh',
+            backgroundColor: 'background.paper',
+            py: 8,
+            px: { xs: 2, sm: 0 },
+            color: 'primary'
+        }} >
             <Container maxWidth={"xl"}>
-            <Typography variant="h4" sx={{fontWeight:"bold"}}>Перелік тем</Typography>
+                <Box sx={{ textAlign: 'center', mb: 8 }}>
+                <Typography variant="h2" sx={{
+                    fontWeight: 800,
+                    mb: 3,
+                    color: 'text.primary',
+                    textShadow: '0 0 8px rgba(162, 217, 206, 0.5)',
+                    position: 'relative',
+                    '&:after': {
+                        content: '""',
+                        display: 'block',
+                        width: '100px',
+                        height: '3px',
+                        background: '#A2D9CE',
+                        margin: '20px auto 0',
+                        borderRadius: '2px',
+                        opacity: 0.5
+                    }
+                }}>
+                    Перелік тем
+                </Typography>
 
             <Typography variantMapping="subtitle1">
                 Нижче наведено список усіх доступних тем. Натисніть на тему, щоб перейти до відповідного розділу.
@@ -40,11 +44,16 @@ const TopicsListPage = () => {
                 variant="contained"
                 className="topics-list">
                 {topics.map((topic) => (
-                    <Button  key={topic.id}>
-                        <NavLink style={{textDecoration:"none",color:"inherit"}} to={topic.path}  >{topic.title}</NavLink>
+                    <Button  key={topic.id}
+                             component={NavLink}
+                             to={topic.path}
+                             sx={{textDecoration:'none',color:'text.secondary' }}
+                    >
+                        {topic.title}
                     </Button>
                 ))}
             </Stack>
+                </Box>
                 </Box>
             </Container>
         </Paper>

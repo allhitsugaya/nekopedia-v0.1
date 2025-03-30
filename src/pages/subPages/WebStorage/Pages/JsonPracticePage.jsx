@@ -1,18 +1,23 @@
 import React from 'react';
+import { Typography, Container} from '@mui/material';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
 
 const JsonPracticePage = () => {
     return (
-        <div className="page-container">
-            <h1>Завдання для практики JSON</h1>
-            <p>
+        <Container className="page-container">
+            <SubHeader variant="h2" gutterBottom>Завдання для практики JSON</SubHeader>
+
+            <Paragraph>
                 Створіть об'єкт JSON, що представляє інформацію про книгу (назва, автор, рік видання).
-                Використайте <code>JSON.stringify()</code>, щоб перетворити об'єкт у JSON-рядок та виведіть його.
-                Використайте <code>JSON.parse()</code>, щоб розпарсити JSON-рядок та вивести дані про книгу.
-            </p>
-            <pre>
-        <code>
-          {`
-// Створіть об'єкт JSON, що представляє інформацію про "Кобзар"
+                Використайте <Code>JSON.stringify()</Code>, щоб перетворити об'єкт у JSON-рядок та виведіть його.
+                Використайте <Code>JSON.parse()</Code>, щоб розпарсити JSON-рядок та вивести дані про книгу.
+            </Paragraph>
+
+            <CodeBlock>
+                {`// Створіть об'єкт JSON, що представляє інформацію про "Кобзар"
 const kobzar = {
     title: "Кобзар",
     author: "Тарас Шевченко",
@@ -33,14 +38,13 @@ const parsedKobzar = JSON.parse(jsonKobzar);
 console.log("Дані про 'Кобзар' після розпарсування:");
 console.log("Назва книги: " + parsedKobzar.title);
 console.log("Автор книги: " + parsedKobzar.author);
-console.log("Рік видання: " + parsedKobzar.year);
-          `}
-        </code>
-      </pre>
-            <p>
-                Цей код створює об'єкт <code>kobzar</code>, перетворює його в JSON-рядок за допомогою <code>JSON.stringify()</code>, а потім розпарсовує JSON-рядок за допомогою <code>JSON.parse()</code>, виводячи дані про книгу.
-            </p>
-        </div>
+console.log("Рік видання: " + parsedKobzar.year);`}
+            </CodeBlock>
+
+            <Paragraph>
+                Цей код створює об'єкт <Code>kobzar</Code>, перетворює його в JSON-рядок за допомогою <Code>JSON.stringify()</Code>, а потім розпарсовує JSON-рядок за допомогою <Code>JSON.parse()</Code>, виводячи дані про книгу.
+            </Paragraph>
+        </Container>
     );
 };
 

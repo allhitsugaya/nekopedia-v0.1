@@ -1,119 +1,119 @@
-import React from 'react';
+import React from "react";
+import {Typography, Box, List, ListItem, Container} from "@mui/material";
 import Code from "../../../../features/Code/Code.jsx";
 import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
 
 const ComparisonOperatorsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Оператори порівняння</h1>
+        <Container>
+            <Box sx={{ mb: 3 }}>
+            <SubHeader variant="h4">Оператори порівняння</SubHeader>
             <Paragraph>
-                Оператори порівняння в JavaScript грають важливу роль у порівнянні значень та виразів. Вони дозволяють визначати відносини між об'єктами та даними і відповідають на питання, чи вірне одне значення відносно іншого. Давайте детально розглянемо п'ять реляційних операторів: <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> та <code>in</code>, та подамо приклади їх використання.
+                Оператори порівняння в JavaScript грають важливу роль у порівнянні значень та виразів.
+                Вони дозволяють визначати відносини між об'єктами та даними і відповідають на питання,
+                чи вірне одне значення відносно іншого. Давайте детально розглянемо реляційні оператори:
             </Paragraph>
 
-            <h2>Оператори &lt; та &gt;</h2>
-            <Paragraph>
-                Оператор <Code>&lt;</Code> (менше) порівнює лівий операнд з правим та повертає <Code>true</Code>, якщо лівий операнд менший за правий, інакше повертає <code>false</code>. Наприклад:
-            </Paragraph>
-            <pre>
-        <Code>
-          {`
-let x = 5;
-let y = 10;
-let isLess = x < y; // isLess містить true, оскільки 5 менше за 10.
-          `}
-        </Code>
-      </pre>
-            <Paragraph>
-                Оператор <Code>&gt;</Code> (більше) працює на зворотних засадах. Він повертає <Code>true</Code>, якщо лівий операнд більший за правий:
-            </Paragraph>
-            <pre>
-        <Code>
-          {`
-let x = 15;
-let y = 10;
-let isGreater = x > y; // isGreater містить true, оскільки 15 більше за 10.
-          `}
-        </Code>
-      </pre>
+            <List>
+                <ListItem>
+                    <Code>&lt;</Code> (менше)
+                </ListItem>
+                <ListItem>
+                    <Code>&gt;</Code> (більше)
+                </ListItem>
+                <ListItem>
+                    <Code>&lt;=</Code> (менше або дорівнює)
+                </ListItem>
+                <ListItem>
+                    <Code>&gt;=</Code> (більше або дорівнює)
+                </ListItem>
+                <ListItem>
+                    <Code>in</Code>
+                </ListItem>
+            </List>
 
-            <h2>Оператори &lt;= та &gt;=</h2>
+            <SubHeader variant="h5">Оператори &lt; та &gt;</SubHeader>
             <Paragraph>
-                Оператор <code>&lt;=</code> (менше або дорівнює) порівнює, чи лівий операнд менший або дорівнює правому операнду, та повертає <Code>true</Code>, якщо це вірно:
+                Оператор <Code>&lt;</Code> повертає <Code>true</Code>, якщо лівий операнд менший за правий:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
-let x = 10;
+            <CodeBlock>
+                {`let x = 5;
 let y = 10;
-let isLessOrEqual = x <= y; // isLessOrEqual містить true, оскільки 10 дорівнює 10.
-          `}
-        </Code>
-      </pre>
+let isLess = x < y; // true`}
+            </CodeBlock>
+
             <Paragraph>
-                Оператор <code>&gt;=</code> (більше або дорівнює) працює на зворотних засадах, він повертає <Code>true</Code>, якщо лівий операнд більший або дорівнює правому:
+                Оператор <Code>&gt;</Code> працює на зворотних засадах:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
-let x = 10;
+            <CodeBlock>
+                {`let x = 15;
+let y = 10;
+let isGreater = x > y; // true`}
+            </CodeBlock>
+
+            <SubHeader variant="h5">Оператори &lt;= та &gt;=</SubHeader>
+            <Paragraph>
+                Оператор <Code>&lt;=</Code> перевіряє, чи лівий операнд менший або дорівнює правому:
+            </Paragraph>
+            <CodeBlock>
+                {`let x = 10;
+let y = 10;
+let isLessOrEqual = x <= y; // true`}
+            </CodeBlock>
+
+            <Paragraph>
+                Оператор <Code>&gt;=</Code> працює аналогічно:
+            </Paragraph>
+            <CodeBlock>
+                {`let x = 10;
 let y = 5;
-let isGreaterOrEqual = x >= y; // isGreaterOrEqual містить true, оскільки 10 більше за 5.
-          `}
-        </Code>
-      </pre>
+let isGreaterOrEqual = x >= y; // true`}
+            </CodeBlock>
 
-            <h2>Оператор in</h2>
+            <SubHeader variant="h5">Оператор in</SubHeader>
             <Paragraph>
-                Оператор <Code>in</Code> використовується для перевірки, чи об'єкт містить вказану властивість. Він повертає <Code>true</Code>, якщо властивість існує в об'єкті, інакше повертає <code>false</code>. Приклад:
+                Використовується для перевірки наявності властивості в об'єкті:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
-let person = { name: "John", age: 30 };
-let hasName = "name" in person; // hasName містить true, оскільки властивість "name" існує в об'єкті.
-let hasAddress = "address" in person; // hasAddress містить false, оскільки властивості "address" немає.
-          `}
-        </Code>
-      </pre>
+            <CodeBlock>
+                {`let person = { name: "John", age: 30 };
+let hasName = "name" in person; // true
+let hasAddress = "address" in person; // false`}
+            </CodeBlock>
 
-            <h2>Використання реляційних операторів</h2>
+            <SubHeader variant="h5">Приклади використання</SubHeader>
             <Paragraph>
-                Реляційні оператори дозволяють вам створювати умовні вирази та вирішувати різноманітні завдання. Наприклад, вони корисні при фільтрації даних у масиві:
+                Фільтрація даних у масиві:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
-let numbers = [5, 10, 15, 20, 25];
-let filteredNumbers = numbers.filter(function (num) {
-  return num > 15; // Фільтруємо значення більше за 15.
-});
-// filteredNumbers містить [20, 25].
-          `}
-        </Code>
-      </pre>
+            <CodeBlock>
+                {`let numbers = [5, 10, 15, 20, 25];
+let filteredNumbers = numbers.filter(num => num > 15);
+// [20, 25]`}
+            </CodeBlock>
+
             <Paragraph>
-                Реляційні оператори також використовуються у виразах умовного оператора <Code>if</Code>, щоб приймати рішення на основі порівнянь:
+                Використання в умовах:
             </Paragraph>
-            <pre>
-        <Code>
-          {`
-let temperature = 25;
+            <CodeBlock>
+                {`let temperature = 25;
 if (temperature > 30) {
   console.log("Гаряче!");
 } else if (temperature <= 30 && temperature > 20) {
   console.log("Приємна температура.");
 } else {
   console.log("Холодно.");
-}
-          `}
-        </Code>
-      </pre>
+}`}
+            </CodeBlock>
 
-            <h2>Висновок</h2>
+            <Conclusion variant="h5">Висновок</Conclusion>
             <Paragraph>
-                Пам'ятайте, що реляційні оператори порівнюють значення та повертають логічні результати (<Code>true</Code> або <Code>false</Code>), що робить їх корисними при прийнятті умовних рішень та фільтрації даних у JavaScript.
+                Реляційні оператори порівнюють значення та повертають <Code>true</Code> або <Code>false</Code>,
+                що робить їх корисними при фільтрації даних і прийнятті умовних рішень у JavaScript.
             </Paragraph>
-        </div>
+        </Box>
+        </Container>
     );
 };
 

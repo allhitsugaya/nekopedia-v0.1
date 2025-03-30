@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {Box, Typography, List, ListItem, Collapse, Container} from '@mui/material';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Chapter from "../../../../../features/Chapter/Chapter.jsx";
 
 const EventBubblingExamplePage = () => {
-    return (
-        <div className="page-container">
-            <h1>Приклад роботи з фазами захоплення та спливання</h1>
-            <p>
-                Гарний приклад використання фази захоплення і спливання - це створення меню згортання. Уявімо, що ми маємо дерево елементів меню, і ми хочемо, щоб при кліку на пункт меню відкривався або закривався вміст підпунктів. Ми можемо використовувати фазу спливання для обробки кліків та фазу захоплення для відстеження кліку на заголовок меню.
-            </p>
+    const [open, setOpen] = useState(false);
 
-            <h2>Приклад коду</h2>
-            <pre>
-        <code>
-          {`
-<!doctype html>
+    const handleMenuClick = () => {
+        setOpen(prevOpen => !prevOpen);
+    };
+
+
+    return (
+        <Container className="page-container" >
+            <BookHeader >
+                Приклад роботи з фазами захоплення та спливання
+            </BookHeader>
+
+            <Paragraph>
+                Гарний приклад використання фази захоплення і спливання - це створення меню згортання. Уявімо, що ми маємо дерево елементів меню, і ми хочемо, щоб при кліку на пункт меню відкривався або закривався вміст підпунктів. Ми можемо використовувати фазу спливання для обробки кліків та фазу захоплення для відстеження кліку на заголовок меню.
+            </Paragraph>
+
+            <Chapter variant="h4" gutterBottom>
+                Приклад коду
+            </Chapter>
+            <CodeBlock>
+                {`<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,21 +53,44 @@ const EventBubblingExamplePage = () => {
 
     menu.addEventListener("click", function (event) {
         if (event.target.classList.contains("menu-header")) {
-            // Клік на заголовку меню
+    
             const submenu = event.target.nextElementSibling;
             submenu.classList.toggle("expanded");
         }
     });
 </script>
 </body>
-</html>
-          `}
-        </code>
-      </pre>
-            <p>
+</html>`}
+            </CodeBlock>
+
+            <Paragraph>
                 У цьому прикладі фаза спливання використовується для обробки кліків на пунктах меню, а фаза захоплення слугує для відстеження кліку на заголовку меню, щоб розгортати або згортати підменю.
-            </p>
-        </div>
+            </Paragraph>
+                <Chapter variant="h5" sx={{ marginBottom: 2 }}>
+                    Демонстрація меню згортання:
+                </Chapter>
+
+                <List>
+                    <ListItem button onClick={handleMenuClick}>
+                        <Typography variant="h6" sx={{fontSize:16,
+                            fontFamily:"monospace",
+                            backgroundColor:'background.paper',
+                            p:"4px 16px",
+                            borderRadius:'10px'
+                        }}>Батьківський елемент</Typography>
+                    </ListItem>
+                    <Collapse in={open} sx={{backgroundColor:"background.default"}}>
+                        <List component="div" disablePadding>
+                            <ListItem button>
+                                <Typography variant="body1">Підпункт 1</Typography>
+                            </ListItem>
+                            <ListItem button>
+                                <Typography variant="body1">Підпункт 2</Typography>
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                </List>
+        </Container>
     );
 };
 

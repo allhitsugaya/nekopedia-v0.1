@@ -1,22 +1,43 @@
-import React from 'react';
+import {Box, Container, Typography} from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
 
 const ControlFlowPage = () => {
     return (
-        <div className="page-container">
-            <h1>Вступ</h1>
-            <p>
+        <Container>
+        <Box style={{
+            maxWidth: '100%',
+            padding: 2,
+            textAlign: 'left'
+        }}>
+            <BookHeader
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                    color: 'text.primary'
+                }}
+            >
+                Вступ
+            </BookHeader>
+
+            <Paragraph>
                 Ми глибоко розглянемо основні засоби керування програмним потоком та обробки даних в мові програмування JavaScript. Почнемо з розгляду спливу змінних (hoisting), що дозволяє розуміти, як JavaScript обробляє змінні та функції під час виконання коду.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
                 Далі ви дізнаєтеся про правила та порядок виконання операторів, включаючи арифметичні операції, оператори присвоєння, інкремент та декремент, а також операції для роботи зі залишком від ділення. Ці знання стануть фундаментом для ефективної роботи з числовими значеннями в JavaScript.
-            </p>
-            <p>
+            </Paragraph>
+
+            <Paragraph>
                 Ми також вивчимо бінарні та логічні оператори, такі як & (AND), | (OR), && (логічне AND), || (логічне OR), ?? (оператор злиття nullish), і дізнаємося, як вони застосовуються для створення умов та контролю логіки програми.
-            </p>
-            <p>
+            </Paragraph>
+
+            <Paragraph>
                 Завершимо тему, розглядаючи тернарний оператор та роботу з умовними конструкціями if/else if/else та switch/case, що дозволять створювати гнучкі умови в вашому JavaScript-коді. Ця тема допоможе вам вдосконалити навички розробки та оптимізації програмного коду в JavaScript.
-            </p>
-        </div>
+            </Paragraph>
+        </Box>
+        </Container>
     );
 };
 

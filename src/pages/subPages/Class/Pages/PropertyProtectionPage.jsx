@@ -1,19 +1,25 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../features/Code/Code.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
 
 const PropertyProtectionPage = () => {
     return (
-        <div className="page-container">
-            <h1>Захист властивостей</h1>
-            <p>
-                В об'єктно-орієнтованому програмуванні захист властивостей та методів є важливою частиною, щоб забезпечити конфіденційність та безпеку коду. В JavaScript з'явилися нові можливості для роботи з модифікаторами доступу, такими як <code>public</code> та <code>private</code>. Розглянемо ці модифікатори та їхню роль у захисті властивостей класів.
-            </p>
+        <Container className="page-container">
+            <BookHeader>Захист властивостей</BookHeader>
+            <Paragraph>
+                В об'єктно-орієнтованому програмуванні захист властивостей та методів є важливою частиною, щоб забезпечити конфіденційність та безпеку коду. В JavaScript з'явилися нові можливості для роботи з модифікаторами доступу, такими як <Code>public</Code> та <Code>private</Code>. Розглянемо ці модифікатори та їхню роль у захисті властивостей класів.
+            </Paragraph>
 
-            <h2>1. Модифікатор public</h2>
-            <p>
-                Модифікатор <code>public</code> є стандартним для всіх властивостей та методів у класі. Це означає, що вони доступні для використання ззовні класу та можуть бути викликані чи змінені з інших частин програми.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>1. Модифікатор public</SubHeader>
+            <Paragraph>
+                Модифікатор <Code>public</Code> є стандартним для всіх властивостей та методів у класі. Це означає, що вони доступні для використання ззовні класу та можуть бути викликані чи змінені з інших частин програми.
+            </Paragraph>
+            <CodeBlock>
           {`
 class Animal {
   constructor(name) {
@@ -29,18 +35,17 @@ const myAnimal = new Animal('Leo');
 console.log(myAnimal.name); // Доступ до public властивості
 myAnimal.speak(); // Виклик public методу
           `}
-        </code>
-      </pre>
-            <p>
-                Властивість <code>name</code> та метод <code>speak</code> класу <code>Animal</code> є <code>public</code>, що дозволяє їм бути доступними ззовні класу.
-            </p>
+            </CodeBlock>
 
-            <h2>2. Модифікатор private</h2>
-            <p>
-                Модифікатор <code>private</code> дозволяє обмежити доступ до властивостей та методів тільки всередині самого класу. Це забезпечує високий рівень конфіденційності та безпеки.
-            </p>
-            <pre>
-        <code>
+            <Paragraph>
+                Властивість <Code>name</Code> та метод <Code>speak</Code> класу <Code>Animal</Code> є <Code>public</Code>, що дозволяє їм бути доступними ззовні класу.
+            </Paragraph>
+
+            <SubHeader>2. Модифікатор private</SubHeader>
+            <Paragraph>
+                Модифікатор <Code>private</Code> дозволяє обмежити доступ до властивостей та методів тільки всередині самого класу. Це забезпечує високий рівень конфіденційності та безпеки.
+            </Paragraph>
+            <CodeBlock>
           {`
 class Person {
   #salary; // Властивість private
@@ -60,17 +65,18 @@ console.log(employee.name); // Доступ до public властивості
 console.log(employee.#salary); // Помилка: Немає доступу до private властивості
 console.log(employee.getSalary()); // Виклик public методу, який отримує доступ до private властивості
           `}
-        </code>
-      </pre>
-            <p>
-                Тут властивість <code>#salary</code> визначена як <code>private</code> і не може бути отримана напряму ззовні класу. Але, за допомогою методу <code>getSalary</code>, ми можемо отримати доступ до значення <code>#salary</code>.
-            </p>
+            </CodeBlock>
+            <Paragraph>
+                Тут властивість <Code>#salary</Code> визначена як <Code>private</Code> і не може бути отримана напряму ззовні класу. Але, за допомогою методу <Code>getSalary</Code>, ми можемо отримати доступ до значення <Code>#salary</Code>.
+            </Paragraph>
 
-            <h2>Заключення</h2>
-            <p>
-                Захист властивостей та методів у класах дозволяє створювати безпечний та конфіденційний код. Використання модифікаторів доступу визначає рівень доступу для кожної частини класу, забезпечуючи контрольований доступ до даних та функціональності.
-            </p>
-        </div>
+                <Conclusion>Заключення</Conclusion>
+                <Paragraph>
+                    Захист властивостей та методів у класах дозволяє створювати безпечний та конфіденційний код.
+                    Використання модифікаторів доступу визначає рівень доступу для кожної частини класу, забезпечуючи
+                    контрольований доступ до даних та функціональності.
+                </Paragraph>
+        </Container>
     );
 };
 

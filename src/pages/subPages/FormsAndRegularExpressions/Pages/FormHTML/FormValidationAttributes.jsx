@@ -1,78 +1,81 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../../features/Paragraph/Paragraph.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
+import Conclusion from "../../../../../features/Conclusion/Conclusion.jsx";
 
 const FormValidationAttributes = () => {
     return (
-        <div className="page-container">
-            <h1>Використання атрибутів required, pattern та інших для валідації введених даних в формах HTML</h1>
-            <p>
+        <Container className="page-container">
+            <BookHeader>Використання атрибутів required, pattern та інших для валідації введених даних в формах HTML</BookHeader>
+            <Paragraph>
                 У формах HTML існує кілька атрибутів, які дозволяють валідувати дані, які вводять користувачі. Ці атрибути полегшують роботу і покращують користувацький досвід, дозволяючи перевіряти введені дані ще до їх відправлення на сервер. Ось кілька атрибутів та приклади їх використання:
-            </p>
+            </Paragraph>
 
-            <h2>1. required</h2>
-            <p>
+            <SubHeader>1. required</SubHeader>
+            <Paragraph>
                 Цей атрибут вказує, що поле обов'язкове для заповнення. Якщо воно залишене порожнім, форма не буде відправлена.
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
                     {`
 <input type="text" required>
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>2. pattern</h2>
-            <p>
+            <SubHeader>2. pattern</SubHeader>
+            <Paragraph>
                 Цей атрибут визначає шаблон, якому повинні відповідати введені дані. Наприклад, для перевірки правильності введення електронної пошти:
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
                     {`
 <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}" required>
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>3. min та max</h2>
-            <p>
+
+            <SubHeader>3. min та max</SubHeader>
+            <Paragraph>
                 Встановлення мінімального і максимального допустимого значення для числових полів.
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
                     {`
 <input type="number" min="0" max="100">
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>4. minlength та maxlength</h2>
-            <p>
+
+            <SubHeader>4. minlength та maxlength</SubHeader>
+            <Paragraph>
                 Встановлення мінімальної та максимальної кількості символів для текстових полів.
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
                     {`
 <input type="text" minlength="3" maxlength="20">
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>5. pattern з виразами</h2>
-            <p>
+            <SubHeader>5. pattern з виразами</SubHeader>
+            <Paragraph>
                 Ви можете використовувати регулярні вирази для визначення прийнятних значень.
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
                     {`
 <input type="text" pattern="[0-9]{5}" title="П'ять цифр">
                     `}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Висновок</h2>
-            <p>
-                Ці атрибути спільно допомагають забезпечити, що користувачі вводять валідні дані. У разі невідповідності, браузер відобразить повідомлення про помилку і не дозволить надсилати форму. Це покращує користувацький досвід і допомагає уникнути некоректних або небезпечних даних, що потрапляють на сервер.
-            </p>
-        </div>
+                <Conclusion>Висновок</Conclusion>
+                <Paragraph>
+                    Ці атрибути спільно допомагають забезпечити, що користувачі вводять валідні дані. У разі
+                    невідповідності, браузер відобразить повідомлення про помилку і не дозволить надсилати форму. Це
+                    покращує користувацький досвід і допомагає уникнути некоректних або небезпечних даних, що
+                    потрапляють на сервер.
+                </Paragraph>
+
+        </Container>
     );
 };
 

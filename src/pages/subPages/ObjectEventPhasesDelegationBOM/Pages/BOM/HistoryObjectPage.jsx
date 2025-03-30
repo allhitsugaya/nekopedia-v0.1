@@ -1,62 +1,73 @@
 import React from 'react';
+import {Box, Container, Typography} from '@mui/material';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Chapter from "../../../../../features/Chapter/Chapter.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
 
 const HistoryObjectPage = () => {
     return (
-        <div className="page-container">
-            <h1>Робота з об'єктом history</h1>
+        <Container>
+            <BookHeader variant="h3" >
+                Робота з об'єктом history
+            </BookHeader>
 
-            <p>
-                Об'єкт <code>history</code> дозволяє вам взаємодіяти з історією переходів користувача в браузері. Ви можете використовувати об'єкт <code>history</code> для навігації назад та вперед в історії браузера, а також для отримання інформації про кількість записів в історії та поточний стан. У цьому розділі ми розглянемо основи роботи з об'єктом <code>history</code> та надамо приклади його використання.
-            </p>
+            <Paragraph>
+                Об'єкт <Code>history</Code> дозволяє вам взаємодіяти з історією переходів користувача в браузері. Ви можете використовувати об'єкт <Code>history</Code> для навігації назад та вперед в історії браузера, а також для отримання інформації про кількість записів в історії та поточний стан. У цьому розділі ми розглянемо основи роботи з об'єктом <Code>history</Code> та надамо приклади його використання.
+            </Paragraph>
 
-            <h2>Отримання довжини історії</h2>
-            <p>
-                Властивість <code>length</code> об'єкта <code>history</code> містить кількість записів в історії браузера. Ви можете отримати це значення, щоб дізнатися, скільки сторінок було відвідано користувачем.
-            </p>
-            <pre>
-                <code>
-{`const historyLength = history.length;
+            <Chapter variant="h4" >
+                Отримання довжини історії
+            </Chapter>
+            <Paragraph>
+                Властивість <Code>length</Code> об'єкта <Code>history</Code> містить кількість записів в історії браузера. Ви можете отримати це значення, щоб дізнатися, скільки сторінок було відвідано користувачем.
+            </Paragraph>
+            <CodeBlock>
+                {`const historyLength = history.length;
 console.log(\`Кількість записів в історії: \${historyLength}\`);`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Перехід назад та вперед</h2>
-            <p>
-                Об'єкт <code>history</code> надає методи <code>back()</code> та <code>forward()</code>, які дозволяють вам навігувати назад та вперед по історії браузера.
-            </p>
-            <pre>
-                <code>
-{`// Перехід на попередню сторінку (назад)
+            <Chapter variant="h4" >
+                Перехід назад та вперед
+            </Chapter>
+            <Paragraph>
+                Об'єкт <Code>history</Code> надає методи <Code>back()</Code> та <Code>forward()</Code>, які дозволяють вам навігувати назад та вперед по історії браузера.
+            </Paragraph>
+            <CodeBlock>
+                {`// Перехід на попередню сторінку (назад)
 history.back();
 
 // Перехід на наступну сторінку (вперед)
 history.forward();`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Перехід за вказану кількість кроків</h2>
-            <p>
-                Ви також можете використовувати метод <code>go()</code> для переходу на певну сторінку в історії, вказавши кількість кроків, на які треба перейти назад (від'їхати назад) або вперед (продовжити вперед).
-            </p>
-            <pre>
-                <code>
-{`// Перехід на 2 сторінки вперед
+            <Chapter variant="h4" >
+                Перехід за вказану кількість кроків
+            </Chapter>
+            <Paragraph>
+                Ви також можете використовувати метод <Code>go()</Code> для переходу на певну сторінку в історії, вказавши кількість кроків, на які треба перейти назад (від'їхати назад) або вперед (продовжити вперед).
+            </Paragraph>
+            <CodeBlock>
+                {`// Перехід на 2 сторінки вперед
 history.go(2);
 
 // Перехід на 1 сторінку назад
 history.go(-1);`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Приклади використання об'єкта history</h2>
-            <p>
-                Давайте розглянемо кілька прикладів використання об'єкта <code>history</code>.
-            </p>
+            <Chapter variant="h4" >
+                Приклади використання об'єкта history
+            </Chapter>
+            <Paragraph>
+                Давайте розглянемо кілька прикладів використання об'єкта <Code>history</Code>.
+            </Paragraph>
 
-            <h3>Навігація назад та вперед</h3>
-            <pre>
-                <code>
-{`// Початковий URL
+            <Chapter variant="h5" >
+                Навігація назад та вперед
+            </Chapter>
+            <CodeBlock>
+                {`// Початковий URL
 console.log("Початковий URL:", window.location.href);
 
 // Перехід на іншу сторінку
@@ -73,23 +84,22 @@ setTimeout(function () {
         history.forward();
     }, 2000);
 }, 2000);`}
-                </code>
-            </pre>
-            <p>
-                У цьому прикладі ми спершу переходимо на сторінку <code>"https://www.example.com/page2"</code>, а потім назад та вперед за допомогою методів <code>back()</code> та <code>forward()</code>.
-            </p>
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми спершу переходимо на сторінку <Code>"https://www.example.com/page2"</Code>, а потім назад та вперед за допомогою методів <Code>back()</Code> та <Code>forward()</Code>.
+            </Paragraph>
 
-            <h3>Перехід до конкретного запису в історії</h3>
-            <pre>
-                <code>
-{`// Перехід до другого запису в історії
+            <Chapter variant="h5" >
+                Перехід до конкретного запису в історії
+            </Chapter>
+            <CodeBlock>
+                {`// Перехід до другого запису в історії
 history.go(2);`}
-                </code>
-            </pre>
-            <p>
-                У цьому прикладі ми використовуємо метод <code>go(2)</code>, щоб перейти на другий запис в історії браузера. Це призведе до переходу на сторінку, яка розташована два кроки вперед в історії.
-            </p>
-        </div>
+            </CodeBlock>
+            <Paragraph>
+                У цьому прикладі ми використовуємо метод <Code>go(2)</Code>, щоб перейти на другий запис в історії браузера. Це призведе до переходу на сторінку, яка розташована два кроки вперед в історії.
+            </Paragraph>
+        </Container>
     );
 };
 

@@ -1,25 +1,51 @@
-import React from 'react';
+import {Container, Typography} from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
 
 const OOPPage = () => {
     return (
-        <div className="page-container">
-            <h1>Класи та об'єктно-орієнтоване програмування</h1>
-            <p>
+        <Container>
+            <BookHeader
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                }}
+            >
+                Класи та об'єктно-орієнтоване програмування
+            </BookHeader>
+
+            <Paragraph>
                 Об'єктно-орієнтоване програмування (ООП) — це парадигма програмування, що базується на концепції об'єктів, які мають властивості та поведінку, і взаємодіють один з одним. TypeScript, як розширення JavaScript, дозволяє нам використовувати основні принципи ООП для створення структурованих, модульних та повторно використовуваних кодових баз.
-            </p>
+            </Paragraph>
 
-            <p>
+            <Paragraph>
                 У цій частині ми розглянемо основні поняття та засоби об'єктно-орієнтованого програмування в TypeScript. Ми детально розглянемо визначення класів, використання конструкторів, наслідування та інтерфейси. Під час подальших прикладів ми поглибимося в роботу з функціями, типами та важливими аспектами створення ефективного коду в ООП-стилі з використанням TypeScript.
-            </p>
+            </Paragraph>
 
-            <h2>Визначення класів та використання конструкторів</h2>
-            <p>
-                В TypeScript класи використовуються для створення об'єктно-орієнтованих структур. Вони описують властивості та методи об'єктів і включають конструктор для ініціалізації екземплярів класу. Приклад нижче демонструє створення класу <code>Car</code> з властивостями <code>brand</code> та <code>model</code> та методом <code>startEngine</code>.
-            </p>
-            <pre>
-        <code>
-          {`
-class Car {
+            <SubHeader
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Визначення класів та використання конструкторів
+            </SubHeader>
+
+            <Paragraph>
+                В TypeScript класи використовуються для створення об'єктно-орієнтованих структур. Вони описують властивості та методи об'єктів і включають конструктор для ініціалізації екземплярів класу. Приклад нижче демонструє створення класу <Code>Car</Code> з властивостями <Code>brand</Code> та <Code>model</Code> та методом <Code>startEngine</Code>.
+            </Paragraph>
+
+            <CodeBlock>
+                {`class Car {
   // Властивості класу
   brand: string;
   model: string;
@@ -38,22 +64,31 @@ class Car {
 
 // Створення екземпляра класу
 const myCar = new Car('Toyota', 'Camry');
-myCar.startEngine();
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі <code>Car</code> — це клас, а <code>myCar</code> — його екземпляр. Конструктор класу викликається при створенні нового екземпляра, і властивості можуть бути ініціалізовані переданими значеннями.
-            </p>
+myCar.startEngine();`}
+            </CodeBlock>
 
-            <h2>Наслідування</h2>
-            <p>
+            <Paragraph>
+                У цьому прикладі <Code>Car</Code> — це клас, а <Code>myCar</Code> — його екземпляр. Конструктор класу викликається при створенні нового екземпляра, і властивості можуть бути ініціалізовані переданими значеннями.
+            </Paragraph>
+
+            <SubHeader
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Наслідування
+            </SubHeader>
+
+            <Paragraph>
                 В TypeScript можна використовувати наслідування для створення нового класу, який успадковує властивості та методи іншого класу. Це дозволяє створювати ієрархії класів та використовувати вже існуючий код.
-            </p>
-            <pre>
-        <code>
-          {`
-// Базовий клас
+            </Paragraph>
+
+            <CodeBlock>
+                {`// Базовий клас
 class Animal {
   name: string;
 
@@ -88,19 +123,27 @@ const genericAnimal = new Animal('Generic Animal');
 const myDog = new Dog('Buddy', 'Labrador');
 
 genericAnimal.makeSound(); // Output: Some generic sound
-myDog.makeSound();        // Output: Woof! Woof!
-          `}
-        </code>
-      </pre>
+myDog.makeSound();        // Output: Woof! Woof!`}
+            </CodeBlock>
 
-            <h2>Інтерфейси</h2>
-            <p>
+            <SubHeader
+                variant="h2"
+                sx={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    mt: 4,
+                    mb: 2,
+                }}
+            >
+                Інтерфейси
+            </SubHeader>
+
+            <Paragraph>
                 Крім того, TypeScript використовує інтерфейси для визначення контрактів, які класи повинні виконувати. Інтерфейс може включати визначення методів та властивостей, які повинні бути реалізовані класами, що імплементують цей інтерфейс.
-            </p>
-            <pre>
-        <code>
-          {`
-// Інтерфейс для класу, який має метод logDetails
+            </Paragraph>
+
+            <CodeBlock>
+                {`// Інтерфейс для класу, який має метод logDetails
 interface Loggable {
   logDetails(): void;
 }
@@ -114,16 +157,25 @@ class Logger implements Loggable {
 
 // Створення екземпляру класу
 const logger = new Logger();
-logger.logDetails(); // Output: Logging details...
-          `}
-        </code>
-      </pre>
+logger.logDetails(); // Output: Logging details...`}
+            </CodeBlock>
 
-            <h2>Заключення</h2>
-            <p>
-                Таким чином, використання класів, наслідування та інтерфейсів у TypeScript робить код більш читабельним, розширюваним та підтримуваним.
-            </p>
-        </div>
+            <>
+                <Conclusion
+                    variant="h2"
+                    sx={{
+                        fontSize: '1.5rem',
+                        fontWeight: 600,
+                        mb: 2,
+                    }}
+                >
+                    Заключення
+                </Conclusion>
+                <Paragraph>
+                    Таким чином, використання класів, наслідування та інтерфейсів у TypeScript робить код більш читабельним, розширюваним та підтримуваним.
+                </Paragraph>
+            </>
+        </Container>
     );
 };
 

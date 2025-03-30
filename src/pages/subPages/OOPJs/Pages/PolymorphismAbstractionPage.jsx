@@ -1,20 +1,29 @@
 import React from 'react';
+import {Box, Container, Typography} from '@mui/material';
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
 
 const PolymorphismAbstractionPage = () => {
     return (
-        <div className="page-container">
-            <h1>Поліморфізм та абстракція</h1>
+        <Container>
+            <BookHeader variant="h3" gutterBottom>
+                Поліморфізм та абстракція
+            </BookHeader>
 
-            <h2>Поліморфізм</h2>
-            <p>
+            <SubHeader variant="h4" gutterBottom>
+                Поліморфізм
+            </SubHeader>
+            <Paragraph>
                 Поліморфізм - це принцип, що дозволяє об'єктам різних класів відповідати на однакові запити чи виклики методів за допомогою одного і того ж інтерфейсу. Це спрощує роботу з різними об'єктами, які можуть реалізовувати однаковий функціонал залежно від свого контексту.
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph>
                 Поліморфізм може бути досягнутий за допомогою функцій-конструкторів. Ось приклад з використанням функцій-конструкторів:
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 // Функція-конструктор для геометричної фігури "Shape"
 function Shape() {
   this.type = "Shape";
@@ -62,20 +71,20 @@ const rectangle = new Rectangle(4, 6);
 // Виклик функції getArea з різними фігурами
 console.log(getArea(circle));    // "78.53981633974483" (площа кола)
 console.log(getArea(rectangle)); // "24" (площа прямокутника)
-          `}
-        </code>
-      </pre>
-            <p>
+                `}
+            </CodeBlock>
+            <Paragraph>
                 У цьому прикладі ми використовуємо функції-конструктори "Shape", "Circle" та "Rectangle" для створення фігур. Кожна фігура має власну реалізацію методу <code>calculateArea</code>, який перевизначено у підкласах для обчислення площі відповідно до їхньої форми. Функція <code>getArea</code> використовує поліморфізм для обчислення площі будь-якої фігури, навіть без заздалегідь відомого типу фігури.
-            </p>
+            </Paragraph>
 
-            <h2>Абстракція</h2>
-            <p>
+            <SubHeader variant="h4" gutterBottom>
+                Абстракція
+            </SubHeader>
+            <Paragraph>
                 Абстракція - це процес виділення суттєвих характеристик об'єкта та приховування зайвих деталей. Абстракція дозволяє спростити взаємодію з об'єктами, забезпечуючи інтерфейс для їх використання та приховуючи реалізацію деталей.
-            </p>
-            <pre>
-        <code>
-          {`
+            </Paragraph>
+            <CodeBlock>
+                {`
 // Абстракція калькулятора
 const calculator = {
     add: function (a, b) {
@@ -102,18 +111,19 @@ console.log("Результат додавання:", result1); // 8
 
 const result2 = calculator.multiply(4, 7);
 console.log("Результат множення:", result2); // 28
-          `}
-        </code>
-      </pre>
-            <p>
+                `}
+            </CodeBlock>
+            <Paragraph>
                 У цьому прикладі ми створили абстракцію калькулятора, яка надає простий інтерфейс для виконання математичних операцій. Користувач не потребує знати, як саме реалізовані операції, а лише використовує методи <code>add</code>, <code>subtract</code>, <code>multiply</code> та <code>divide</code>.
-            </p>
+            </Paragraph>
 
-            <h2>Заключення</h2>
-            <p>
+            <Conclusion variant="h4" >
+                Заключення
+            </Conclusion>
+            <Paragraph>
                 Поліморфізм та абстракція є важливими принципами об'єктно-орієнтованого програмування. Поліморфізм дозволяє об'єктам різних класів використовувати однаковий інтерфейс, що спрощує роботу з ними. Абстракція дозволяє приховувати зайві деталі реалізації, надаючи зручний інтерфейс для взаємодії з об'єктами. Використання цих принципів робить код більш структурованим, зрозумілим та підтримуваним.
-            </p>
-        </div>
+            </Paragraph>
+        </Container>
     );
 };
 

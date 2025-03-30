@@ -4,7 +4,7 @@ import {Typography, useTheme} from "@mui/material";
 function Code({children}) {
     const theme = useTheme();
     return < Typography variant="p" sx={{
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 600,
         fontFamily: "monospace",
         color: theme.palette.mode === 'dark' ? 'light' : 'dark',

@@ -1,84 +1,113 @@
 import React from 'react';
+import {Box, Typography, List, ListItem, Container} from '@mui/material';
+import Paragraph from '../../../../../features/Paragraph/Paragraph.jsx';
+import CodeBlock from '../../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import Chapter from "../../../../../features/Chapter/Chapter.jsx";
+import Conclusion from "../../../../../features/Conclusion/Conclusion.jsx";
 
 const NavigatorObjectPage = () => {
     return (
-        <div className="page-container">
-            <h1>Робота з об'єктом navigator</h1>
+        <Container>
+            <BookHeader variant="h3" >
+                Робота з об'єктом navigator
+            </BookHeader>
 
-            <p>
-                Об'єкт <code>navigator</code> є частиною BOM і містить інформацію про браузер користувача, включаючи характеристики такі як назва браузера, версія, операційна система та інше. Розробники використовують об'єкт <code>navigator</code> для створення веб-додатків, які можуть адаптуватися до конкретних характеристик користувачів.
-            </p>
+            <Paragraph>
+                Об'єкт <Code>navigator</Code> є частиною BOM і містить інформацію про браузер користувача, включаючи характеристики такі як назва браузера, версія, операційна система та інше. Розробники використовують об'єкт <Code>navigator</Code> для створення веб-додатків, які можуть адаптуватися до конкретних характеристик користувачів.
+            </Paragraph>
 
-            <h2>Приклади властивостей об'єкта navigator</h2>
-            <p>
-                Об'єкт <code>navigator</code> має багато корисних властивостей, які надають інформацію про браузер та пристрій. Ось деякі з них:
-            </p>
-            <ul>
-                <li>
-                    <code>navigator.userAgent</code>: Містить рядок, який містить інформацію про браузер та операційну систему користувача. Наприклад, <code>"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36."</code>
-                </li>
-                <li>
-                    <code>navigator.appName</code>: Повертає ім'я браузера. Наприклад, <code>"Netscape."</code>
-                </li>
-                <li>
-                    <code>navigator.appVersion</code>: Містить інформацію про версію браузера. Наприклад, <code>"5.0 (Windows)."</code>
-                </li>
-                <li>
-                    <code>navigator.platform</code>: Повертає операційну систему користувача. Наприклад, <code>"Win32."</code>
-                </li>
-                <li>
-                    <code>navigator.language</code>: Містить інформацію про мову браузера користувача. Наприклад, <code>"en-US."</code>
-                </li>
-                <li>
-                    <code>navigator.onLine</code>: Вказує, чи встановлено з'єднання з Інтернетом (<code>true</code> або <code>false</code>).
-                </li>
-            </ul>
-            <p>
+            <SubHeader variant="h4" >
+                Приклади властивостей об'єкта navigator
+            </SubHeader>
+            <Paragraph>
+                Об'єкт <Code>navigator</Code> має багато корисних властивостей, які надають інформацію про браузер та пристрій. Ось деякі з них:
+            </Paragraph>
+
+            <List>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.userAgent</Code>: Містить рядок, який містить інформацію про браузер та операційну систему користувача. Наприклад, <Code>"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36."</Code>
+                    </Typography>
+                </ListItem>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.appName</Code>: Повертає ім'я браузера. Наприклад, <Code>"Netscape."</Code>
+                    </Typography>
+                </ListItem>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.appVersion</Code>: Містить інформацію про версію браузера. Наприклад, <Code>"5.0 (Windows)."</Code>
+                    </Typography>
+                </ListItem>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.platform</Code>: Повертає операційну систему користувача. Наприклад, <Code>"Win32."</Code>
+                    </Typography>
+                </ListItem>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.language</Code>: Містить інформацію про мову браузера користувача. Наприклад, <Code>"en-US."</Code>
+                    </Typography>
+                </ListItem>
+                <ListItem>
+                    <Typography variant="body1">
+                        <Code>navigator.onLine</Code>: Вказує, чи встановлено з'єднання з Інтернетом (<Code>true</Code> або <Code>false</Code>).
+                    </Typography>
+                </ListItem>
+            </List>
+
+            <Paragraph>
                 Ці властивості дозволяють вам отримувати інформацію про браузер користувача та операційну систему, що може бути корисною для адаптації веб-додатків.
-            </p>
+            </Paragraph>
 
-            <h2>Робота з об'єктом navigator</h2>
-            <p>
-                Робота з об'єктом <code>navigator</code> дозволяє розробникам створювати більш адаптивні та користувацькі додатки. Нижче ми розглянемо декілька прикладів використання цього об'єкта.
-            </p>
+            <Chapter Chaptervariant="h4" >
+                Робота з об'єктом navigator
+            </Chapter>
+            <Paragraph>
+                Робота з об'єктом <Code>navigator</Code> дозволяє розробникам створювати більш адаптивні та користувацькі додатки. Нижче ми розглянемо декілька прикладів використання цього об'єкта.
+            </Paragraph>
 
-            <h3>Перевірка назви браузера</h3>
-            <p>
+            <Chapter variant="h5" >
+                Перевірка назви браузера
+            </Chapter>
+            <Paragraph>
                 Ви можете перевірити, який браузер використовує користувач і адаптувати вміст веб-сторінки відповідно.
-            </p>
-            <pre>
-                <code>
-{`if (navigator.userAgent.includes("Chrome")) {
+            </Paragraph>
+            <CodeBlock>
+                {`if (navigator.userAgent.includes("Chrome")) {
     console.log("Ви використовуєте браузер Chrome.");
 } else if (navigator.userAgent.includes("Firefox")) {
     console.log("Ви використовуєте браузер Firefox.");
 } else {
     console.log("Ви використовуєте інший браузер.");
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h3>Перевірка підтримки функцій</h3>
-            <p>
+            <Chapter variant="h5" >
+                Перевірка підтримки функцій
+            </Chapter>
+            <Paragraph>
                 Ви можете перевірити, чи підтримує браузер певні функції, перш ніж використовувати їх у своєму коді.
-            </p>
-            <pre>
-                <code>
-{`if (navigator.userAgent.includes("Chrome") && 'serviceWorker' in navigator) {
+            </Paragraph>
+            <CodeBlock>
+                {`if (navigator.userAgent.includes("Chrome") && 'serviceWorker' in navigator) {
     // Використовувати службу робітника (Service Worker) для офлайн режиму
 } else {
     // Використовувати альтернативний підхід для роботи в офлайн режимі
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h3>Визначення мови користувача</h3>
-            <p>
+            <Chapter variant="h5" >
+                Визначення мови користувача
+            </Chapter>
+            <Paragraph>
                 На основі інформації про мову браузера користувача ви можете встановити відповідну мову для вашого веб-додатка.
-            </p>
-            <pre>
-                <code>
-{`const userLanguage = navigator.language;
+            </Paragraph>
+            <CodeBlock>
+                {`const userLanguage = navigator.language;
 if (userLanguage.startsWith("en")) {
     // Вибрати англійську мову
 } else if (userLanguage.startsWith("fr")) {
@@ -86,14 +115,15 @@ if (userLanguage.startsWith("en")) {
 } else {
     // Вибрати мову за замовчуванням
 }`}
-                </code>
-            </pre>
+            </CodeBlock>
 
-            <h2>Висновок</h2>
-            <p>
-                Об'єкт <code>navigator</code> є потужним інструментом для веб-розробників, який надає інформацію про браузер та пристрій користувача. Ця інформація може бути використана для створення більш адаптивних та користувацьких веб-додатків. Розуміння роботи з об'єктом <code>navigator</code> допомагає розробникам створювати додатки, які можуть працювати оптимально на різних браузерах і платформах.
-            </p>
-        </div>
+                <Conclusion>
+                    Висновок
+                </Conclusion>
+                <Paragraph>
+                    Об'єкт <Code>navigator</Code> є потужним інструментом для веб-розробників, який надає інформацію про браузер та пристрій користувача. Ця інформація може бути використана для створення більш адаптивних та користувацьких веб-додатків. Розуміння роботи з об'єктом <Code>navigator</Code> допомагає розробникам створювати додатки, які можуть працювати оптимально на різних браузерах і платформах.
+                </Paragraph>
+        </Container>
     );
 };
 

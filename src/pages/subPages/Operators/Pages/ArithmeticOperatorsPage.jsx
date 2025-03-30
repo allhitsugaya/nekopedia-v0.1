@@ -1,60 +1,95 @@
-import React from 'react';
+import {Typography, List, ListItem, Box, Container} from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
 
 const ArithmeticOperatorsPage = () => {
     return (
-        <div className="page-container">
-            <h1>Арифметичні оператори та залишок від ділення</h1>
-            <p>
-                Арифметичні оператори є важливою частиною будь-якої мови програмування, включаючи JavaScript. Вони дозволяють виконувати різноманітні обчислення та операції з числами. Тут ми детально розглянемо арифметичні оператори та особливості роботи з залишком від ділення (оператор <code>%</code>).
-            </p>
+        <Container>
+            <BookHeader
+                variant="h1"
+                sx={{
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    mb: 4,
+                    color: 'text.primary'
+                }}
+            >
+                Арифметичні оператори та залишок від ділення
+            </BookHeader>
 
-            <h2>Арифметичні оператори</h2>
-            <p>
+            <Paragraph>
+                Арифметичні оператори є важливою частиною будь-якої мови програмування, включаючи JavaScript. Вони дозволяють виконувати різноманітні обчислення та операції з числами. Тут ми детально розглянемо арифметичні оператори та особливості роботи з залишком від ділення (оператор <Code>%</Code>).
+            </Paragraph>
+
+            <SubHeader
+            >
+                Арифметичні оператори
+            </SubHeader>
+
+            <Paragraph>
                 JavaScript підтримує різні арифметичні оператори, які можуть бути використані для виконання математичних обчислень. Основні арифметичні оператори включають:
-            </p>
-            <ul>
-                <li><code>+</code> (додавання)</li>
-                <li><code>-</code> (віднімання)</li>
-                <li><code>*</code> (множення)</li>
-                <li><code>/</code> (ділення)</li>
-                <li><code>%</code> (залишок від ділення)</li>
-            </ul>
-            <p>Ось приклади використання цих операторів:</p>
-            <pre>
-        <code>
-          {`
-let a = 10;
+            </Paragraph>
+
+            <Box sx={{ml:2}}>
+            <List sx={{
+                pl: 2,
+                listStyleType: 'disc',
+                '& .MuiListItem-root': {
+                    display: 'list-item',
+                    py: 0.5,
+                    pl: 1,
+                    ml: 2,
+                    fontSize: 14,
+                    fontWeight: 800
+                }
+            }}>
+                <ListItem><Code>+</Code> (додавання)</ListItem>
+                <ListItem><Code>-</Code> (віднімання)</ListItem>
+                <ListItem><Code>*</Code> (множення)</ListItem>
+                <ListItem><Code>/</Code> (ділення)</ListItem>
+                <ListItem><Code>%</Code> (залишок від ділення)</ListItem>
+            </List>
+            </Box>
+
+            <Paragraph>Ось приклади використання цих операторів:</Paragraph>
+
+            <CodeBlock>
+                {`let a = 10;
 let b = 5;
 
 let sum = a + b; // Результат: 15
 let difference = a - b; // Результат: 5
 let product = a * b; // Результат: 50
-let quotient = a / b; // Результат: 2
-          `}
-        </code>
-      </pre>
+let quotient = a / b; // Результат: 2`}
+            </CodeBlock>
 
-            <h2>Залишок від ділення</h2>
-            <p>
-                Залишок від ділення (або модуль, чи остача) - це число, яке залишається після цілочисельного ділення одного числа на інше. У JavaScript для обчислення залишку від ділення використовується оператор <code>%</code>.
-            </p>
-            <pre>
-        <code>
-          {`
-let a = 10;
+            <SubHeader
+            >
+                Залишок від ділення
+            </SubHeader>
+
+            <Paragraph>
+                Залишок від ділення (або модуль, чи остача) - це число, яке залишається після цілочисельного ділення одного числа на інше. У JavaScript для обчислення залишку від ділення використовується оператор <Code>%</Code>.
+            </Paragraph>
+
+            <CodeBlock>
+                {`let a = 10;
 let b = 3;
 
-let remainder = a % b; // Результат: 1
-          `}
-        </code>
-      </pre>
-            <p>
-                В цьому прикладі, змінна <code>remainder</code> буде мати значення <code>1</code>, оскільки при діленні <code>10</code> на <code>3</code> отримуємо максимально можливе число цілих трійок у десяти, яке дорівнює <code>3</code> (<code>3 * 3 = 9</code>), і залишок <code>1</code>, який не ділиться націло на <code>3</code>.
-            </p>
-            <p>
+let remainder = a % b; // Результат: 1`}
+            </CodeBlock>
+
+            <Paragraph>
+                В цьому прикладі, змінна <Code>remainder</Code> буде мати значення <Code>1</Code>, оскільки при діленні <Code>10</Code> на <Code>3</Code> отримуємо максимально можливе число цілих трійок у десяти, яке дорівнює <Code>3</Code> (<Code>3 * 3 = 9</Code>), і залишок <Code>1</Code>, який не ділиться націло на <Code>3</Code>.
+            </Paragraph>
+
+            <Paragraph>
                 Залишок від ділення може бути корисним у великому спектрі завдань, таких як визначення парних або непарних чисел, перевірка кратності тощо.
-            </p>
-        </div>
+            </Paragraph>
+        </Container>
     );
 };
 

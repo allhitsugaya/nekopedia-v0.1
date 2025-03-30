@@ -1,34 +1,37 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../../features/Paragraph/Paragraph.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
 
 const EventHandlingPage = () => {
     return (
-        <div className="page-container">
-            <h1>Реєстрація та видалення обробників Подій</h1>
-            <p>
+        <Container className="page-container">
+            <BookHeader>Реєстрація та видалення обробників Подій</BookHeader>
+            <Paragraph>
                 Робота з подіями в Document Object Model (DOM) є дуже важливою частиною розробки веб-додатків, оскільки події дозволяють створювати інтерактивні та реактивні додатки. В цій частині ми розглянемо наступні аспекти роботи з подіями:
-            </p>
+            </Paragraph>
 
-            <h2>Реєстрація Обробників Подій</h2>
-            <p>
-                Для реєстрації обробників подій використовується метод <code>addEventListener()</code>. Цей метод призначений для прослуховування різних типів подій, таких як <code>"click"</code>, <code>"keydown"</code>, <code>"submit"</code> та інші. Наприклад, для реєстрації обробника події кліка на кнопці ми можемо використати такий код:
-            </p>
-            <pre>
-        <code>
+            <SubHeader>Реєстрація Обробників Подій</SubHeader>
+            <Paragraph>
+                Для реєстрації обробників подій використовується метод <Code>addEventListener()</Code>. Цей метод призначений для прослуховування різних типів подій, таких як <Code>"click"</Code>, <Code>"keydown"</Code>, <Code>"submit"</Code> та інші. Наприклад, для реєстрації обробника події кліка на кнопці ми можемо використати такий код:
+            </Paragraph>
+            <CodeBlock>
           {`
 const myButton = document.getElementById('my-button');
 myButton.addEventListener('click', function(event) {
     // Ваш код обробки події тут
 });
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>Видалення Обробників Подій</h2>
-            <p>
-                Інколи може бути необхідно видалити обробник події, наприклад, для очищення ресурсів або після того, як він більше не потрібний. Для цього використовується метод <code>removeEventListener()</code>. Ось приклад видалення обробника події:
-            </p>
-            <pre>
-        <code>
+            <SubHeader>Видалення Обробників Подій</SubHeader>
+            <Paragraph>
+                Інколи може бути необхідно видалити обробник події, наприклад, для очищення ресурсів або після того, як він більше не потрібний. Для цього використовується метод <Code>removeEventListener()</Code>. Ось приклад видалення обробника події:
+            </Paragraph>
+            <CodeBlock>
           {`
 const myButton = document.getElementById('my-button');
 function handleClick(event) {
@@ -39,13 +42,11 @@ myButton.addEventListener('click', handleClick);
 // Для видалення обробника:
 myButton.removeEventListener('click', handleClick);
           `}
-        </code>
-      </pre>
-            <p>
+            </CodeBlock>
+            <Paragraph>
                 Проте дуже важливо мати одне посилання на функцію. Бо такий код обробник не видалить:
-            </p>
-            <pre>
-        <code>
+            </Paragraph>
+            <CodeBlock>
           {`
 const myButton = document.getElementById('my-button');
 
@@ -58,9 +59,8 @@ myButton.removeEventListener('click', function handleClick(event) {
     console.log('click')
 });
           `}
-        </code>
-      </pre>
-        </div>
+            </CodeBlock>
+        </Container>
     );
 };
 

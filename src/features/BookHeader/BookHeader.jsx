@@ -6,7 +6,7 @@ function BookHeader({children}) {
         <Typography
             component="h1"
             variant="h4"
-            sx={{fontWeight:800}}>
+            sx={{fontWeight:800,pt:4,fontSize: '3rem'}}>
             {children}
         </Typography>
         </Box>

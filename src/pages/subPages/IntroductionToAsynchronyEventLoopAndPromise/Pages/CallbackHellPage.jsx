@@ -1,24 +1,29 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../features/Code/Code.jsx";
 
 const CallbackHellPage = () => {
     return (
-        <div className="page-container">
-            <h1>Callback Hell (Ад колбеків)</h1>
+        <Container className="page-container">
+            <BookHeader>Callback Hell (Ад колбеків)</BookHeader>
 
-            <p>
+            <Paragraph>
                 Асинхронне програмування у JavaScript часто призводить до виникнення так званого "Callback Hell" або "Аду колбеків". Це термін виник під час вирішення проблем, пов'язаних із злиттям великої кількості вкладених колбеків у коді, що робить його важким для читання та розуміння.
-            </p>
+            </Paragraph>
 
-            <p>
+            <Paragraph>
                 Callback Hell виник через особливості асинхронного програмування в JavaScript. Колбеки, або функції зворотнього виклику, часто використовуються для обробки результатів асинхронних операцій, таких як завантаження файлів, запити до сервера тощо. За невеликий час використання цього підходу, код може стати густим, непереглядним та важким для управління.
-            </p>
+            </Paragraph>
 
-            <h2>1. Суть проблеми: вкладеність колбеків та важкість читання коду</h2>
-            <p>
+            <SubHeader>1. Суть проблеми: вкладеність колбеків та важкість читання коду</SubHeader>
+            <Paragraph>
                 Головна проблема Callback Hell - це велика кількість вкладених колбеків. Коли є багато асинхронних операцій, які повинні відбутися послідовно, код виглядає подібно до "п'ятиконтурного пекла". Нижче наведений приклад такого коду:
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
 {`getData((data) => {
   processData(data, (processedData) => {
     updateUI(processedData, () => {
@@ -28,18 +33,16 @@ const CallbackHellPage = () => {
     });
   });
 });`}
-                </code>
-            </pre>
-            <p>
+            </CodeBlock>
+            <Paragraph>
                 Це не тільки важко читати, але й ускладнює розуміння порядку виконання операцій. Крім того, такий код важко тестувати та утримувати.
-            </p>
+            </Paragraph>
 
-            <h2>2. Приклад коду з Callback Hell</h2>
-            <p>
+            <SubHeader>2. Приклад коду з Callback Hell</SubHeader>
+            <Paragraph>
                 Давайте розглянемо більш конкретний приклад коду з Callback Hell, який моделює асинхронне завантаження та обробку даних:
-            </p>
-            <pre>
-                <code>
+            </Paragraph>
+            <CodeBlock>
 {`function loadData(callback) {
   setTimeout(() => {
     const data = 'Дані завантажено';
@@ -69,17 +72,19 @@ loadData((data) => {
     });
   });
 });`}
-                </code>
-            </pre>
-            <p>
-                В цьому прикладі <code>loadData</code>, <code>processData</code> та <code>updateUI</code> є функціями, які симулюють асинхронні операції. Кожна з них має колбек для продовження ланцюжка операцій, і код стає важкочитаним та ускладненим для розуміння з кожним додатковим кроком.
-            </p>
+            </CodeBlock>
+            <Paragraph>
+                В цьому прикладі <Code>loadData</Code>, <Code>processData</Code> та <Code>updateUI</Code> є функціями, які симулюють асинхронні операції. Кожна з них має колбек для продовження ланцюжка операцій, і код стає важкочитаним та ускладненим для розуміння з кожним додатковим кроком.
+            </Paragraph>
 
-            <h2>3. Заключення</h2>
-            <p>
-                Callback Hell є однією з головних проблем асинхронного програмування в JavaScript. Зручно використовувати альтернативи, такі як <code>Promise</code> та <code>async/await</code>, які забезпечують більш читабельний та керований код. У подальших конспектах буде розглянуто, як використовувати <code>Promise</code> для полегшення асинхронного коду.
-            </p>
-        </div>
+                <SubHeader>3. Заключення</SubHeader>
+                <Paragraph>
+                    Callback Hell є однією з головних проблем асинхронного програмування в JavaScript. Зручно
+                    використовувати альтернативи, такі як <Code>Promise</Code> та <Code>async/await</Code>, які
+                    забезпечують більш читабельний та керований код. У подальших конспектах буде розглянуто, як
+                    використовувати <Code>Promise</Code> для полегшення асинхронного коду.
+                </Paragraph>
+        </Container>
     );
 };
 

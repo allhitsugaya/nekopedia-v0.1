@@ -1,54 +1,55 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../../features/SubHeader/SubHeader.jsx";
+import Paragraph from "../../../../../features/Paragraph/Paragraph.jsx";
+import Code from "../../../../../features/Code/Code.jsx";
+import CodeBlock from "../../../../../features/CodeBlock/CodeBlock.jsx";
 
 const UsingDomContentLoadedAndWindowOnloadPage = () => {
     return (
-        <div className="page-container">
-            <h1>Використання DOMContentLoaded та window.onload</h1>
+        <Container className="page-container">
+            <BookHeader>Використання DOMContentLoaded та window.onload</BookHeader>
 
-            <h2>1. Завантаження Скриптів</h2>
-            <p>
-                Використовуйте <code>DOMContentLoaded</code>, коли вам потрібно впевнитися, що ваш JavaScript код не спрацює до завершення побудови DOM. Це важливо, наприклад, коли ви взаємодієте з елементами DOM, які повинні бути доступні.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>1. Завантаження Скриптів</SubHeader>
+            <Paragraph>
+                Використовуйте <Code>DOMContentLoaded</Code>, коли вам потрібно впевнитися, що ваш JavaScript код не спрацює до завершення побудови DOM. Це важливо, наприклад, коли ви взаємодієте з елементами DOM, які повинні бути доступні.
+            </Paragraph>
+            <CodeBlock>
           {`
 document.addEventListener('DOMContentLoaded', function() {
   // Ваш код тут
 });
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>2. Завантаження Ресурсів</h2>
-            <p>
-                Використовуйте <code>window.onload</code>, якщо ваш код повинен виконатися тільки після завантаження всіх ресурсів, таких як зображення, стилі і файли скриптів.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>2. Завантаження Ресурсів</SubHeader>
+            <Paragraph>
+                Використовуйте <Code>window.onload</Code>, якщо ваш код повинен виконатися тільки після завантаження всіх ресурсів, таких як зображення, стилі і файли скриптів.
+            </Paragraph>
+            <CodeBlock>
           {`
 window.onload = function() {
   // Ваш код тут
 };
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>3. Оптимізація завантаження сторінки</h2>
-            <p>
-                Використовуйте обидві події, коли потрібно оптимізувати завантаження сторінки. Використовуйте <code>DOMContentLoaded</code> для початкового взаємодії з DOM та <code>window.onload</code> для виконання інших операцій, які чекають на завершення завантаження ресурсів.
-            </p>
+            <SubHeader>3. Оптимізація завантаження сторінки</SubHeader>
+            <Paragraph>
+                Використовуйте обидві події, коли потрібно оптимізувати завантаження сторінки. Використовуйте <Code>DOMContentLoaded</Code> для початкового взаємодії з DOM та <Code>window.onload</Code> для виконання інших операцій, які чекають на завершення завантаження ресурсів.
+            </Paragraph>
 
-            <h2>Висновок</h2>
-            <p>
-                <code>DOMContentLoaded</code> та <code>window.onload</code> - це дві важливі події в JavaScript, які дозволяють вам керувати тим, коли ваш код взаємодіє з DOM сторінки. <code>DOMContentLoaded</code> спрацьовує, коли DOM готовий для взаємодії, навіть якщо ще завантажуються зовнішні ресурси, тоді як <code>window.onload</code> спрацьовує після завантаження всіх ресурсів сторінки. Використання цих подій допомагає створити ефективний та відзивчивий користувацький інтерфейс та оптимізувати завантаження сторінки.
-            </p>
+            <SubHeader>Висновок</SubHeader>
+            <Paragraph>
+                <Code>DOMContentLoaded</Code> та <Code>window.onload</Code> - це дві важливі події в JavaScript, які дозволяють вам керувати тим, коли ваш код взаємодіє з DOM сторінки. <Code>DOMContentLoaded</Code> спрацьовує, коли DOM готовий для взаємодії, навіть якщо ще завантажуються зовнішні ресурси, тоді як <Code>window.onload</Code> спрацьовує після завантаження всіх ресурсів сторінки. Використання цих подій допомагає створити ефективний та відзивчивий користувацький інтерфейс та оптимізувати завантаження сторінки.
+            </Paragraph>
 
-            <h2>Приклад використання обох подій</h2>
-            <p>
+            <SubHeader>Приклад використання обох подій</SubHeader>
+            <Paragraph>
                 Ось приклад, де ми використовуємо обидві події для оптимізації завантаження сторінки:
-            </p>
-            <pre>
-        <code>
+            </Paragraph>
+            <CodeBlock>
           {`
 document.addEventListener('DOMContentLoaded', function() {
   // Виконати код після завантаження DOM
@@ -64,12 +65,11 @@ window.onload = function() {
   image.src = 'new-image.jpg';
 };
           `}
-        </code>
-      </pre>
-            <p>
-                В цьому прикладі код, який відповідає за клік на кнопці, виконується після завантаження DOM завдяки <code>DOMContentLoaded</code>, а зміна джерела зображення відбувається тільки після завантаження всіх ресурсів, завдяки <code>window.onload</code>.
-            </p>
-        </div>
+            </CodeBlock>
+            <Paragraph>
+                В цьому прикладі код, який відповідає за клік на кнопці, виконується після завантаження DOM завдяки <Code>DOMContentLoaded</Code>, а зміна джерела зображення відбувається тільки після завантаження всіх ресурсів, завдяки <Code>window.onload</Code>.
+            </Paragraph>
+        </Container>
     );
 };
 

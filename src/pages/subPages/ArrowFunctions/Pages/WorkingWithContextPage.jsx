@@ -1,16 +1,22 @@
 import React from 'react';
+import {Container} from "@mui/material";
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Paragraph from "../../../../features/Paragraph/Paragraph.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
+import CodeBlock from "../../../../features/CodeBlock/CodeBlock.jsx";
+import Code from "../../../../features/Code/Code.jsx";
 
 const WorkingWithContextPage = () => {
     return (
-        <div className="page-container">
-            <h1>Робота з Контекстом виклику</h1>
+        <Container className="page-container">
+            <BookHeader>Робота з Контекстом виклику</BookHeader>
 
-            <h2>1. Використання this у методах об'єктів</h2>
-            <p>
-                У методах об'єктів <code>this</code> посилається на сам об'єкт, в якому метод був викликаний.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>1. Використання this у методах об'єктів</SubHeader>
+            <Paragraph>
+                У методах об'єктів <Code>this</Code> посилається на сам об'єкт, в якому метод був викликаний.
+            </Paragraph>
+            <CodeBlock>
           {`
 const car = {
   brand: 'Toyota',
@@ -22,15 +28,13 @@ const car = {
 
 car.start(); // Starting Toyota Camry
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>2. Використання this в конструкторах</h2>
-            <p>
-                Контекст виклику може бути важливим при створенні об'єктів за допомогою конструктора. У конструкторах <code>this</code> посилається на новий об'єкт, який створюється.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>2. Використання this в конструкторах</SubHeader>
+            <Paragraph>
+                Контекст виклику може бути важливим при створенні об'єктів за допомогою конструктора. У конструкторах <Code>this</Code> посилається на новий об'єкт, який створюється.
+            </Paragraph>
+            <CodeBlock>
           {`
 function Person(name, age) {
   this.name = name;
@@ -46,15 +50,13 @@ const person2 = new Person('Bob', 30);
 person1.sayHello(); // Hello, my name is Alice, and I am 25 years old.
 person2.sayHello(); // Hello, my name is Bob, and I am 30 years old.
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>3. Використання bind для збереження контексту</h2>
-            <p>
-                Метод <code>bind</code> дозволяє зафіксувати контекст виклику функції, щоб він не змінювався при передачі функції як колбека або виклику в іншому контексті.
-            </p>
-            <pre>
-        <code>
+            <SubHeader>3. Використання bind для збереження контексту</SubHeader>
+            <Paragraph>
+                Метод <Code>bind</Code> дозволяє зафіксувати контекст виклику функції, щоб він не змінювався при передачі функції як колбека або виклику в іншому контексті.
+            </Paragraph>
+            <CodeBlock>
           {`
 const user = {
   name: 'John',
@@ -66,14 +68,16 @@ const user = {
 const button = document.getElementById('myButton');
 button.addEventListener('click', user.logName.bind(user));
           `}
-        </code>
-      </pre>
+            </CodeBlock>
 
-            <h2>Заключення</h2>
-            <p>
-                Розуміння контексту виклику є ключовим для ефективного використання JavaScript. Вивчення його різних аспектів, таких як глобальний контекст, контекст функцій та методи зміни контексту, допомагає розробникам використовувати цю особливість мови для досягнення кращої читабельності та ефективності свого коду.
-            </p>
-        </div>
+            <Conclusion >Заключення</Conclusion>
+                <Paragraph>
+                    Розуміння контексту виклику є ключовим для ефективного використання JavaScript. Вивчення його різних
+                    аспектів, таких як глобальний контекст, контекст функцій та методи зміни контексту, допомагає
+                    розробникам використовувати цю особливість мови для досягнення кращої читабельності та ефективності
+                    свого коду.
+                </Paragraph>
+        </Container>
     );
 };
 

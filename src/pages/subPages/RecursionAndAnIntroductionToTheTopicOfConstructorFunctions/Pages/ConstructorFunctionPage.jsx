@@ -1,26 +1,46 @@
-import React from 'react';
+import {Container, Typography, useTheme} from "@mui/material";
+import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
+import Code from '../../../../features/Code/Code.jsx';
+import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
+import BookHeader from "../../../../features/BookHeader/BookHeader.jsx";
+import SubHeader from "../../../../features/SubHeader/SubHeader.jsx";
+import Chapter from "../../../../features/Chapter/Chapter.jsx";
+import Conclusion from "../../../../features/Conclusion/Conclusion.jsx";
 
 const ConstructorFunctionPage = () => {
+
     return (
-        <div className="page-container">
-            <h1>Функція конструктор</h1>
-            <p>
+        <Container>
+            <BookHeader
+            >
+                Функція конструктор
+            </BookHeader>
+
+            <Paragraph>
                 Конструктори об'єктів та методи об'єкта - це потужні інструменти, які дозволяють створювати та працювати з об'єктами в JavaScript. Вони допомагають організувати код та робити його більш структурованим та ефективним.
-            </p>
+            </Paragraph>
 
-            <h2>1. Функція конструктор</h2>
-            <p>
+            <SubHeader
+
+            >
+                1. Функція конструктор
+            </SubHeader>
+
+            <Paragraph>
                 Функція конструктор - це спеціальна функція в JavaScript, призначена для створення нових об'єктів певного типу. Вона дозволяє нам визначити структуру та властивості об'єкта та використовувати її для створення багатьох об'єктів з однаковою структурою.
-            </p>
+            </Paragraph>
 
-            <h3>Створення Багаторазових Об'єктів</h3>
-            <p>
+            <Chapter
+            >
+                Створення Багаторазових Об'єктів
+            </Chapter>
+
+            <Paragraph>
                 Однією з основних функцій конструкторів є можливість створювати багаторазові об'єкти одного типу. Замість того, щоб кожен раз вручну створювати новий об'єкт з однаковою структурою, ми можемо використовувати конструктор для швидкого створення нових екземплярів.
-            </p>
-            <pre>
-        <code>
-          {`
-function Car(make, model, year) {
+            </Paragraph>
+
+            <CodeBlock>
+                {`function Car(make, model, year) {
   this.make = make;
   this.model = model;
   this.year = year;
@@ -28,22 +48,24 @@ function Car(make, model, year) {
 
 const car1 = new Car("Toyota", "Camry", 2022);
 const car2 = new Car("Honda", "Civic", 2023);
-const car3 = new Car("Ford", "Focus", 2022);
-          `}
-        </code>
-      </pre>
-            <p>
-                Тут <code>Car</code> - це конструктор, який дозволяє створювати об'єкти для різних автомобілів, зберігаючи загальну структуру.
-            </p>
+const car3 = new Car("Ford", "Focus", 2022);`}
+            </CodeBlock>
 
-            <h3>Інкапсуляція Даних</h3>
-            <p>
+            <Paragraph>
+                Тут <Code>Car</Code> - це конструктор, який дозволяє створювати об'єкти для різних автомобілів, зберігаючи загальну структуру.
+            </Paragraph>
+
+            <Chapter
+            >
+                Інкапсуляція Даних
+            </Chapter>
+
+            <Paragraph>
                 Конструктори також дозволяють досягнути інкапсуляції даних, тобто обмеження доступу до деяких властивостей об'єкта. Ми можемо використовувати приватні властивості та методи для збереження даних та додаткової логіки в межах об'єкта.
-            </p>
-            <pre>
-        <code>
-          {`
-function BankAccount(accountNumber) {
+            </Paragraph>
+
+            <CodeBlock>
+                {`function BankAccount(accountNumber) {
   let balance = 0;
 
   this.getAccountNumber = function() {
@@ -69,22 +91,23 @@ function BankAccount(accountNumber) {
 
 const account1 = new BankAccount("123456");
 account1.deposit(1000);
-account1.withdraw(500);
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі <code>balance</code> - це приватна змінна, і ми використовуємо методи для доступу до неї та зміни її значення. Це дозволяє контролювати доступ до даних об'єкта та забезпечує безпеку даних.
-            </p>
+account1.withdraw(500);`}
+            </CodeBlock>
 
-            <h3>Наслідування та Прототипи</h3>
-            <p>
+            <Paragraph>
+                У цьому прикладі <Code>balance</Code> - це приватна змінна, і ми використовуємо методи для доступу до неї та зміни її значення. Це дозволяє контролювати доступ до даних об'єкта та забезпечує безпеку даних.
+            </Paragraph>
+
+            <Chapter>
+                Наслідування та Прототипи
+            </Chapter>
+
+            <Paragraph>
                 JavaScript також використовує концепцію прототипів для спадкування властивостей та методів. Конструктори можуть бути використані для створення прототипів об'єктів, що дозволяє створювати ієрархії об'єктів та спадкувати їхню функціональність.
-            </p>
-            <pre>
-        <code>
-          {`
-function Animal(name) {
+            </Paragraph>
+
+            <CodeBlock>
+                {`function Animal(name) {
   this.name = name;
 }
 
@@ -103,40 +126,44 @@ Dog.prototype.makeSound = function() {
 };
 
 const dog1 = new Dog("Барсік");
-dog1.makeSound(); // "Барсік гавкає"
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі <code>Animal</code> є базовим конструктором, і <code>Dog</code> успадковує від нього, перевизначаючи метод <code>makeSound</code>. Це дозволяє створювати спеціалізовані об'єкти на основі загальних конструкторів.
-            </p>
+dog1.makeSound(); // "Барсік гавкає"`}
+            </CodeBlock>
 
-            <h3>Варіативність та Параметри</h3>
-            <p>
+            <Paragraph>
+                У цьому прикладі <Code>Animal</Code> є базовим конструктором, і <Code>Dog</Code> успадковує від нього, перевизначаючи метод <Code>makeSound</Code>. Це дозволяє створювати спеціалізовані об'єкти на основі загальних конструкторів.
+            </Paragraph>
+
+            <Chapter>
+                Варіативність та Параметри
+            </Chapter>
+
+            <Paragraph>
                 Конструктори також можуть приймати параметри, що робить їх більш гнучкими та варіативними. Ми можемо передавати різну кількість аргументів при створенні об'єктів.
-            </p>
-            <pre>
-        <code>
-          {`
-function Product(name, price) {
+            </Paragraph>
+
+            <CodeBlock>
+                {`function Product(name, price) {
   this.name = name;
   this.price = price || 0;
 }
 
 const product1 = new Product("Молоко");
-const product2 = new Product("Хліб", 2.5);
-          `}
-        </code>
-      </pre>
-            <p>
-                У цьому прикладі <code>Product</code> може мати один або два параметри, і об'єкти створюються залежно від переданих аргументів.
-            </p>
+const product2 = new Product("Хліб", 2.5);`}
+            </CodeBlock>
 
-            <h2>Заключення</h2>
-            <p>
-                Конструктори - це потужний механізм мови JavaScript, який дозволяє створювати об'єкти, виконувати інкапсуляцію даних та створювати ієрархії об'єктів. Вони роблять код більш структурованим, зручним та ефективним. Розуміння цих концепцій є важливим для успішного програмування в JavaScript.
-            </p>
-        </div>
+            <Paragraph>
+                У цьому прикладі <Code>Product</Code> може мати один або два параметри, і об'єкти створюються залежно від переданих аргументів.
+            </Paragraph>
+
+            <>
+                <Conclusion >
+                    Заключення
+                </Conclusion>
+                <Paragraph>
+                    Конструктори - це потужний механізм мови JavaScript, який дозволяє створювати об'єкти, виконувати інкапсуляцію даних та створювати ієрархії об'єктів. Вони роблять код більш структурованим, зручним та ефективним. Розуміння цих концепцій є важливим для успішного програмування в JavaScript.
+                </Paragraph>
+            </>
+        </Container>
     );
 };
 

@@ -2,6 +2,7 @@ import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import {Outlet} from "react-router";
 import {createTheme, ThemeProvider} from "@mui/material";
+import * as React from "react";
 
 
 
@@ -14,13 +15,8 @@ const appTheme = createTheme({
                     main: "#A2D9CE",
 
                 },
-                secondary: {
-                    main: "#A2D9CE",
-                    dark: "#628e85",
-                    contrastText: "#111"
-                },
                 background: {
-                  default: "#D3D3D3",
+                  default: "#b1b1b1",
                   paper: "#FFFFFF",
                 },
                 text: {
@@ -44,18 +40,13 @@ const appTheme = createTheme({
                     dark: '#628e85',
                     main: '#A2D9CE',
                 },
-                secondary: {
-                    main: "#1E1E1E",
-                    dark: "#111",
-                    contrastText: "#A2D9CE"
-                },
                 background: {
-                    default: "#1E1E1E",
+                    default: "rgba(162, 217, 206, 0.2)",
                     paper: "#212121",
                 },
                 text: {
-                    primary: "#FFF",
-                    secondary: "#FFF",
+                    primary: "#A2D9CE",
+                    secondary: "#A2D9CE",
                 },
             },
             components:{
@@ -84,7 +75,7 @@ const appTheme = createTheme({
 const Layout = () => {
     return (
         <>
-            <ThemeProvider theme={appTheme} defaultMode="dark">
+            <ThemeProvider theme={appTheme}  >
                 <Navbar/>
                 <Outlet/>
                 <Footer/>
