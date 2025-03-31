@@ -39,7 +39,7 @@ function Footer() {
                     </Link>
 
                     <Typography variant="body1" sx={{ fontWeight: 700 }}>
-                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya
+                        Copyright &copy; {new Date().getFullYear()} by allhitsugaya, ZombiPydelb, SurovGnom
                     </Typography>
 
                     <Box>
