@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Container } from "@mui/material";
+import {Typography, Container, Box} from "@mui/material";
 import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
 
@@ -45,11 +45,13 @@ document.getElementById("colorPicker").addEventListener("change", function (even
                 У цьому прикладі ми перевіряємо, чи є збережені налаштування в SessionStorage. Якщо так, ми встановлюємо фоновий колір сторінки відповідно до збережених даних. Коли користувач вибирає новий колір за допомогою інтерфейсу вибору, ми зберігаємо цей вибір в SessionStorage, щоб використовувати його при наступних відвідуваннях.
             </Paragraph>
 
-            <Typography variant="h2">Заключення</Typography>
+            <Box>
+                <Typography variant="h2">Заключення</Typography>
 
-            <Paragraph>
-                SessionStorage - це потужний інструмент для збереження даних на боці клієнта протягом однієї сесії браузера. Його використання дозволяє покращити користувацький досвід, зберігаючи та використовуючи дані в реальному часі. Ця можливість дуже корисна для зберігання налаштувань, тимчасового кешування та багатьох інших завдань веб-розробки.
-            </Paragraph>
+                <Paragraph>
+                    SessionStorage - це потужний інструмент для збереження даних на боці клієнта протягом однієї сесії браузера. Його використання дозволяє покращити користувацький досвід, зберігаючи та використовуючи дані в реальному часі. Ця можливість дуже корисна для зберігання налаштувань, тимчасового кешування та багатьох інших завдань веб-розробки.
+                </Paragraph>
+            </Box>
         </Container>
     );
 };

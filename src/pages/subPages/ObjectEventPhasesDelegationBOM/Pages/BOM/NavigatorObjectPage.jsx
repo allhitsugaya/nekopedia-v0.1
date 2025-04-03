@@ -112,7 +112,7 @@ if (userLanguage.startsWith("en")) {
 }`}
             </CodeBlock>
 
-            <Box mt={4}>
+            <Box mt={4} className='conclusion'>
                 <Typography variant="h4" gutterBottom>
                     Висновок
                 </Typography>

@@ -5,13 +5,13 @@ import {NavLink} from "react-router-dom";
 function HeroSection() {
     return (
         <Paper sx={{
-            minHeight: 'calc(100vh - 128px)', // Вычитаем высоту header и footer
+            minHeight: 'calc(100vh - 128px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             py: 8,
-            mb: 8 // Отступ снизу для футера
+            mb: 8
         }}>
             <Container maxWidth="sm">
                 <Typography

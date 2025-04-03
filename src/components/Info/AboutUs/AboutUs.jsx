@@ -43,7 +43,6 @@ const AboutUsPage = () => {
             }}
         >
             <Container maxWidth="lg">
-                {/* Заголовок страницы */}
                 <Box sx={{ textAlign: 'center', mb: 8 }}>
                     <Typography variant="h2" sx={{
                         fontWeight: 800,
@@ -76,7 +75,6 @@ const AboutUsPage = () => {
                     </Typography>
                 </Box>
 
-                {/* Секция "Почему мы создали проект" */}
                 <Box sx={{ mb: 8 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                         <CodeIcon sx={{ fontSize: 40, color: '#A2D9CE', mr: 2, opacity: 0.8 }} />
@@ -177,7 +175,6 @@ const AboutUsPage = () => {
                     </List>
                 </Box>
 
-                {/* Секция "Наша миссия" */}
                 <Box sx={{ mb: 8 }}>
                     <Typography variant="h3" sx={{
                         fontWeight: 700,
@@ -215,7 +212,6 @@ const AboutUsPage = () => {
                     </Typography>
                 </Box>
 
-                {/* Секция "Наша команда" */}
                 <Box sx={{ mb: 8 }}>
                     <Typography variant="h3" sx={{
                         fontWeight: 700,
@@ -262,7 +258,6 @@ const AboutUsPage = () => {
                     </Typography>
                 </Box>
 
-                {/* Секция "Присоединяйтесь" с кнопкой */}
                 <Box sx={{ textAlign: 'center' }}>
                     <Typography variant="h3" sx={{
                         fontWeight: 700,

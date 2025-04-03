@@ -223,7 +223,7 @@ $('#myElement').oldPluginMethod();`}
                 </Box>
             </Box>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 4 }} className='conclusion'>
                 <Typography variant="h6" sx={{ mb: 2 }}>
                     Висновок
                 </Typography>

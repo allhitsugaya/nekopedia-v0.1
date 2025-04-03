@@ -100,7 +100,7 @@ console.log(b); // 1
                 `}
             </CodeBlock>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 4 }} className='conclusion'>
                 <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
                     Висновок
                 </Typography>

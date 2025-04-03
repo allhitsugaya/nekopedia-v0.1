@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Typography, useTheme, Box } from "@mui/material";
 import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
 import Code from '../../../../features/Code/Code.jsx';
 import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
@@ -7,7 +7,7 @@ const FunctionsInTypeScriptPage = () => {
     const theme = useTheme();
 
     return (
-        <>
+        <Box>
             <Typography
                 variant="h1"
                 sx={{
@@ -141,7 +141,7 @@ let result2: string = multiply('abc', 3);`}
             <Paragraph sx={{ mt: 4 }}>
                 У цьому доповідь розглянуті основні практики роботи з функціями в TypeScript. Зазначено важливість визначення типів для забезпечення безпеки коду та полегшення роботи над проектом.
             </Paragraph>
-        </>
+        </Box>
     );
 };
 

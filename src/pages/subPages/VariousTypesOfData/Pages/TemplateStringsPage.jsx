@@ -103,7 +103,7 @@ console.log(ageMessage); // Я є дорослим.
                 У цьому прикладі ми вставляємо результати арифметичного виразу та виразу тернарного оператора у наші рядки.
             </Paragraph>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 4 }} className='conclusion'>
                 <Typography variant="h2" component="h2" sx={{ fontWeight: 600 }}>
                     Висновок
                 </Typography>

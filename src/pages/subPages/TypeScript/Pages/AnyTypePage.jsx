@@ -1,4 +1,4 @@
-import { List, ListItem, Typography } from "@mui/material";
+import { List, ListItem, Typography, Box } from "@mui/material";
 import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
 import Code from '../../../../features/Code/Code.jsx';
 import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
@@ -6,7 +6,7 @@ import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 const AnyTypePage = () => {
 
     return (
-        <>
+        <Box>
             <Typography
                 component="h2"
                 variant="h2"
@@ -94,7 +94,7 @@ const resultWithNumber = multiplyWithNumber(2, 3); // Статична пере�
             }}>
                 У вищеподаному прикладі <Code>multiply</Code> використовує <Code>any</Code>, що дозволяє передавати будь-які типи в аргументи, але це призводить до втрати статичної перевірки типів. У той час як <Code>multiplyWithNumber</Code> використовує конкретний тип <Code>number</Code>, що забезпечує статичну перевірку типів і робить код більш надійним.
             </Paragraph>
-        </>
+        </Box>
     );
 };
 

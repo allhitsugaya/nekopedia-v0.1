@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Typography, useTheme, Box } from "@mui/material";
 import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
 import Code from '../../../../features/Code/Code.jsx';
 import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
@@ -7,7 +7,7 @@ const TypeScriptBasicsPage = () => {
     const theme = useTheme();
 
     return (
-        <>
+        <Box>
             <Typography
                 variant="h1"
                 sx={{
@@ -106,7 +106,7 @@ let coordinates: Point = { x: 10, y: 20 };`}
             <Paragraph sx={{ mt: 4 }}>
                 Цей конспект покриває основні поняття TypeScript, включаючи введення в мову, базові типи даних та використання інтерфейсів та типів для визначення структур даних.
             </Paragraph>
-        </>
+        </Box>
     );
 };
 

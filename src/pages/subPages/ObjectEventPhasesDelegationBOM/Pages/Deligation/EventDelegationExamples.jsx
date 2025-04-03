@@ -74,7 +74,7 @@ function validateForm() {
                 </Paragraph>
             </Box>
 
-            <Box component="section">
+            <Box component="section" className='conclusion'>
                 <Typography variant="h2" component="h2">Висновок</Typography>
                 <Paragraph>
                     Делегування подій - це потужний підхід до роботи з подіями в JavaScript, який дозволяє зменшити

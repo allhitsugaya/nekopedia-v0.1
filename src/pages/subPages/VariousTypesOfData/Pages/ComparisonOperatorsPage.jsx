@@ -104,11 +104,13 @@ if (temperature > 30) {
 }`}
             </CodeBlock>
 
-            <Typography variant="h5">Висновок</Typography>
-            <Paragraph>
-                Реляційні оператори порівнюють значення та повертають <Code>true</Code> або <Code>false</Code>,
-                що робить їх корисними при фільтрації даних і прийнятті умовних рішень у JavaScript.
-            </Paragraph>
+            <Box>
+                <Typography variant="h5">Висновок</Typography>
+                <Paragraph>
+                    Реляційні оператори порівнюють значення та повертають <Code>true</Code> або <Code>false</Code>,
+                    що робить їх корисними при фільтрації даних і прийнятті умовних рішень у JavaScript.
+                </Paragraph>
+            </Box>
         </Box>
     );
 };

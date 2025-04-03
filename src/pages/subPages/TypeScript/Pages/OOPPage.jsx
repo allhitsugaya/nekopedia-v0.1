@@ -1,11 +1,11 @@
-import { Typography} from "@mui/material";
+import { Typography, Box} from "@mui/material";
 import Paragraph from '../../../../features/Paragraph/Paragraph.jsx';
 import Code from '../../../../features/Code/Code.jsx';
 import CodeBlock from '../../../../features/CodeBlock/CodeBlock.jsx';
 
 const OOPPage = () => {
     return (
-        <>
+        <Box>
             <Typography
                 variant="h1"
                 sx={{
@@ -157,7 +157,7 @@ const logger = new Logger();
 logger.logDetails(); // Output: Logging details...`}
             </CodeBlock>
 
-            <>
+            <Box className='conclusion'>
                 <Typography
                     variant="h2"
                     sx={{
@@ -171,8 +171,8 @@ logger.logDetails(); // Output: Logging details...`}
                 <Paragraph>
                     Таким чином, використання класів, наслідування та інтерфейсів у TypeScript робить код більш читабельним, розширюваним та підтримуваним.
                 </Paragraph>
-            </>
-        </>
+            </Box>
+        </Box>
     );
 };
 

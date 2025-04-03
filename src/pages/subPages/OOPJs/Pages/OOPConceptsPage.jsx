@@ -147,7 +147,7 @@ myDog.bark();      // "Buddy barks."
                 `}
             </CodeBlock>
 
-            <div className="conclusion">
+            <Box className="conclusion">
                 <Typography variant="h4" gutterBottom>
                     Заключення
                 </Typography>
@@ -156,7 +156,7 @@ myDog.bark();      // "Buddy barks."
                     програми за допомогою інкапсуляції, спадкування та інших принципів ООП. Використання цих концепцій
                     допомагає покращити якість коду, зробити його більш зрозумілим та підтримуваним.
                 </Paragraph>
-            </div>
+            </Box>
         </Box>
     );
 };

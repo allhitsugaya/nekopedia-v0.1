@@ -132,7 +132,7 @@ console.log(\`Результат: \${result}\`);
                 Тут ми використовуємо <Code>switch/case</Code>, щоб обрати математичну операцію на основі значення <Code>operation</Code>.
             </Paragraph>
 
-            <>
+            <Box className='conclusion'>
                 <Typography variant="h2" component="h2">Заключні слова</Typography>
                 <Paragraph>
                     Умовна конструкція <Code>switch/case</Code> є потужним інструментом для обробки різних варіантів
@@ -145,7 +145,7 @@ console.log(\`Результат: \${result}\`);
                     визначити, який код виконувати на основі значення змінної. Практикуйте цю конструкцію, і вона стане
                     корисною у ваших JavaScript-проектах.
                 </Paragraph>
-            </>
+            </Box>
         </>
     );
 };
